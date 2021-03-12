@@ -9,18 +9,23 @@ using Logica;
 
 public partial class View_administrador : System.Web.UI.Page{
     Ladministrador ladministrador1 = new Ladministrador();
+    UMac datos1 = new UMac();
     protected void Page_Load(object sender, EventArgs e){
 
-        if (Session["user"] != null)
-        {
-            int idrol =  ((UUsuario)Session["user"]).Id_rol;
-            ladministrador1.LPage_Load(idrol);
+        //if (Session["user"] != null)
+        //{
+        //    int idrol =  ((UUsuario)Session["user"]).Id_rol;
+        //    ladministrador1.LPage_Load(idrol);
+        //}
+        //else
+        //{
+        //    Response.Redirect("AccesoDenegado.aspx");
+        //}
+        datos1 = ladministrador1.LPage_Load((UUsuario)Session["user"]);
+        try{
+            Response.Redirect(datos1.Url);
         }
-        else
-        {
-            Response.Redirect("AccesoDenegado.aspx");
-        }
-
+        catch (Exception) { }
         LB_solicitudalaadosrechazados.Visible = false;
         GV_aliadorechazado.Visible = false;
         LB_solicituddomiciliariosrechazados.Visible = false;

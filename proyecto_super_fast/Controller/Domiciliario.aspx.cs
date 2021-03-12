@@ -12,16 +12,19 @@ public partial class View_Domiciliario : System.Web.UI.Page
     LDomiciliario domiciliario = new LDomiciliario();
     UMac umac1 = new UMac();
     protected void Page_Load(object sender, EventArgs e){
-        if (Session["user"] != null) {
-            if (((UUsuario)Session["user"]).Id_rol != 3) {
-                Response.Redirect("AccesoDenegado.aspx");
-            }
-        } else {
-            Response.Redirect("AccesoDenegado.aspx");
-        }//
-       
-        }
-
+        //if (Session["user"] != null) {
+        //    if (((UUsuario)Session["user"]).Id_rol != 3) {
+        //        Response.Redirect("AccesoDenegado.aspx");
+        //    }
+        //} else {
+        //    Response.Redirect("AccesoDenegado.aspx");
+        //}//
+        umac1 = domiciliario.LPage_Load((UUsuario)Session["user"]);
+        try{
+            Response.Redirect(umac1.Url);
+        }catch (Exception) { }
+    }
+    //
     protected void GV_PedDomi_RowDataBound(object sender, GridViewRowEventArgs e){
         UPedido pedido = (UPedido)e.Row.DataItem;
         int rowcount = GV_PedDomi.Rows.Count;

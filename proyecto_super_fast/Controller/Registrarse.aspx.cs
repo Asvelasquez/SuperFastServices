@@ -9,13 +9,14 @@ using Logica;
 
 public partial class View_Registrarse : System.Web.UI.Page
 {
-   
+    LRegistrarse lregistrarse1 = new LRegistrarse();
 
     protected void BT_Registrar_Click(object sender, EventArgs e){
+
         try {
             ClientScriptManager cm = this.ClientScript;
             UUsuario cliente1 = new UUsuario();
-            DAOUsuario dAOUsuario = new DAOUsuario();
+           // DAOUsuario dAOUsuario = new DAOUsuario();
             cliente1.Nombre = TB_Nombre.Text;
            
             cliente1.Apellido = TB_Apellido.Text;
@@ -28,18 +29,19 @@ public partial class View_Registrarse : System.Web.UI.Page
             int rol1 = 1, aprob = 1;
             cliente1.Id_rol = rol1;
             cliente1.Aprobacion = aprob;
-            UUsuario validarUsuario = dAOUsuario.getCorreoByregistrarse(TB_Correo.Text);
-            new DAOUsuario().getCorreoByregistrarse(TB_Correo.Text);
+            //UUsuario validarUsuario = dAOUsuario.getCorreoByregistrarse(TB_Correo.Text);
+            UUsuario validarUsuario = lregistrarse1.LBT_Registrar(TB_Correo.Text);
+            //new DAOUsuario().getCorreoByregistrarse(TB_Correo.Text);
 
             if (!CB_Terminos.Checked){
                // LB_Mensaje.Text="acepte terminos y condiciones";
                 cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('acepte terminos y condiciones');</script>");
-            }
-            else{         
+            } else{         
                  if (validarUsuario != null){
                  cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('correo registrado,ingrese uno diferente');</script>");
                    } else{
-                      new DAOUsuario().insertUsuario(cliente1);
+                     // new DAOUsuario().insertUsuario(cliente1);
+                    lregistrarse1.LBT_Registrar1(cliente1);
                       cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('registro exitoso');</script>");
                      Response.Redirect("Login.aspx");
                          }
@@ -49,11 +51,6 @@ public partial class View_Registrarse : System.Web.UI.Page
         { return; }
         
     }
-
-
-
-
-
     protected void CV_Terminos_ServerValidate(object source, ServerValidateEventArgs args)
     {
         args.IsValid = true;

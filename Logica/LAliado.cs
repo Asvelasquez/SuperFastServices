@@ -6,8 +6,21 @@ using Data;
 namespace Logica{
 
     public class LAliado {
+
         URespuesta respuesta = new URespuesta();
         UMac datos = new UMac();
+        //
+        public UMac LPage_Load(UUsuario usuario1){
+            if (usuario1 != null){
+                if (usuario1.Id_rol != 4){
+                    datos.Url = "AccesoDenegado.aspx";
+                }
+            }else{
+                datos.Url = "AccesoDenegado.aspx";
+            }
+            return datos;
+        }
+        //
         //
         public string LBTN_guardarproducto(UProducto producto2){
             new DAOProductos().insertProducto(producto2);

@@ -10,16 +10,21 @@ using Logica;
 public partial class View_pedidosaliado : System.Web.UI.Page
 {
     LPedidosaliado LPedidosaliado1 = new LPedidosaliado();
+    UMac datos1 = new UMac();
     protected void Page_Load(object sender, EventArgs e){
-        if (Session["user"] != null){
-            if (((UUsuario)Session["user"]).Id_rol != 2){
-                Response.Redirect("AccesoDenegado.aspx");
-            }
-        }else{
-            Response.Redirect("AccesoDenegado.aspx");
-        }
+        //if (Session["user"] != null){
+        //    if (((UUsuario)Session["user"]).Id_rol != 2){
+        //        Response.Redirect("AccesoDenegado.aspx");
+        //    }
+        //}else{
+        //    Response.Redirect("AccesoDenegado.aspx");
+        //}
+        datos1 = LPedidosaliado1.LPage_Load((UUsuario)Session["user"]);
+        try{
+            Response.Redirect(datos1.Url);
+        }catch (Exception) { }
     }
-
+    //
     protected void IB_recargar_Click(object sender, ImageClickEventArgs e)
     {
         GV_pedidos.DataBind();       

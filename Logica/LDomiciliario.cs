@@ -12,18 +12,27 @@ namespace Logica
      public class LDomiciliario
     {
         UMac respuesta = new UMac();
-        public UMac GV_PedDomi(int rowcount)
-        {
-            if (rowcount == 0)
-            {
-                respuesta.Verdadero = true;
+        //
+        public UMac LPage_Load(UUsuario usuario1){
+            if (usuario1 != null){
+                if (usuario1.Id_rol != 4){
+                    respuesta.Url = "AccesoDenegado.aspx";
+                }
+            }else{
+                respuesta.Url = "AccesoDenegado.aspx";
             }
-            else
-            {
+            return respuesta;
+        }
+        //
+        public UMac GV_PedDomi(int rowcount){
+            if (rowcount == 0){
+                respuesta.Verdadero = true;
+            }else{
                 respuesta.Falso = false;
             }
             return respuesta;
         }
+        //
         public void DDL_Estado(UPedido pedido4,string idseleccion)
         {
             DAOPedido pedido3 = new DAOPedido();

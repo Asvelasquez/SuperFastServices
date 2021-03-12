@@ -8,20 +8,24 @@ using Logica;
 using Utilitarios;
 
 
-public partial class View_Aliado : System.Web.UI.Page
-{
+public partial class View_Aliado : System.Web.UI.Page{
     UMac datos1 = new UMac();
     LAliado Laliado1 = new LAliado();
     string redireccion1;
     protected void Page_Load(object sender, EventArgs e){
-        if (Session["user"] != null){
-            if (((UUsuario)Session["user"]).Id_rol != 2){
-              Response.Redirect("AccesoDenegado.aspx");
-            }
+        //if (Session["user"] != null){
+        //    if (((UUsuario)Session["user"]).Id_rol != 2){
+        //      Response.Redirect("AccesoDenegado.aspx");
+        //    }
             
-        } else {
-            Response.Redirect("AccesoDenegado.aspx");
-        }
+        //} else {
+        //    Response.Redirect("AccesoDenegado.aspx");
+        //}
+
+        datos1 = Laliado1.LPage_Load((UUsuario)Session["user"]);
+        try{
+            Response.Redirect(datos1.Url);
+        } catch (Exception) { }
 
         LB_productosdesactivados.Visible = false;
         GV_Productosdesactivado.Visible = false;

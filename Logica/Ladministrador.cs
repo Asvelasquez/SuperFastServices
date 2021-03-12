@@ -8,17 +8,31 @@ using Utilitarios;
 
 namespace Logica
 {
-   public class Ladministrador
-    {
+   public class Ladministrador {
         UMac datos = new UMac();
-        public void LPage_Load(int idrol){
-                if (idrol != 4)
-                {
-                    datos.Url = ("AccesoDenegado.aspx");
-                }
+        //public void LPage_Load(int idrol){
+        //        if (idrol != 4)
+        //        {
+        //            datos.Url = ("AccesoDenegado.aspx");
+        //        }
           
+        //}
+        //
+        public UMac LPage_Load(UUsuario usuario1){
+            if (usuario1 != null){
+                if (usuario1.Id_rol != 4){
+                    datos.Url = "AccesoDenegado.aspx";
+                }
+            }else{
+                datos.Url = "AccesoDenegado.aspx";
+            }
+            return datos;
         }
-            public void LGV_domiciliariiosaprobar(UUsuario usuario3, string Lcorreo, string comandname){
+        //
+
+
+
+        public void LGV_domiciliariiosaprobar(UUsuario usuario3, string Lcorreo, string comandname){
             
             DAOUsuario us = new DAOUsuario();
             UUsuario usuario1 = new UUsuario();

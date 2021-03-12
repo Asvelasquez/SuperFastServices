@@ -12,18 +12,18 @@ public partial class View_Carrito : System.Web.UI.Page
     UMac datos1 = new UMac();
     LCarrito lcarrito1 = new LCarrito();
     protected void Page_Load(object sender, EventArgs e){
-        if (Session["user"] != null)
-        {
-            if (((UUsuario)Session["user"]).Id_rol != 1)
-            {
-                Response.Redirect("AccesoDenegado.aspx");
-            }
-
-        }
-        else
-        {
-            Response.Redirect("AccesoDenegado.aspx");
-        }//
+        //if (Session["user"] != null){
+        //    if (((UUsuario)Session["user"]).Id_rol != 1){
+        //        Response.Redirect("AccesoDenegado.aspx");
+        //    }
+        //}else{
+        //    Response.Redirect("AccesoDenegado.aspx");
+        //}//
+        datos1 = lcarrito1.LPage_Load((UUsuario)Session["user"]);
+        try{
+            Response.Redirect(datos1.Url);
+        }catch (Exception) { }
+        //
         TBX_subtotal1.Text = "0";
         mostrardatosentrega();
         mostrarpreciototal();

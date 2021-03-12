@@ -8,27 +8,25 @@ using Utilitarios;
 using Logica;
 public partial class View_inicio : System.Web.UI.Page{
     LInicio LInicio1 = new LInicio();
-
-    protected void Page_Load(object sender, EventArgs e)
-    {
-        if (Session["user"] != null)
-        {
-            if (((UUsuario)Session["user"]).Id_rol == 2)
-            {
-                Response.Redirect("pedidosaliado.aspx");
-            }else if(((UUsuario)Session["user"]).Id_rol == 3)
-            {
-                Response.Redirect("Domiciliario.aspx");
-            }else if (((UUsuario)Session["user"]).Id_rol == 4)
-            {
-                Response.Redirect("administrador.aspx");
-            }
-        }
-        
+    UMac datos1 = new UMac();
+    protected void Page_Load(object sender, EventArgs e){
+        //if (Session["user"] != null){
+        //    if (((UUsuario)Session["user"]).Id_rol == 2){
+        //        Response.Redirect("pedidosaliado.aspx");
+        //    }else if(((UUsuario)Session["user"]).Id_rol == 3){
+        //        Response.Redirect("Domiciliario.aspx");
+        //    }else if (((UUsuario)Session["user"]).Id_rol == 4){
+        //        Response.Redirect("administrador.aspx");
+        //    }
+        //}
+        datos1 = LInicio1.LPage_Load((UUsuario)Session["user"]);
+        try{
+            Response.Redirect(datos1.Url);
+        }catch (Exception) { }
         LB_Carrito.Text = "0";
         mostrarcantidadtotal();
     }
-
+    //
     protected void Menu_principal_MenuItemClick(object sender, MenuEventArgs e)
     {
 

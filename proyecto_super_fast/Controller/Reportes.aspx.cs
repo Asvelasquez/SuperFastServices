@@ -30,7 +30,7 @@ public partial class View_Reportes : System.Web.UI.Page
         
     }
     
-    protected  generarFactura( informe)
+    protected void generarFactura(int informe)
     {
         
        reportes1.generarFactura(informe);
@@ -94,7 +94,7 @@ public partial class View_Reportes : System.Web.UI.Page
         {
             ////int idpedidofactura = 
             int factura = int.Parse(e.CommandArgument.ToString());
-            CRS_Facturas.ReportDocument.SetDataSource(generarFactura(factura));
+           // CRS_Facturas.ReportDocument.SetDataSource(generarFactura(factura));
             CRV_Factura.ReportSource = CRS_Facturas;
             CRV_Factura.Visible = true;
         }

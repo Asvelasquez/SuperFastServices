@@ -9,22 +9,28 @@ using Logica;
 public partial class View_PedidosCliente : System.Web.UI.Page
 {
     LPedidosCliente LPedidosCliente1 = new LPedidosCliente();
+    UMac datos1 = new UMac();
     string redireccion;
-    protected void Page_Load(object sender, EventArgs e)
-    {
-        if (Session["user"] != null)
-        {
-            if (((UUsuario)Session["user"]).Id_rol != 1)
-            {
-                Response.Redirect("AccesoDenegado.aspx");
-            }
+    protected void Page_Load(object sender, EventArgs e){
+        //if (Session["user"] != null)
+        //{
+        //    if (((UUsuario)Session["user"]).Id_rol != 1)
+        //    {
+        //        Response.Redirect("AccesoDenegado.aspx");
+        //    }
 
-        }
-        else
-        {
-            Response.Redirect("AccesoDenegado.aspx");
-        }//
+        //}
+        //else
+        //{
+        //    Response.Redirect("AccesoDenegado.aspx");
+        //}//
+
+        datos1 = LPedidosCliente1.LPage_Load((UUsuario)Session["user"]);
+        try{
+            Response.Redirect(datos1.Url);
+        }catch (Exception) { }
     }
+    //
     protected void GV_pedidocarrito_RowDataBound(object sender, GridViewRowEventArgs e)
     {
         UPedido pedido = (UPedido)e.Row.DataItem;
@@ -97,12 +103,13 @@ public partial class View_PedidosCliente : System.Web.UI.Page
         string ecommand = e.CommandName;
         LPedidosCliente1.LGV_pedidocarrito0(ecommand, pedido4);
         GV_pedidocarrito0.DataBind();
-    }//
-
-
-    protected void BTN_Generarfactura_Click(object sender, EventArgs e)
-    {
-        redireccion = LPedidosCliente1.LBTN_Generarfactura();
-        Response.Redirect(redireccion);
     }
+    //
+    protected void BTN_Generarfactura_Click(object sender, EventArgs e){
+        datos1 = LPedidosCliente1.LBTN_Generarfactura();       
+        try{
+            Response.Redirect(datos1.Url);
+        }catch (Exception) { }
+    }
+    //
 }

@@ -8,6 +8,20 @@ using Utilitarios;
 namespace Logica
 {
    public class LInicio {
+        UMac datos = new UMac();
+        //
+        public UMac LPage_Load(UUsuario usuario1){
+            if (usuario1 != null){
+                if (usuario1.Id_rol == 2){
+                    datos.Url = "pedidosaliado.aspx";
+                }else if (usuario1.Id_rol == 3){
+                    datos.Url ="Domiciliario.aspx";
+                } else if (usuario1.Id_rol == 4){
+                    datos.Url = "administrador.aspx";
+                }
+            }
+            return datos;
+        }
         //
         public List<UPedido> DL_Productos1(int idsesion){
             DAOPedido daoped = new DAOPedido();

@@ -9,7 +9,8 @@ using Logica;
 
 public partial class View_Carrito : System.Web.UI.Page
 {
-    //prueba
+    UMac datos1 = new UMac();
+    LCarrito lcarrito1 = new LCarrito();
     protected void Page_Load(object sender, EventArgs e){
         if (Session["user"] != null)
         {
@@ -54,38 +55,49 @@ public partial class View_Carrito : System.Web.UI.Page
     }
     ////////////////
     protected void GV_pedidocarrito_RowCommand(object sender, GridViewCommandEventArgs e){
-        DAOPedido daopedido = new DAOPedido();
+    //    DAOPedido daopedido = new DAOPedido();
         UPedido pedido2 = new UPedido();
         pedido2.Id_pedido = int.Parse(e.CommandArgument.ToString());
-        if (e.CommandName == "Cancelar") {
-            daopedido.Cancelarpedido(pedido2);
-            GV_pedidocarrito.DataBind();
-            Response.Redirect("Carrito.aspx");
-        }
+        string comandname = e.CommandName;
+        //if (e.CommandName == "Cancelar") {
+        //    daopedido.Cancelarpedido(pedido2);
+        //    GV_pedidocarrito.DataBind();
+        //    Response.Redirect("Carrito.aspx");
+        //}
+        datos1 = lcarrito1.LGV_pedidocarrito(pedido2, comandname);
+        try{
+            Response.Redirect(datos1.Url);
+        }catch (Exception) { }
+        GV_pedidocarrito.DataBind();
     }
     protected void mostrarpreciototal(){
-        DAOPedido dpedido = new DAOPedido();
+       // DAOPedido dpedido = new DAOPedido();
         List<UPedido> pedido3 = new List<UPedido>();
         List<UDetalle_pedido> detallepedido3 = new List<UDetalle_pedido>();
         int idusuario = ((UUsuario)Session["user"]).Id;
-       pedido3 = dpedido.preciototal(idusuario);
-        double total = 0;
-        int idpedido8=0;
-        foreach (var item in pedido3) {
-            idpedido8=item.Id_pedido;
-            detallepedido3 = dpedido.precioTotal2(idpedido8);
-            foreach (var item2 in detallepedido3) {
-                total += item2.V_total;
-            }
-        }
-        TBX_subtotal1.Text = total.ToString();
+        string total1;
+       // pedido3 = dpedido.preciototal(idusuario);
+        pedido3 = lcarrito1.Lmostrarpreciototal1(idusuario);
+        //double total = 0;
+        //int idpedido8=0;
+        //foreach (var item in pedido3) {
+        //    idpedido8=item.Id_pedido;
+        //    detallepedido3 = dpedido.precioTotal2(idpedido8);
+        //    foreach (var item2 in detallepedido3) {
+        //        total += item2.V_total;
+        //    }
+        //}
+
+        total1 = lcarrito1.Lmostrarpreciototal(pedido3);
+        TBX_subtotal1.Text = total1;
     }
     protected void mostrarpreciodomicilio(){
-        DAOPedido dpedido = new DAOPedido();
+      //  DAOPedido dpedido = new DAOPedido();
         List<UPedido> pedido3 = new List<UPedido>();
         UUsuario usuario3 = new UUsuario();
         int idusuario = ((UUsuario)Session["user"]).Id;
-        pedido3 = dpedido.PedidosTotal(idusuario);
+       // pedido3 = dpedido.PedidosTotal(idusuario);
+        pedido3 = lcarrito1.Lmostrarpreciodomicilio(idusuario);
         int total = 0;
         foreach (var item in pedido3) {
             total++;
@@ -102,22 +114,28 @@ public partial class View_Carrito : System.Web.UI.Page
         TBX_total.Text = total2.ToString();
     }
     protected void BTN_comprar_Click(object sender, EventArgs e){
-        DAOPedido dpedido = new DAOPedido();
+      //  DAOPedido dpedido = new DAOPedido();
         List<UPedido> pedido3 = new List<UPedido>();
         UPedido pedido4 = new UPedido();
         UDetalle_pedido detapedido4 = new UDetalle_pedido();
         UUsuario usuario3 = new UUsuario();
         int idusuario = ((UUsuario)Session["user"]).Id;
-        pedido3 = dpedido.pedidoscomprar(idusuario);
+       // pedido3 = dpedido.pedidoscomprar(idusuario);
         pedido4.Valor_total = double.Parse(TBX_total.Text);
         detapedido4.Telefono_cliente = TBX_telefono1.Text;
         detapedido4.Direccion_cliente = TBX_direccion1.Text;
         //  int total = 0;68/64
-        foreach (var item in pedido3){
-            dpedido.actualizarcomprar(item.Id_pedido,pedido4);
-            dpedido.actualizardatosentrega(item.Id_pedido, detapedido4);
+        //foreach (var item in pedido3){
+        //    dpedido.actualizarcomprar(item.Id_pedido,pedido4);
+        //    dpedido.actualizardatosentrega(item.Id_pedido, detapedido4);
+        //}
+        //Response.Redirect("Carrito.aspx");
+        datos1 = lcarrito1.LBTN_comprar(idusuario, detapedido4, pedido4);
+        try
+        {
+            Response.Redirect(datos1.Url);
         }
-        Response.Redirect("Carrito.aspx");
+        catch (Exception) { }
     }
 
     protected void IB_validar_Click(object sender, ImageClickEventArgs e){

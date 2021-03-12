@@ -1,0 +1,196 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="~/Controller/Mastersuper.master.cs" Inherits="View_Mastersuper" %>
+
+<!DOCTYPE html>
+ 
+   
+    <%--<script type="text/javascript">
+         //window.onbeforeunload = function() { 
+         //   return "Do you really want to close?"; 
+         //};  
+         window.addEventListener("beforeunload", function (e) {
+      ejecutar();
+      (e || window.event).returnValue = null;
+      return null;
+    });
+    function ejecutar() {
+        console.log('saved');
+    }
+    </script>--%>
+
+<html>
+<head runat="server">
+  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+            height: 462px;
+        }
+        .auto-style8 {
+            width: 33%;
+            text-align: left;
+            height: 131px;
+        }
+        .auto-style9 {
+            height: 7px;
+        }
+        .auto-style11 {
+            width: 12%;
+            height: 131px;
+        }
+        .auto-style15 {
+           height: 43%;
+            width: 6%;
+            text-align: right;
+        }
+        .auto-style21 {
+            width: 14%;
+            height: 131px;
+        }
+        .auto-style22 {
+            width: 50%;
+            height: 43%;
+        }
+        .auto-style31 {
+            height: 43%;
+            width: 6%;
+            text-align: right;
+        }
+        .auto-style32 {
+            height: 43%;
+            width: 18%;
+            text-align: right;
+        }
+        </style>
+   
+</head>
+<body style="background-color:#33A8FF;" >
+   
+   
+
+
+    <form id="form1" runat="server" >
+    <div>
+    </div>
+        <table class="auto-style1" >
+            <tr>
+                <td class="auto-style22" colspan="2" rowspan="3">
+                    <asp:Image ID="Image1" runat="server" Height="88px" ImageUrl="~/Imagenes/superfast1.jpg" Width="88px"  />
+<asp:Label ID="Label1" runat="server" Font-Bold="False" Font-Italic="False" Font-Names="Arial Black" Font-Overline="False" Font-Size="XX-Large" Font-Strikeout="False" Font-Underline="False" ForeColor="Black" Height="50%" Text="Super Fast" Width="77%"></asp:Label>
+                    </td>
+                <td class="auto-style32">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                </td>
+                <td class="auto-style31">
+
+                </td>
+                <td class="auto-style31">
+
+                </td>
+                <td class="auto-style15">
+
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style32">
+                    <asp:Button ID="BT_cerrarsesion" runat="server" BackColor="#3399FF" ForeColor="Black" Height="30px" Text="Cerrar Sesion" Width="95px" OnClick="BT_cerrarsesion_Click" />
+
+                </td>
+                <td class="auto-style31">
+
+                    <asp:Button ID="BT_IniciarSesion" runat="server" BackColor="#3399FF" Height="30px" Text="Iniciar Sesion" Width="95px" PostBackUrl="~/View/Login.aspx" />
+
+                </td>
+                <td class="auto-style31">
+
+                    <asp:Button ID="BT_Registrarse" runat="server" BackColor="#3399FF" Height="30px" PostBackUrl="~/View/Registrarse.aspx" Text="Registrarse" Width="95px" />
+
+                </td>
+                <td class="auto-style15">
+
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style32">
+                    <asp:Button ID="BT_Perfil" runat="server" BackColor="#3399FF" ForeColor="Black" Height="30px" Text="Perfil" Width="95px" OnClick="BT_Perfil_Click" />
+
+                </td>
+                <td class="auto-style31">
+                    <asp:Button ID="BT_Inicio" runat="server" BackColor="#3399FF" ForeColor="Black" Height="30px" Text="Inicio" Width="95px" OnClick="BT_Inicio_Click" />
+
+                </td>
+                <td class="auto-style31">
+
+                    <asp:Button ID="BT_nosotros" runat="server" BackColor="#3399FF" Height="30px" Text="Nosotros" Width="95px" PostBackUrl="~/View/Nosotros.aspx" />
+
+                </td>
+                <td class="auto-style15">
+
+                &nbsp;&nbsp;
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6" class="auto-style9">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server" >
+        
+        </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style11">
+                   
+                    <asp:Image ID="Image2" runat="server" Height="92px" ImageUrl="~/Imagenes/superfast1.jpg" Width="88px" />
+                </td>
+                <td class="auto-style21" >
+                    <asp:Button ID="BTN_trabajarnoso" runat="server" BackColor="#33A8FF" Text="¿Como trabajar con nosotros?" Width="235px" BorderColor="#33A8FF" BorderStyle="None" PostBackUrl="~/View/trabajarnosotros.aspx" />
+                    <br />
+                    <br />
+                    <asp:Button ID="BTN_seraliado" runat="server" BackColor="#33A8FF" Text="¿Como ser nuestro aliado?" Width="235px" BorderColor="#33A8FF" BorderStyle="None" PostBackUrl="~/View/Registrar_aliado.aspx" />
+                    <br />
+                    <br />
+                    <asp:Label ID="Label2" runat="server" Height="22px" Text="¡Tu Elijes, Nosotros te lo llevamos!" Width="228px"></asp:Label>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                </td>
+                <td class="auto-style8" colspan="4">
+                    <br />
+                    <asp:Label ID="Label9" runat="server" Text="Contacto"></asp:Label>
+                    <br />
+                    &nbsp;<asp:HyperLink ID="HyperLink_whatsapp" runat="server" ImageUrl="~/Imagenes/Iconos/whatsapp.png" NavigateUrl="https://wa.me/573144726862" Target="_blank">HyperLink</asp:HyperLink>
+&nbsp;<asp:Label ID="Label5" runat="server" Height="30px" Text="3147426862"></asp:Label>
+&nbsp;
+                    &nbsp;<asp:HyperLink ID="HyperLink_facebook" runat="server" ImageUrl="~/Imagenes/Iconos/facebook.png" NavigateUrl="https://www.facebook.com/SuperFast" Target="_blank">aaaaaaaaaaaaaaaaa</asp:HyperLink>
+&nbsp;<asp:Label ID="Label4" runat="server" Height="30px" Text="Super Fast"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <br />
+                    &nbsp;<asp:HyperLink ID="HyperLink_whatsapp1" runat="server" ImageUrl="~/Imagenes/Iconos/whatsapp.png" NavigateUrl="https://wa.me/573144733509">HyperLink</asp:HyperLink>
+&nbsp;<asp:Label ID="Label6" runat="server" Height="30px" Text="3144733509"></asp:Label>
+&nbsp;
+                    &nbsp;<asp:HyperLink ID="HyperLink_instagram" runat="server" ImageUrl="~/Imagenes/Iconos/instagram.png" NavigateUrl="https://www.instagram.com/super_fast_co/" Target="_blank">HyperLink_instagram</asp:HyperLink>
+&nbsp;<asp:Label ID="Label7" runat="server" Height="30px" Text="super_fast_col"></asp:Label>
+&nbsp;
+                    &nbsp;<asp:HyperLink ID="HyperLink2" runat="server" ImageUrl="~/Imagenes/Iconos/gmail.png">HyperLink_correo</asp:HyperLink>
+                    <asp:Label ID="Label8" runat="server" Height="30px" Text="sop.superfast@gmail.com"></asp:Label>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

@@ -12,6 +12,7 @@ namespace Logica
    public class LRegistrar_aliado
     {
         //prueba
+        //prueba2
         public UUsuario LBTN_registrar(string correo)
         {              
                 DAOUsuario dAOUsuario = new DAOUsuario();   

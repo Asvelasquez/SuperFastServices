@@ -58,7 +58,15 @@ public partial class View_Aliado : System.Web.UI.Page{
             producto1.Id_aliado = (((UUsuario)Session["user"]).Id);
             redireccion1= Laliado1.LBTN_guardarproducto(producto1);
             FP_imagen1.PostedFile.SaveAs(saveLocation);
-            Response.Redirect(redireccion1);
+            try
+            {
+                Response.Redirect(redireccion1);
+            }
+            catch (Exception ex)
+
+            {
+
+            }
         }
         catch (Exception ex)
         { return; }//

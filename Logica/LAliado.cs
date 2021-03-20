@@ -12,7 +12,7 @@ namespace Logica{
         //
         public UMac LPage_Load(UUsuario usuario1){
             if (usuario1 != null){
-                if (usuario1.Id_rol != 4){
+                if (usuario1.Id_rol != 2){
                     datos.Url = "AccesoDenegado.aspx";
                 }
             }else{

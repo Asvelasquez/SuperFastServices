@@ -21,16 +21,21 @@ public partial class View_Login : System.Web.UI.Page{
         UMac user = new LUser().Llogin(usuario);
         Session["user"] = user.Usuario;
         // URespuesta resp = new UMac().Usuario(usuario);
+
         if (usuario == null){   
             
             Session["user"] = null;
             cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('revise sus credenciales de acceso');window.location=\"Login.aspx\"</script>");
         }
+
         else{
-            idrol2 = usuario.Id_rol;
-            aprobacion1 = usuario.Aprobacion;
-            redireccion1= luser1.Llogin1(idrol2, aprobacion1);
-            Response.Redirect(redireccion1);
+            redireccion1= luser1.Llogin1((UUsuario)Session["user"]);
+            try
+            {
+                Response.Redirect(redireccion1);
+            }
+            catch (Exception) { }
+         
             if (usuario.Id_rol == 2 && usuario.Aprobacion == 0){
                     cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('En este momento no puede iniciar sesion, se esta revisando su solicitud de registro como aliado, recibira una respuesta al correo que ingreso en el registro para la aprobacion o no aprobacion para nuestra plataforma');window.location.href=\"CerrarSession.aspx\"</script>");
                     return;

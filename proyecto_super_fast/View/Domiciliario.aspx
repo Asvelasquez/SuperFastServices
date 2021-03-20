@@ -60,12 +60,12 @@
                             <ItemTemplate>
                                 <asp:DropDownList ID="DDL_Estado" runat="server" DataSourceID="ODS_EstadoDomicilio" DataTextField="Nombre" DataValueField="Id" OnSelectedIndexChanged="DDL_Estado_SelectedIndexChanged" AutoPostBack="True">
                                 </asp:DropDownList>
-                                <asp:ObjectDataSource ID="ODS_EstadoDomicilio" runat="server" SelectMethod="estado_Domicilios" TypeName="DAOProductos"></asp:ObjectDataSource>
+                                <asp:ObjectDataSource ID="ODS_EstadoDomicilio" runat="server" SelectMethod="EstadoDomicilios" TypeName="Logica.LComunicacion"></asp:ObjectDataSource>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
-                <asp:ObjectDataSource ID="ODS_Domiciliario" runat="server" SelectMethod="obtenerPedidoDomiciliario" TypeName="DAOPedido"></asp:ObjectDataSource>
+                <asp:ObjectDataSource ID="ODS_Domiciliario" runat="server" SelectMethod="ObtenerPedidoDomiciliario" TypeName="Logica.LComunicacion"></asp:ObjectDataSource>
                 <br />
                 <asp:Label ID="LB_mispedidos" runat="server" Text="Mis pedidos"></asp:Label>
                 <br />
@@ -112,12 +112,12 @@
                             <ItemTemplate>
                                 <asp:DropDownList ID="DDL_Estado0" runat="server" DataSourceID="ODS_EstadoDomicilio0" DataTextField="Nombre" DataValueField="Id" OnSelectedIndexChanged="DDL_Estado0_SelectedIndexChanged" AutoPostBack="True">
                                 </asp:DropDownList>
-                                <asp:ObjectDataSource ID="ODS_EstadoDomicilio0" runat="server" SelectMethod="estado_Domicilios" TypeName="DAOProductos"></asp:ObjectDataSource>
+                                <asp:ObjectDataSource ID="ODS_EstadoDomicilio0" runat="server" SelectMethod="EstadoDomicilios" TypeName="Logica.LComunicacion"></asp:ObjectDataSource>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
-                <asp:ObjectDataSource ID="ODS_misdomicilios" runat="server" SelectMethod="obtenermiPedidoDomiciliario" TypeName="DAOPedido">
+                <asp:ObjectDataSource ID="ODS_misdomicilios" runat="server" SelectMethod="ObtenerMiPedidoDomiciliario" TypeName="Logica.LComunicacion">
                     <SelectParameters>
                         <asp:SessionParameter Name="usuario4" SessionField="user" Type="Object" />
                     </SelectParameters>
@@ -165,7 +165,7 @@
                         <asp:BoundField DataField="nombre_estado_domicilio" HeaderText="Estado del domicilio" SortExpression="nombre_estado_domicilio" />
                     </Columns>
                 </asp:GridView>
-                <asp:ObjectDataSource ID="ODS_historial" runat="server" SelectMethod="obtenermiPedidosentregadosDomiciliario" TypeName="DAOPedido">
+                <asp:ObjectDataSource ID="ODS_historial" runat="server" SelectMethod="ObtenerMiPedidosEntregadosDomiciliario" TypeName="Logica.LComunicacion">
                     <SelectParameters>
                         <asp:SessionParameter Name="usuario4" SessionField="user" Type="Object" />
                     </SelectParameters>

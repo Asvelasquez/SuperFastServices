@@ -336,7 +336,7 @@ public partial class View_inicio : System.Web.UI.Page{
         DL_productosfiltrorest.Visible = false;
         DL_productosfiltroPrecio.Visible = false;
         TBX_buscar.Text=TBX_filtro1.Text;
-        TBX_buscar.Text.Contains("");
+       TBX_buscar.Text.Contains("");
     }
     //
     protected void BTN_hamburguesa_Click(object sender, EventArgs e) {
@@ -446,4 +446,6 @@ public partial class View_inicio : System.Web.UI.Page{
         DL_productosfiltrorest.Visible = false;
     }
     //
+
+    
 }

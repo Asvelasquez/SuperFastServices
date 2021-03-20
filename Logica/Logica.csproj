@@ -102,6 +102,7 @@
     <Compile Include="LAliado.cs" />
     <Compile Include="LCarrito.cs" />
     <Compile Include="LCerrarSession.cs" />
+    <Compile Include="LComunicacion.cs" />
     <Compile Include="LDomiciliario.cs" />
     <Compile Include="LGenerarToken.cs" />
     <Compile Include="LInicio.cs" />

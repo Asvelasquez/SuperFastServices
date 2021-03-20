@@ -54,7 +54,7 @@
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
-        <asp:ObjectDataSource ID="ODSaliado" runat="server" SelectMethod="mostrarsolicitudaliado" TypeName="DAOUsuario"></asp:ObjectDataSource>
+        <asp:ObjectDataSource ID="ODSaliado" runat="server" SelectMethod="MostrarSolicitudAliado" TypeName="Logica.LComunicacion"></asp:ObjectDataSource>
                 <br />
         <asp:Label ID="LB_solicituddomicilios" runat="server" Font-Size="X-Large" Height="25px" Text="Solicitudes de domiciliarios"></asp:Label>
        
@@ -92,7 +92,7 @@
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
-        <asp:ObjectDataSource ID="ODSDom" runat="server" SelectMethod="mostrarsolicituddomiciliario" TypeName="DAOUsuario"></asp:ObjectDataSource>
+        <asp:ObjectDataSource ID="ODSDom" runat="server" SelectMethod="MostrarSolicitudDomiciliario" TypeName="Logica.LComunicacion"></asp:ObjectDataSource>
    
                 <br />
    
@@ -129,7 +129,7 @@
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
-         <asp:ObjectDataSource ID="ODSaliadorechazado" runat="server" SelectMethod="mostrarsolicitudaliadorechazado" TypeName="DAOUsuario"></asp:ObjectDataSource>
+         <asp:ObjectDataSource ID="ODSaliadorechazado" runat="server" SelectMethod="MostrarSolicitudAliadoRechazado" TypeName="Logica.LComunicacion"></asp:ObjectDataSource>
                 <br />
         <asp:Label ID="LB_solicituddomiciliariosrechazados" runat="server" Text="Solicitud de domiciliarios rechazados" Font-Size="X-Large"></asp:Label>
                 <br />
@@ -164,7 +164,7 @@
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
-         <asp:ObjectDataSource ID="ODSdomiciliariorechazados" runat="server" SelectMethod="mostrarsolicituddomiciliariorechazado" TypeName="DAOUsuario"></asp:ObjectDataSource>
+         <asp:ObjectDataSource ID="ODSdomiciliariorechazados" runat="server" SelectMethod="MostrarSolicitudDomiciliarioRechazado" TypeName="Logica.Lcomunicacion"></asp:ObjectDataSource>
                 <br />
        &nbsp;<asp:Label ID="LB_solicitudalidosaceptados" runat="server" Text="Solicitud de aliados aceptados" Font-Size="X-Large"></asp:Label>
          &nbsp;&nbsp;<br />
@@ -194,7 +194,7 @@
                  </asp:TemplateField>
              </Columns>
          </asp:GridView>
-         <asp:ObjectDataSource ID="ODSalidadoaceptado" runat="server" SelectMethod="mostrarsolicitudaliadoaceptado" TypeName="DAOUsuario"></asp:ObjectDataSource>
+         <asp:ObjectDataSource ID="ODSalidadoaceptado" runat="server" SelectMethod="MostrarSolicitudAliadoAceptado" TypeName="Logica.LComunicacion"></asp:ObjectDataSource>
                 <br />
          <asp:Label ID="LB_solicituddedomiciliariosaceptados" runat="server" Text="Solicitud de domiciliarios aceptados" Font-Size="X-Large"></asp:Label>
          &nbsp;<br />
@@ -224,7 +224,7 @@
                  </asp:TemplateField>
              </Columns>
          </asp:GridView>
-         <asp:ObjectDataSource ID="ODSdomiciliarioaceptado" runat="server" SelectMethod="mostrarsolicituddomiciliarioaceptado" TypeName="DAOUsuario"></asp:ObjectDataSource>
+         <asp:ObjectDataSource ID="ODSdomiciliarioaceptado" runat="server" SelectMethod="MostrarSolicitudDomiciliarioAceptado" TypeName="Logica.LComunicacion"></asp:ObjectDataSource>
                 <br />
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    

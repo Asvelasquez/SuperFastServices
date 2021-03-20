@@ -23,21 +23,21 @@ namespace Logica
             return datos;
         }
 
-        public string Llogin1(int idrol3,int aprobacion1){
-            if (idrol3 == 0)
+        public string Llogin1(UUsuario usuario9){
+            if (usuario9 == null)
             {
                 redireccion1 = "inicio.aspx";
             }
-            if (idrol3 == 1){
+            if (usuario9.Id_rol == 1){
                 redireccion1 = "inicio.aspx";
                 }else{
-                    if (idrol3 == 2 && aprobacion1 == 1){
+                    if (usuario9.Id_rol== 2 && usuario9.Aprobacion == 1){
                     redireccion1 = "pedidosaliado.aspx";
                     }
-                if (idrol3 == 3 && aprobacion1 == 1){
+                if (usuario9.Id_rol == 3 && usuario9.Aprobacion == 1){
                     redireccion1 = "Domiciliario.aspx";
                     }
-                if (idrol3 == 4 && aprobacion1 == 1){
+                if (usuario9.Id_rol == 4 && usuario9.Aprobacion == 1){
                     redireccion1 = "administrador.aspx";
                     }                
             }

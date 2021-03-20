@@ -87,7 +87,7 @@
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
-                <asp:ObjectDataSource ID="ODS_producto1" runat="server" SelectMethod="mostrarproducto" TypeName="DAOProductos">
+                <asp:ObjectDataSource ID="ODS_producto1" runat="server" SelectMethod="MostrarProducto" TypeName="Logica.LComunicacion">
                     <SelectParameters>
                         <asp:SessionParameter DefaultValue="" Name="consulta" SessionField="user" Type="Object" />
                     </SelectParameters>

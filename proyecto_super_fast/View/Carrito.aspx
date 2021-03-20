@@ -63,7 +63,7 @@
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
-                <asp:ObjectDataSource ID="ODS_carrito9" runat="server" SelectMethod="obtenerPedidoUsuario" TypeName="DAOPedido">
+                <asp:ObjectDataSource ID="ODS_carrito9" runat="server" SelectMethod="ObtenerPedidoUsuario" TypeName="Logica.LComunicacion">
                     <SelectParameters>
                         <asp:SessionParameter Name="usuariopedido" SessionField="user" Type="Object" />
                     </SelectParameters>

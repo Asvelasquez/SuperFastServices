@@ -98,7 +98,7 @@
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
-                <asp:ObjectDataSource ID="ODS_producto1" runat="server" SelectMethod="mostrarproducto" TypeName="DAOProductos">
+                <asp:ObjectDataSource ID="ODS_producto1" runat="server" SelectMethod="MostrarProducto" TypeName="Logica.LComunicacion">
                     <SelectParameters>
                         <asp:SessionParameter DefaultValue="" Name="consulta" SessionField="user" Type="Object" />
                     </SelectParameters>
@@ -130,7 +130,7 @@
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
-                <asp:ObjectDataSource ID="ODS_productodesactivado" runat="server" SelectMethod="mostrarproductodesactivado" TypeName="DAOProductos">
+                <asp:ObjectDataSource ID="ODS_productodesactivado" runat="server" SelectMethod="MostrarProductoDesactivado" TypeName="Logica.LComunicacion">
                     <SelectParameters>
                         <asp:SessionParameter Name="consulta" SessionField="user" Type="Object" />
                     </SelectParameters>

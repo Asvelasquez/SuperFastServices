@@ -294,7 +294,7 @@ namespace Data{
 
         //  //  pedido.Compras = obtenerDetalleFactura(pedido.Id_pedido);
 
-        //    //return  pedido;
+        //    //return  pediretudo;
         //}
 
         //public List<Detalle_pedido> obtenerDetalleFactura(/*int pedidoId*/)
@@ -324,7 +324,7 @@ namespace Data{
 
         /// /////////////////////////////////obtener pedido 
 
-        public List<UPedido> obtenerEstadoPedidoU(UUsuario usuario2)
+        public List<UPedido> obtenerEstadoPedido(UUsuario usuario2)
         {
             List<UPedido> pedido = new List<UPedido>();
             using (var db = new Mapeo())

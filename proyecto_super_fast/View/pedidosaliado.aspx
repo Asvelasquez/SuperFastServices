@@ -74,12 +74,12 @@
                             <ItemTemplate>
                                 <asp:DropDownList ID="DDL_Categoria" runat="server" DataSourceID="ODS_categorias" DataTextField="Nombre" DataValueField="Id" OnSelectedIndexChanged="DDL_Categoria_SelectedIndexChanged" AutoPostBack="True">
                                 </asp:DropDownList>
-                                <asp:ObjectDataSource ID="ODS_categorias" runat="server" SelectMethod="estado_Pedidos" TypeName="DAOProductos"></asp:ObjectDataSource>
+                                <asp:ObjectDataSource ID="ODS_categorias" runat="server" SelectMethod="EstadoPedidos" TypeName="Logica.LComunicacion"></asp:ObjectDataSource>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
-                <asp:ObjectDataSource ID="ODS_Pedido" runat="server" SelectMethod="obtenerEstadoPedido" TypeName="DAOPedido">
+                <asp:ObjectDataSource ID="ODS_Pedido" runat="server" SelectMethod="ObtenerEstadoPedido" TypeName="Logica.LComunicacion">
                     <SelectParameters>
                         <asp:SessionParameter Name="usuario2" SessionField="user" Type="Object" />
                     </SelectParameters>
@@ -139,12 +139,12 @@
                             <ItemTemplate>
                                 <asp:DropDownList ID="DDL_Categoria1" runat="server" DataSourceID="ODS_categorias0" DataTextField="Nombre" DataValueField="Id" OnSelectedIndexChanged="DDL_Categoria1_SelectedIndexChanged" AutoPostBack="True">
                                 </asp:DropDownList>
-                                <asp:ObjectDataSource ID="ODS_categorias0" runat="server" SelectMethod="estado_Pedidos" TypeName="DAOProductos"></asp:ObjectDataSource>
+                                <asp:ObjectDataSource ID="ODS_categorias0" runat="server" SelectMethod="EstadoPedidos" TypeName="Logica.LComunicacion"></asp:ObjectDataSource>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
-                <asp:ObjectDataSource ID="ODS_Pedidoterminado" runat="server" SelectMethod="obtenerEstadoPedidoterminado" TypeName="DAOPedido">
+                <asp:ObjectDataSource ID="ODS_Pedidoterminado" runat="server" SelectMethod="ObtenerEstadoPedidoTerminado" TypeName="Logica.LComunicacion">
                     <SelectParameters>
                         <asp:SessionParameter Name="usuario3" SessionField="user" Type="Object" />
                     </SelectParameters>

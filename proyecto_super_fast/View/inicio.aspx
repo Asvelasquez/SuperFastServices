@@ -552,9 +552,9 @@
             </asp:DataList>
             <br />
             <br />
-            <asp:ObjectDataSource ID="ODS_filtrorest" runat="server" SelectMethod="mostrarproductoinicioactividad" TypeName="DAOProductos">
+            <asp:ObjectDataSource ID="ODS_filtrorest" runat="server" SelectMethod="MostrarProductoInicioActividad" TypeName="Logica.LComunicacion">
                 <SelectParameters>
-                    <asp:ControlParameter ControlID="TBX_actividadcomercial" Name="busqueda" PropertyName="Text" Type="String" />
+                    <asp:ControlParameter ControlID="TBX_actividadcomercial" Name="busqueda" PropertyName="Text" Type="string" />
                 </SelectParameters>
             </asp:ObjectDataSource>
             <br />
@@ -670,17 +670,17 @@
                 </ItemTemplate>
             </asp:DataList>
             <br />
-            <asp:ObjectDataSource ID="ODS_FiltroPrecio" runat="server" SelectMethod="rangoPrecios" TypeName="DAOProductos">
+            <asp:ObjectDataSource ID="ODS_FiltroPrecio" runat="server" SelectMethod="RangoPrecios" TypeName="Logica.LComunicacion" >
                 <SelectParameters>
-                    <asp:ControlParameter ControlID="TBX_V_minimo" Name="ValorMinimo" PropertyName="Text" Type="Double" />
-                    <asp:ControlParameter ControlID="TBX_V_max" Name="ValorMaximo" PropertyName="Text" Type="Double" />
+                    <asp:ControlParameter ControlID="TBX_V_minimo" Name="ValorMinimo" PropertyName="Text" Type="double" />
+                    <asp:ControlParameter ControlID="TBX_V_max" Name="ValorMaximo" PropertyName="Text" Type="double" />
                 </SelectParameters>
             </asp:ObjectDataSource>
-            <asp:ObjectDataSource ID="ODS_inicioproductos" runat="server" SelectMethod="mostrarproductoinicio" TypeName="DAOProductos"></asp:ObjectDataSource>
+            <asp:ObjectDataSource ID="ODS_inicioproductos" runat="server" SelectMethod="MostrarProductoInicio" TypeName="Logica.LComunicacion"></asp:ObjectDataSource>
 
-            <asp:ObjectDataSource ID="ODS_filtro" runat="server" SelectMethod="mostrarproductoiniciobusqueda" TypeName="DAOProductos">
+            <asp:ObjectDataSource ID="ODS_filtro" runat="server" SelectMethod="MostrarProductoInicioBusqueda" TypeName="Logica.LComunicacion">
                 <SelectParameters>
-                    <asp:ControlParameter ControlID="TBX_buscar" Name="busqueda" PropertyName="Text" Type="String" />
+                    <asp:ControlParameter ControlID="TBX_buscar" Name="busqueda" PropertyName="Text" Type="string" />
                 </SelectParameters>
             </asp:ObjectDataSource>
             <asp:GridView ID="GV_Filtros" runat="server" AutoGenerateColumns="False" DataSourceID="ODS_filtro" Visible="False">

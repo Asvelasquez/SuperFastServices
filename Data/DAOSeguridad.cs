@@ -36,10 +36,10 @@ namespace Data
         {
             using (var db = new Mapeo())
             {
-                UMac acceso = db.acceso.Where(x => x.User_id == userId && x.Fecha_fin == null).FirstOrDefault();
-                acceso.Fecha_fin = DateTime.Now;
+                UAcceso acceso = db.acceso1.Where(x => x.UserId == userId && x.FechaFin == null).FirstOrDefault();
+                acceso.FechaFin = DateTime.Now;
             
-                db.acceso.Attach(acceso);
+                db.acceso1.Attach(acceso);
 
                 var entry = db.Entry(acceso);
                 entry.State = EntityState.Modified;

@@ -32,8 +32,9 @@ namespace Data
         public DbSet<UAliado> aliad { get; set; }
         public DbSet<URol> rol { get; set; }
         public DateTime? Date1 { get; set; }
+        public DbSet<UAcceso> acceso1 { get; set; }
         //no migrado
-        //public DateTime? Date1 { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder builder)
         {

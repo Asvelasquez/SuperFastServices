@@ -26,9 +26,9 @@ namespace Logica
         //
         public UMac GV_PedDomi(int rowcount){
             if (rowcount == 0){
-                respuesta.Verdadero = true;
+                respuesta.Decision = true;
             }else{
-                respuesta.Falso = false;
+                respuesta.Decision = false;
             }
             return respuesta;
         }

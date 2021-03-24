@@ -11,10 +11,14 @@ namespace Logica
 {
      public class LCerrarSession
     {
-        public void Page_Load(int Id)
+        UMac datos = new UMac();
+
+        public UMac Page_Load(int Id)
         {
             new DAOSeguridad().cerrarAcceso(Id);
-            
+            datos.Url="Login.aspx";
+            return datos;
         }
+
     }
 }

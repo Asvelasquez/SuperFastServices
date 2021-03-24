@@ -105,6 +105,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SuministroInformacion.xsd</DependentUpon>
     </Compile>
+    <Compile Include="UAcceso.cs" />
     <Compile Include="UAliado.cs" />
     <Compile Include="UCliente.cs" />
     <Compile Include="UDetalle_pedido.cs" />

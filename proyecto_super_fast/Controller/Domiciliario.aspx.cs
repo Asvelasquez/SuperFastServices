@@ -35,8 +35,8 @@ public partial class View_Domiciliario : System.Web.UI.Page
 
         //}
         umac1 = domiciliario.GV_PedDomi(rowcount);
-        LB_nohaydomiciliosdisponibles.Visible = umac1.Falso;
-        LB_nohaydomiciliosdisponibles.Visible = umac1.Verdadero;
+        LB_nohaydomiciliosdisponibles.Visible = umac1.Decision;
+        
 
         if (e.Row.FindControl("GV_detallespedido") != null){
             ((GridView)e.Row.FindControl("GV_detallespedido")).DataSource = pedido.Compras;
@@ -53,8 +53,8 @@ public partial class View_Domiciliario : System.Web.UI.Page
         //    LB_mispedidosno.Visible = false;
         //}
         umac1 = domiciliario.GV_PedDomi(rowcount);
-        LB_mispedidosno.Visible = umac1.Falso;
-        LB_mispedidosno.Visible = umac1.Verdadero;
+        LB_mispedidosno.Visible = umac1.Decision;
+       
 
         if (e.Row.FindControl("GV_detallespedido1") != null) {
             ((GridView)e.Row.FindControl("GV_detallespedido1")).DataSource = pedido.Compras;
@@ -72,8 +72,8 @@ public partial class View_Domiciliario : System.Web.UI.Page
         //}
 
         umac1 = domiciliario.GV_PedDomi(rowcount);
-        LB_historialno.Visible = umac1.Falso;
-        LB_historialno.Visible = umac1.Verdadero;
+        LB_historialno.Visible = umac1.Decision;
+   
 
         if (e.Row.FindControl("GV_detallespedido2") != null){
             ((GridView)e.Row.FindControl("GV_detallespedido2")).DataSource = pedido.Compras;

@@ -17,9 +17,10 @@ public partial class View_Login : System.Web.UI.Page{
         usuario.Correo = LG_Principal.UserName;
         usuario.Contrasenia = LG_Principal.Password;
         ClientScriptManager cm = this.ClientScript;
+        usuario = luser1.LG_Principal(usuario);
         //usuario = new DAOUsuario().loginusuario(usuario);
-        UMac user = new LUser().Llogin(usuario);
-        Session["user"] = user.Usuario;
+        //UMac user = new LUser().Llogin(usuario);
+        //Session["user"] = user.Usuario;
         // URespuesta resp = new UMac().Usuario(usuario);
 
         if (usuario == null){   
@@ -29,7 +30,8 @@ public partial class View_Login : System.Web.UI.Page{
         }
 
         else{
-            redireccion1= luser1.Llogin1((UUsuario)Session["user"]);
+            Session["user"] = usuario;
+            redireccion1 = luser1.Llogin1((UUsuario)Session["user"]);
             try
             {
                 Response.Redirect(redireccion1);

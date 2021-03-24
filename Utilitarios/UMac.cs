@@ -20,6 +20,7 @@ namespace Utilitarios
         private string url;
         private bool falso;
         private bool verdadero;
+        private bool decision;
         private Nullable<DateTime> fecha_fin;
        
 
@@ -35,5 +36,6 @@ namespace Utilitarios
         public DateTime Fecha_Inicio1 { get => FechaInicio; set => FechaInicio = value; }
         public bool Falso { get => falso; set => falso = value; }
         public bool Verdadero { get => verdadero; set => verdadero = value; }
+        public bool Decision { get => decision; set => decision = value; }
     }
 }

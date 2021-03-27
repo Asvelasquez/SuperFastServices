@@ -23,7 +23,7 @@ namespace Data
             }
         }
 
-        public void insertarAcceso(UMac acceso)
+        public void insertarAcceso(UAcceso acceso)
         {
             using (var db = new Mapeo())
             {
@@ -36,15 +36,16 @@ namespace Data
         {
             using (var db = new Mapeo())
             {
-                UAcceso acceso = db.acceso1.Where(x => x.UserId == userId && x.FechaFin == null).FirstOrDefault();
+                UAcceso acceso = db.acceso.Where(x => x.UserId == userId && x.FechaFin == null).FirstOrDefault();
                 acceso.FechaFin = DateTime.Now;
             
-                db.acceso1.Attach(acceso);
+                db.acceso.Attach(acceso);
 
                 var entry = db.Entry(acceso);
                 entry.State = EntityState.Modified;
                 db.SaveChanges();
             }
+       
         }
 
         public UToken getTokenByUser(int userId)

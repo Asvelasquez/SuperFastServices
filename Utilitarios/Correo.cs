@@ -40,7 +40,9 @@ namespace Utilitarios
                 //Configuracion del SMTP
                 SmtpServer.Port = 587; //Puerto que utiliza Gmail para sus servicios
                                        //Especificamos las credenciales con las que enviaremos el mail
+                SmtpServer.UseDefaultCredentials = false;
                 SmtpServer.Credentials = new System.Net.NetworkCredential("sop.superfast@gmail.com", "sUp3rFa5t");
+
                 SmtpServer.EnableSsl = true;
                 SmtpServer.Send(mail);
             }
@@ -61,9 +63,11 @@ namespace Utilitarios
                 mail.Body = mensaje;
                 mail.To.Add(correoDestino);
                 SmtpServer.Port = 587;
+                SmtpServer.UseDefaultCredentials = false;
                 SmtpServer.Credentials = new System.Net.NetworkCredential("sop.superfast@gmail.com", "sUp3rFa5t");
                 SmtpServer.EnableSsl = true;
                 SmtpServer.Send(mail);
+               
             }
             catch (Exception ex) { }
         }//finalcorreoaprobacion

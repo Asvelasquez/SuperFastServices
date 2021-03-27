@@ -21,7 +21,7 @@ namespace Data
         //migrado
         public DbSet<UUsuario> usuari { get; set; }
         public DbSet<UToken> token { get; set; }
-        public DbSet<UMac> acceso { get; set; }
+        public DbSet<UMac> umac { get; set; }
         public DbSet<UProducto> producto { get; set; }
         public DbSet<UEstado_pedido> estpedido { get; set; }
         public DbSet<Uestado_domicilio> estdomicilio { get; set; }
@@ -32,7 +32,7 @@ namespace Data
         public DbSet<UAliado> aliad { get; set; }
         public DbSet<URol> rol { get; set; }
         public DateTime? Date1 { get; set; }
-        public DbSet<UAcceso> acceso1 { get; set; }
+        public DbSet<UAcceso> acceso { get; set; }
         //no migrado
 
 

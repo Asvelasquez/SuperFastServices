@@ -23,9 +23,9 @@
     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TBD_apellido" ErrorMessage="*" ForeColor="Red" ValidationGroup="VG_registrardomiciliario"></asp:RequiredFieldValidator>
     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>
-            <asp:RegularExpressionValidator ID="REV_Nombre" runat="server" ControlToValidate="TBD_nombre" ErrorMessage="por favor revise el nombre" ValidationExpression="^[a-z A-Z ñÑ]*$" ValidationGroup="VG_registrardomiciliario" ForeColor="White"></asp:RegularExpressionValidator>
+            <asp:RegularExpressionValidator ID="REV_Nombre" runat="server" ControlToValidate="TBD_nombre" ErrorMessage="por favor revise el nombre" ValidationExpression="^[a-z A-Z ñÑ ]{2,20}$" ValidationGroup="VG_registrardomiciliario" ForeColor="White"></asp:RegularExpressionValidator>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:RegularExpressionValidator ID="REV_Apellido" runat="server" ControlToValidate="TBD_apellido" ErrorMessage="por favor revise el apellido" ValidationExpression="^[a-z A-Z ñÑ]*$" ValidationGroup="VG_registrardomiciliario" ForeColor="White"></asp:RegularExpressionValidator>
+            <asp:RegularExpressionValidator ID="REV_Apellido" runat="server" ControlToValidate="TBD_apellido" ErrorMessage="por favor revise el apellido" ValidationExpression="^[a-z A-Z ñÑ ]{2,20}$" ValidationGroup="VG_registrardomiciliario" ForeColor="White"></asp:RegularExpressionValidator>
             </strong>
     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

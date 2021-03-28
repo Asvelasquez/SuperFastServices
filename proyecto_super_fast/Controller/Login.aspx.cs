@@ -18,6 +18,7 @@ public partial class View_Login : System.Web.UI.Page{
         usuario.Contrasenia = LG_Principal.Password;
         ClientScriptManager cm = this.ClientScript;
         usuario = luser1.LG_Principal(usuario);
+
         //usuario = new DAOUsuario().loginusuario(usuario);
         //UMac user = new LUser().Llogin(usuario);
         //Session["user"] = user.Usuario;
@@ -31,7 +32,18 @@ public partial class View_Login : System.Web.UI.Page{
 
         else{
             Session["user"] = usuario;
+    
+
+            MAC conexion = new MAC();
+            UAcceso acceso = new UAcceso();
+            acceso.FechaInicio = DateTime.Now;
+            acceso.Ip = conexion.ip();
+            acceso.Mac = conexion.mac();
+            acceso.Session = Session.SessionID;
+            acceso.UserId = usuario.Id;
+            luser1.InsertarAcceso(acceso);
             redireccion1 = luser1.Llogin1((UUsuario)Session["user"]);
+
             try
             {
                 Response.Redirect(redireccion1);

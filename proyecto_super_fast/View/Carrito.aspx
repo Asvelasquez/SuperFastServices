@@ -129,7 +129,9 @@
                     <tr>
                         <td>&nbsp;</td>
                         <td>&nbsp;</td>
-                        <td>&nbsp;</td>
+                        <td>
+                            <asp:Label ID="LB_Mensaje" runat="server" Font-Names="Arial Black" ForeColor="White" Text="Telefono y usuario agregado Correctamente" Visible="False"></asp:Label>
+                        </td>
                         <td>&nbsp;</td>
                         <td><strong>
                             <asp:Button ID="BTN_comprar" runat="server" Text="Comprar" ValidationGroup="VG_Comprar" OnClick="BTN_comprar_Click" BorderColor="Black" Width="108px" Enabled="False" />

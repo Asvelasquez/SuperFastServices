@@ -48,7 +48,7 @@ public partial class View_Registrar_aliado : System.Web.UI.Page
         }
         if (System.IO.File.Exists(saveLocation))
         {
-            cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Ya existe un archivo en el servidor con ese nombre');</script>");
+            cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Por favor cambie el nombre del archivo');</script>");
             return;
         }
 

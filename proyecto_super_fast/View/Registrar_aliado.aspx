@@ -17,7 +17,7 @@
     <br />
     <strong>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:RegularExpressionValidator ID="REV_Nombre" runat="server" ControlToValidate="TBA_nombrecomercial" ErrorMessage="por favor revise el nombre" ValidationExpression="^[#.0-9a-zA-Z\s,-]+$" ValidationGroup="VG_RegistrarAliado" ForeColor="White"></asp:RegularExpressionValidator>
+            <asp:RegularExpressionValidator ID="REV_Nombre" runat="server" ControlToValidate="TBA_nombrecomercial" ErrorMessage="por favor revise el nombre" ValidationExpression="^[#.0-9a-zA-Z\s,-]{0,20}$" ValidationGroup="VG_RegistrarAliado" ForeColor="White"></asp:RegularExpressionValidator>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:RegularExpressionValidator ID="REV_Nit" runat="server" ControlToValidate="TBA_nit" ErrorMessage="los digitos no corresponden a un NIT" ValidationExpression="[0-9]{6,15}" ValidationGroup="VG_RegistrarAliado" ForeColor="White"></asp:RegularExpressionValidator>
             </strong>

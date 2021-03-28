@@ -113,14 +113,16 @@ public partial class View_Carrito : System.Web.UI.Page
         total2 = resultado + subtotal1;
         TBX_total.Text = total2.ToString();
     }
-    protected void BTN_comprar_Click(object sender, EventArgs e){
-      //  DAOPedido dpedido = new DAOPedido();
+    protected void BTN_comprar_Click(object sender, EventArgs e)
+    {
+
+        //  DAOPedido dpedido = new DAOPedido();
         List<UPedido> pedido3 = new List<UPedido>();
         UPedido pedido4 = new UPedido();
         UDetalle_pedido detapedido4 = new UDetalle_pedido();
         UUsuario usuario3 = new UUsuario();
         int idusuario = ((UUsuario)Session["user"]).Id;
-       // pedido3 = dpedido.pedidoscomprar(idusuario);
+        // pedido3 = dpedido.pedidoscomprar(idusuario);
         pedido4.Valor_total = double.Parse(TBX_total.Text);
         detapedido4.Telefono_cliente = TBX_telefono1.Text;
         detapedido4.Direccion_cliente = TBX_direccion1.Text;
@@ -130,13 +132,23 @@ public partial class View_Carrito : System.Web.UI.Page
         //    dpedido.actualizardatosentrega(item.Id_pedido, detapedido4);
         //}
         //Response.Redirect("Carrito.aspx");
-        datos1 = lcarrito1.LBTN_comprar(idusuario, detapedido4, pedido4);
-        try
+       datos1 = lcarrito1.LBTN_comprar(idusuario, detapedido4, pedido4);
+        if (datos1.Url == "Carrito.aspx")
         {
-            Response.Redirect(datos1.Url);
+            ClientScriptManager cm = this.ClientScript;  
+            try
+            {
+                cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Su solicitud como Aliado ha sido rachazada');window.location.href=\"" + datos1.Url + "\"</script>");
+                return;
+
+            }
+            catch (Exception) { }
+
+
+
         }
-        catch (Exception) { }
     }
+
 
     protected void IB_validar_Click(object sender, ImageClickEventArgs e){
         TBX_direccion1.Text = TBX_direccion.Text;

@@ -5,7 +5,7 @@ using Logica;
 public partial class View_CerrarSession : System.Web.UI.Page
 {
     LCerrarSession cerrarSesion = new LCerrarSession();
-    UMac datos1 = new UMac();
+   UMac datos1 = new UMac();
 
     protected void Page_Load(object sender, EventArgs e)
     {

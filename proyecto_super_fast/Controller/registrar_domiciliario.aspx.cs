@@ -27,7 +27,7 @@ public partial class View_registrar_domiciliario : System.Web.UI.Page
             return;
         }
         if (System.IO.File.Exists(saveLocation)){
-            cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Ya existe un archivo en el servidor con ese nombre');</script>");
+            cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('cambie el nombre del archivo por favor');</script>");
             return;}
 
         try{

@@ -7,20 +7,9 @@ namespace Logica
    
     public class LUser {
         string redireccion1;
-        public UMac Llogin(UUsuario usuario) {
-            UMac datos = new UMac();
-            MAC mac = new MAC();
+        public void InsertarAcceso(UAcceso acceso) {
 
-            datos.Usuario = new DAOUsuario().loginusuario(usuario);
-            datos.Fecha_Inicio1 = DateTime.Now;
-
-            datos.Ip = mac.ip();
-            datos.Mac = mac.mac();
-
-
-            datos.User_id = usuario.Id;
-
-            return datos;
+            new DAOSeguridad().insertarAcceso(acceso);
         }
         public UUsuario LG_Principal(UUsuario usuario1)
         {

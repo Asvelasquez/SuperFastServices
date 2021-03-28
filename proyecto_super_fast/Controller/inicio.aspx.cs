@@ -102,6 +102,13 @@ public partial class View_inicio : System.Web.UI.Page{
                     { return; }//
                 }
             }//else
+
+            //
+
+            mostrarcantidadtotal();
+            ((TextBox)DL_Productos.SelectedItem.FindControl("TB_especificacion")).Text="";
+            ((TextBox)DL_Productos.SelectedItem.FindControl("TBX_cantidad")).Text="";
+            //
         }//ELSE
     }
    //
@@ -173,7 +180,12 @@ public partial class View_inicio : System.Web.UI.Page{
                     catch (Exception ex)
                     { return; }//
                 }//ifcontador
+                mostrarcantidadtotal();
+                ((TextBox)DL_Productos.SelectedItem.FindControl("TB_especificacion")).Text = "";
+                ((TextBox)DL_Productos.SelectedItem.FindControl("TBX_cantidad")).Text = "";
             }//elseinterno
+
+            ////////
         }//else
     }//DL_productosfiltros
     //
@@ -244,7 +256,12 @@ public partial class View_inicio : System.Web.UI.Page{
                     catch (Exception ex)
                     { return; }//
                 }
+                mostrarcantidadtotal();
+                ((TextBox)DL_Productos.SelectedItem.FindControl("TB_especificacion")).Text = "";
+                ((TextBox)DL_Productos.SelectedItem.FindControl("TBX_cantidad")).Text = "";
             }//else
+
+            ////////
         }//else
     }//DL_productosfiltrorest
     //
@@ -315,7 +332,11 @@ public partial class View_inicio : System.Web.UI.Page{
                     catch (Exception ex)
                     { return; }//
                 }//ifcontador
+                mostrarcantidadtotal();
+                ((TextBox)DL_Productos.SelectedItem.FindControl("TB_especificacion")).Text = "";
+                ((TextBox)DL_Productos.SelectedItem.FindControl("TBX_cantidad")).Text = "";
             }
+            ///////
         }//else
     }//DL_productosfiltroPrecio
     //
@@ -413,8 +434,8 @@ public partial class View_inicio : System.Web.UI.Page{
     }
     //
     protected void mostrarcantidadtotal(){
-        if (Session["user"] != null){
-            LInicio1.mostrarcantidadtotal(((UUsuario)Session["user"]).Id);
+        if (Session["user"] != null){           
+            LB_Carrito.Text = LInicio1.mostrarcantidadtotal(((UUsuario)Session["user"]).Id);
         }
     }
     //

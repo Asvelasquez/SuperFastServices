@@ -106,6 +106,7 @@
     <Compile Include="LDomiciliario.cs" />
     <Compile Include="LGenerarToken.cs" />
     <Compile Include="LInicio.cs" />
+    <Compile Include="LMastersuper.cs" />
     <Compile Include="LPedidosaliado.cs" />
     <Compile Include="LPedidosCliente.cs" />
     <Compile Include="LPerfil.cs" />

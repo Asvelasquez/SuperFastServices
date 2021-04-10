@@ -37,7 +37,7 @@ namespace Logica
                 respuesta= "Su nueva contraseña ha sido enviada a su correo";
                 //}
             }else{
-                respuesta= "El usurio digitado no existe";
+                respuesta= "El usuario digitado no existe";
             }
             return respuesta;
         }

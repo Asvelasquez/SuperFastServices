@@ -9,7 +9,7 @@ namespace Logica{
    public class LRecuperarContrasenia {
         UMac datos = new UMac();
         //
-        public UToken LPage_Load(int Request) {
+        public UToken LPage_Load(string Request) {
           return new DAOSeguridad().getTokenByToken(Request.ToString());           
         }
         //

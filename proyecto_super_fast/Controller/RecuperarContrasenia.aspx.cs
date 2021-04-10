@@ -10,7 +10,7 @@ public partial class View_RecuperarContrasenia : System.Web.UI.Page{
     LRecuperarContrasenia LRecuperarContrasenia1 = new LRecuperarContrasenia();
     protected void Page_Load(object sender, EventArgs e){
         if (Request.QueryString.Count > 0){
-            int request1 = Request.QueryString.Count;
+            string request1 = Request.QueryString[0];
             UToken token = LRecuperarContrasenia1.LPage_Load(request1);
             if (token == null)
                 this.RegisterStartupScript("mensaje", "<script type='text/javascript'>alert('El Token es invalido. Genere uno nuevo');window.location=\"Login.aspx\"</script>");

@@ -5,25 +5,27 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Utilitarios;
+using Logica;
 public partial class View_Mastersuper : System.Web.UI.MasterPage{
-
+    LMastersuper master = new LMastersuper();
+    UMac datos = new UMac();
     protected void Page_Load(object sender, EventArgs e) {
         
         if (!Page.AppRelativeVirtualPath.Contains("CerrarSession.aspx")) {
             Response.Cache.SetNoStore();
-            if (Session["user"] == null) {
-                //   Response.Redirect("inicio.aspx");
-            }
+            //if (Session["user"] == null) {
+            //    //   Response.Redirect("inicio.aspx");
+            //}
             menu();
 
         } else {
                     sinRol();
 
-                }
-            }
-            protected void menu() {
-                if (Session["user"] != null) {
-                    switch (((UUsuario)Session["user"]).Id_rol) {
+        }
+    }
+    protected void menu() {
+       if (Session["user"] != null) {
+         switch (((UUsuario)Session["user"]).Id_rol) {
                         case 1:
                             rolCliente();
                             break;
@@ -41,12 +43,12 @@ public partial class View_Mastersuper : System.Web.UI.MasterPage{
                             sinRol();
                             break;
 
-                     }
+         }
                     
                     
-                } else
-                    sinRol();
-            }
+        } else
+       sinRol();
+    }
 
             protected void rolAdmin() {
                 
@@ -108,21 +110,29 @@ public partial class View_Mastersuper : System.Web.UI.MasterPage{
     }
 
     protected void BT_Inicio_Click(object sender, EventArgs e){
-        if (Session["user"] == null){
-            Response.Redirect("inicio.aspx");
-        }else if (((UUsuario)(Session["user"])).Id_rol == 1){
-            Response.Redirect("inicio.aspx");
+
+        datos = master.LBT_Inicio_Click((UUsuario)Session["user"]);
+        try
+        {
+            Response.Redirect(datos.Url);
         }
-        else if (((UUsuario)(Session["user"])).Id_rol == 2) {
-            Response.Redirect("pedidosaliado.aspx");
-        }
-        else if (((UUsuario)(Session["user"])).Id_rol == 3){
-            Response.Redirect("Domiciliario.aspx");
-        }
-        else if (((UUsuario)(Session["user"])).Id_rol == 4){
-            Response.Redirect("administrador.aspx");
-        }
-       
+        catch (Exception) { }
+
+        //if (Session["user"] == null){
+        //    Response.Redirect("inicio.aspx");
+        //}else if (((UUsuario)(Session["user"])).Id_rol == 1){
+        //    Response.Redirect("inicio.aspx");
+        //}
+        //else if (((UUsuario)(Session["user"])).Id_rol == 2) {
+        //    Response.Redirect("pedidosaliado.aspx");
+        //}
+        //else if (((UUsuario)(Session["user"])).Id_rol == 3){
+        //    Response.Redirect("Domiciliario.aspx");
+        //}
+        //else if (((UUsuario)(Session["user"])).Id_rol == 4){
+        //    Response.Redirect("administrador.aspx");
+        //}
+
 
 
     }

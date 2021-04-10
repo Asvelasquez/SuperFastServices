@@ -76,10 +76,11 @@ public partial class View_GenerarToken : System.Web.UI.Page
             lGenerarToken.LB_Recuperar4(token);
             Correo correo = new Correo();
 
-           // new DAOUsuario().getCorreoByCorreos(usuario.Correo);
+            // new DAOUsuario().getCorreoByCorreos(usuario.Correo);
+            //http://localhost:56248/View/RecuperarContrasenia.aspx?
             lGenerarToken.LB_Recuperar5(usuario);
-            String mensaje = "su link de acceso es: " + "http://localhost:56248/View/RecuperarContrasenia.aspx?" + token.Tokeng;
-
+            //  String mensaje = "su link de acceso es: " + "https://www.superfastisw.tk/View/RecuperarContrasenia.aspx?" + token.Tokeng;
+                String mensaje = "su link de acceso es: " + "http://localhost:56248/View/RecuperarContrasenia.aspx?" + token.Tokeng;
             correo.enviarCorreo(usuario.Correo, token.Tokeng, mensaje);
 
             LB_Mensaje.Text = "Su nueva contraseña ha sido enviada a su correo";

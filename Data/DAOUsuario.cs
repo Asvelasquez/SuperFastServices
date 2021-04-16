@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using Utilitarios;
 
 /// <summary>
@@ -48,6 +49,22 @@ namespace Data
         {
             return new Mapeo().usuari.Where(x => x.Correo.ToUpper().Equals(usuario.Correo.ToUpper()) && x.Contrasenia.Equals(usuario.Contrasenia)).FirstOrDefault();
         }
+
+        //login asincrono
+        public async  Task<UUsuario> loginusuario1(UUsuario usuario)
+        {
+            return  await new Mapeo().usuari.Where(x => x.Correo.ToUpper().Equals(usuario.Correo.ToUpper()) && x.Contrasenia.Equals(usuario.Contrasenia)).FirstOrDefaultAsync();
+        }
+
+        //metodo asincrono ejemplo obtener usuarios
+        //public async Task<List<UUsuario>> ObtenerUsuarios()
+        //{
+        //    using (var db = new Mapeo())
+        //    {
+        //        return await db.usuari.ToListAsync();
+        //    }
+        //}
+
         public UUsuario nuevacontrasenia(UUsuario usuario)
         {
             return new Mapeo().usuari.Where(x => x.Contrasenia.Equals(usuario.Contrasenia)).FirstOrDefault();

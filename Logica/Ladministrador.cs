@@ -108,10 +108,5 @@ namespace Logica
                 us.rechazarusuario(usuario1, Lcorreo);
             }
         }
-
-
-
-
-
     }
 }

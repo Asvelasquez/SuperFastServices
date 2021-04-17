@@ -34,7 +34,7 @@ namespace Tokenizado.Controllers
                 }
                 return BadRequest(error);
             }
-            UUsuario user = new LUser().LG_Principal1(login);
+            UUsuario user = new LUser().LG_Principal2(login);
             if (user == null)
                 return Unauthorized();
             else
@@ -50,7 +50,7 @@ namespace Tokenizado.Controllers
         [AllowAnonymous]
         public IHttpActionResult GetUsers()
         {
-            return Ok(new LUsuario().GetUsers());
+            return Ok(new LUser().ObtenerUsuarios());
         }
     }
 }

@@ -10,10 +10,9 @@ namespace Utilitarios.Entrada
     public class LoginRequest
     {
         [Required(ErrorMessage = "El UsserName es requerido.")]
-        public string Username { get; set; }
+        public string Correo { get; set; }
         [Required(ErrorMessage = "Sin Password no hay posibilidades de ingresar.")]
-        public string Password { get; set; }
-        [Required(ErrorMessage = "La aplicacion es Requerida.")]
-        public int AplicacionId { get; set; }
+        public string Contrasenia { get; set; }
+       
     }
 }

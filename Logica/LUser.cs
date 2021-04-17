@@ -3,6 +3,7 @@ using Utilitarios;
 using Data;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Utilitarios.Entrada;
 
 namespace Logica
 {
@@ -29,17 +30,26 @@ namespace Logica
 
 
         //}
-
-        // login
-        public UUsuario LG_Principal1(UUsuario usuario1)
+        public List<UUsuario> ObtenerUsuarios()
+        {
+            return new DAOUsuario().ObtenerUsuarios();
+        }
+        // login normal
+        public UUsuario LG_Principal1( UUsuario usuario1)
         {
             UUsuario usuario =   new UUsuario();
             UMac mensaje = new UMac();
-           return   usuario = new DAOUsuario().loginusuario1(usuario1);
+           return   usuario = new DAOUsuario().loginusuario(usuario1);
            
         }
-    
+        //request
+        public UUsuario LG_Principal2(LoginRequest usuario1)
+        {
+            UUsuario usuario = new UUsuario();
+            UMac mensaje = new UMac();
+            return usuario = new DAOUsuario().loginusuario1(usuario1);
 
+        }
         //ejemplo obtener usuarios
         //public async  Task<List<UUsuario>>  ObtenerUsuarioAsync()
         //{

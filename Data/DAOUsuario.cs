@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using Utilitarios;
+using Utilitarios.Entrada;
 
 /// <summary>
 /// Descripción breve de DAOUsuario
@@ -44,26 +45,28 @@ namespace Data
         //    return ();
         //}
         // public ();
-
+        //login
         public UUsuario loginusuario(UUsuario usuario)
         {
             return new Mapeo().usuari.Where(x => x.Correo.ToUpper().Equals(usuario.Correo.ToUpper()) && x.Contrasenia.Equals(usuario.Contrasenia)).FirstOrDefault();
         }
 
-        //login asincrono
-        public UUsuario loginusuario1(UUsuario usuario)
+        //login request
+        public UUsuario loginusuario1(LoginRequest usuario)
         {
+            UUsuario user = new UUsuario();
+
             return new Mapeo().usuari.Where(x => x.Correo.ToUpper().Equals(usuario.Correo.ToUpper()) && x.Contrasenia.Equals(usuario.Contrasenia)).FirstOrDefault();
         }
 
         //metodo asincrono ejemplo obtener usuarios
-        //public async Task<List<UUsuario>> ObtenerUsuarios()
-        //{
-        //    using (var db = new Mapeo())
-        //    {
-        //        return await db.usuari.ToListAsync();
-        //    }
-        //}
+        public  List<UUsuario> ObtenerUsuarios()
+        {
+            using (var db = new Mapeo())
+            {
+                return  db.usuari.ToList();
+            }
+        }
 
         public UUsuario nuevacontrasenia(UUsuario usuario)
         {

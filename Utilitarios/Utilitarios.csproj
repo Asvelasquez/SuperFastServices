@@ -98,6 +98,7 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Correo.cs" />
+    <Compile Include="Entrada\LoginRequest.cs" />
     <Compile Include="MAC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SuministroInformacion.Designer.cs">

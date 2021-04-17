@@ -31,11 +31,11 @@ namespace Logica
         //}
 
         //asincrono login
-        public async Task<UUsuario> LG_Principal1(UUsuario usuario1)
+        public UUsuario LG_Principal1(UUsuario usuario1)
         {
             UUsuario usuario =   new UUsuario();
             UMac mensaje = new UMac();
-           return   usuario = await new DAOUsuario().loginusuario1(usuario1);
+           return   usuario = new DAOUsuario().loginusuario1(usuario1);
            
         }
 

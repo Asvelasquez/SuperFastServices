@@ -17,7 +17,7 @@ public partial class View_Login : System.Web.UI.Page{
         usuario.Correo = LG_Principal.UserName;
         usuario.Contrasenia = LG_Principal.Password;
         ClientScriptManager cm = this.ClientScript;
-        usuario = luser1.LG_Principal(usuario);//revisar
+        usuario = luser1.LG_Principal1(usuario);//revisar
 
         //usuario = new DAOUsuario().loginusuario(usuario);
         //UMac user = new LUser().Llogin(usuario);

@@ -20,18 +20,28 @@ namespace ApiApplication.Controllers
         //{
         //    return await new LUser().ObtenerUsuarioAsync();
         //}
-        
+        [HttpPost]
+        [Route("api/user/LG_Principal2")]
+        public void InsertarAcceso(UAcceso acceso){
+            new LUser().InsertarAcceso(acceso);
+        }
+
         [HttpPost]
         [Route("api/user/LG_Principal1")]
-        public async Task<UUsuario> LG_Principal1(UUsuario usuario1)
+        public UUsuario LG_Principal1(UUsuario usuario1){
+            return new LUser().LG_Principal1(usuario1);
+        }
+        [HttpPost]
+        [Route("api/user/Llogin1")]
+        public string Llogin1(UUsuario usuario9)
         {
-            return await new LUser().LG_Principal1(usuario1);
+            return new LUser().Llogin1(usuario9);
         }
         //[HttpPost]
-        //[Route("api/user/Llogin1Async")]
-        //public async Task<string> Llogin1Async(UUsuario usuario9)
+        //[Route("api/user/Llogin1")]
+        //public string LLB_RecuperarContrasenia()
         //{
-        //    return new LUser().Llogin1(usuario9);
+        //    return "GenerarToken.aspx";
         //}
     }
 }

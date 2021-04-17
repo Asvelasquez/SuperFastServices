@@ -51,9 +51,9 @@ namespace Data
         }
 
         //login asincrono
-        public async  Task<UUsuario> loginusuario1(UUsuario usuario)
+        public UUsuario loginusuario1(UUsuario usuario)
         {
-            return  await new Mapeo().usuari.Where(x => x.Correo.ToUpper().Equals(usuario.Correo.ToUpper()) && x.Contrasenia.Equals(usuario.Contrasenia)).FirstOrDefaultAsync();
+            return new Mapeo().usuari.Where(x => x.Correo.ToUpper().Equals(usuario.Correo.ToUpper()) && x.Contrasenia.Equals(usuario.Contrasenia)).FirstOrDefault();
         }
 
         //metodo asincrono ejemplo obtener usuarios

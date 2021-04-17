@@ -108,6 +108,7 @@
     </Compile>
     <Compile Include="UAcceso.cs" />
     <Compile Include="UAliado.cs" />
+    <Compile Include="UAplicacion.cs" />
     <Compile Include="UCliente.cs" />
     <Compile Include="UDetalle_pedido.cs" />
     <Compile Include="UDomiciliario.cs" />
@@ -120,6 +121,7 @@
     <Compile Include="URespuesta.cs" />
     <Compile Include="URol.cs" />
     <Compile Include="UToken.cs" />
+    <Compile Include="UToken_Seguridad.cs" />
     <Compile Include="UUsuario.cs" />
   </ItemGroup>
   <ItemGroup>

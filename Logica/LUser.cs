@@ -30,7 +30,7 @@ namespace Logica
 
         //}
 
-        //asincrono login
+        // login
         public UUsuario LG_Principal1(UUsuario usuario1)
         {
             UUsuario usuario =   new UUsuario();
@@ -38,6 +38,7 @@ namespace Logica
            return   usuario = new DAOUsuario().loginusuario1(usuario1);
            
         }
+    
 
         //ejemplo obtener usuarios
         //public async  Task<List<UUsuario>>  ObtenerUsuarioAsync()

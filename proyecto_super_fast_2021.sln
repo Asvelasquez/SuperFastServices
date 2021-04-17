@@ -34,6 +34,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiApplication", "ApiApplication\ApiApplication.csproj", "{4B604978-5EC9-4E41-B252-F713AA627B80}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tokenizado", "Tokenizado\Tokenizado.csproj", "{F6731665-57CA-4E6D-91C7-F7EF015CF153}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,6 +62,10 @@ Global
 		{4B604978-5EC9-4E41-B252-F713AA627B80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B604978-5EC9-4E41-B252-F713AA627B80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B604978-5EC9-4E41-B252-F713AA627B80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6731665-57CA-4E6D-91C7-F7EF015CF153}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6731665-57CA-4E6D-91C7-F7EF015CF153}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6731665-57CA-4E6D-91C7-F7EF015CF153}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6731665-57CA-4E6D-91C7-F7EF015CF153}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

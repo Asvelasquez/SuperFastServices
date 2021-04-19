@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
 using Utilitarios;
 using Logica;
 using System.Configuration;
 using System.Security.Claims;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Tokenizado.Seguridad
 {
@@ -31,7 +27,7 @@ namespace Tokenizado.Seguridad
             // create a claimsIdentity 
             ClaimsIdentity claimsIdentity = new ClaimsIdentity(new[] {
                 new Claim(ClaimTypes.Name, user.Nombre),
-                new Claim(ClaimTypes.Role, user.RolId.ToString()),
+                new Claim(ClaimTypes.Role, user.Id_rol.ToString()),
                 new Claim(ClaimTypes.Gender, user.AplicacionId.ToString()),
             });
 
@@ -47,13 +43,13 @@ namespace Tokenizado.Seguridad
 
             var jwtTokenString = tokenHandler.WriteToken(jwtSecurityToken);
 
-            UToken token = new UToken();
-            token.AplicacionId = user.AplicacionId;
-            token.FechaGenerado = DateTime.Now;
-            token.FechaVigencia = DateTime.Now.AddMinutes(user.Expiracion);
-            token.UserId = user.Id;
-            token.Token = jwtTokenString;
-            new LUsuario().guararToken(token);
+            UToken_Seguridad token_seguridad= new UToken_Seguridad();
+            token_seguridad.AplicacionId = user.AplicacionId;
+            token_seguridad.FechaGenerado = DateTime.Now;
+            token_seguridad.FechaVigencia = DateTime.Now.AddMinutes(user.Expiracion);
+            token_seguridad.UserId = user.Id;
+            token_seguridad.Token = jwtTokenString;
+            new LUser().guardarToken(token_seguridad);
             return jwtTokenString;
         }
     }

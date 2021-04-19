@@ -33,6 +33,9 @@ namespace Data
         public DbSet<URol> rol { get; set; }
         public DateTime? Date1 { get; set; }
         public DbSet<UAcceso> acceso { get; set; }
+        public DbSet<UToken_Seguridad> token_seguridad { get; set; }
+        public DbSet<UAplicacion> aplicacion { get; set; }
+
         //no migrado
 
 

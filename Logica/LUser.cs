@@ -123,5 +123,11 @@ namespace Logica
             return redireccion1 = "GenerarToken.aspx";
         }
         //}
+
+
+        public void guardarToken(UToken_Seguridad token_seguridad)
+        {
+            new DAOSeguridad().insertarToken_Seguridad(token_seguridad);
+        }
     }
 }

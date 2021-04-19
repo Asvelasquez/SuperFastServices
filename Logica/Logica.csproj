@@ -117,6 +117,7 @@
     <Compile Include="LReportes.cs" />
     <Compile Include="LReportesVentas.cs" />
     <Compile Include="LReportesVentasAdmin.cs" />
+    <Compile Include="LSeguridad.cs" />
     <Compile Include="LUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

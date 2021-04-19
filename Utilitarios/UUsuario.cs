@@ -25,6 +25,10 @@ namespace Utilitarios
         private int aprobacion;
         private string auditoria;
 
+        private int expiracion;
+        private string key;
+        private int aplicacionId;
+
         [Key]
         [Column("id")]
         public int Id { get => id; set => id = value; }
@@ -58,5 +62,13 @@ namespace Utilitarios
         public int Aprobacion { get => aprobacion; set => aprobacion = value; }
         [Column("modificada")]
         public string Auditoria { get => auditoria; set => auditoria = value; }
+
+
+        [NotMapped]
+        public int Expiracion { get => expiracion; set => expiracion = value; }
+        [NotMapped]
+        public string Key { get => key; set => key = value; }
+        [NotMapped]
+        public int AplicacionId { get => aplicacionId; set => aplicacionId = value; }
     }
 }

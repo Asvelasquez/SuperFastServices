@@ -8,6 +8,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using Utilitarios;
+using Logica;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Tokenizado.Seguridad
 {
@@ -43,7 +46,7 @@ namespace Tokenizado.Seguridad
 
             try
             {
-                UAplicacion configuracion = new LSecurity().ObtenerConfiguracion(token);
+                UAplicacion configuracion = new LSeguridad().ObtenerConfiguracion(token);
 
                 var secretKey = configuracion.Key;
                 var audienceToken = ConfigurationManager.AppSettings["JWT_AUDIENCE_TOKEN"];

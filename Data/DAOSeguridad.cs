@@ -22,7 +22,14 @@ namespace Data
                 db.SaveChanges();
             }
         }
-
+        public void insertarToken_Seguridad(UToken_Seguridad tokenseguridad)
+        {
+            using (var db = new Mapeo())
+            {
+                db.token_seguridad.Add(tokenseguridad);
+                db.SaveChanges();
+            }
+        }
         public void insertarAcceso(UAcceso acceso)
         {
             using (var db = new Mapeo())
@@ -70,6 +77,26 @@ namespace Data
                 var entry = db.Entry(usuarioAnterior);
                 entry.State = EntityState.Modified;
                 db.SaveChanges();
+            }
+        }
+
+        public UAplicacion getAplicaionesByToken(string token)
+        {
+            using (var db = new Mapeo())
+            {
+                return (from t in db.token_seguridad
+                        join a in db.aplicacion on t.AplicacionId equals a.Id
+                        where t.Token.Equals(token)
+                        select new
+                        {
+                            a
+                        }).ToList().Select(m => new UAplicacion
+                        {
+                            Id = m.a.Id,
+                            Expiracion = m.a.Expiracion,
+                            Key = m.a.Key,
+                            Nombre = m.a.Nombre
+                        }).FirstOrDefault();
             }
         }
     }

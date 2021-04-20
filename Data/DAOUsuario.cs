@@ -54,11 +54,20 @@ namespace Data
         //login request
         public UUsuario loginusuario1(LoginRequest usuario)
         {
-            UUsuario user = new UUsuario();
-
-            return new Mapeo().usuari.Where(x => x.Correo.ToUpper().Equals(usuario.Correo.ToUpper()) && x.Contrasenia.Equals(usuario.Contrasenia)).FirstOrDefault();
+           
+            using (var db = new Mapeo())
+            {
+             UUsuario user =   db.usuari.Where(x => x.Correo.ToUpper().Equals(usuario.Correo.ToUpper()) && x.Contrasenia.Equals(usuario.Contrasenia)).FirstOrDefault();
+                if (user != null)
+                {
+                    var propiedades = db.aplicacion.Where(x => x.Id == user.AplicacionId).FirstOrDefault();
+                    user.Expiracion = propiedades.Expiracion;
+                    user.Key = propiedades.Key;
+                    user.AplicacionId = user.AplicacionId;
+                }
+                return user;
+            }
         }
-
         //metodo asincrono ejemplo obtener usuarios
         public  List<UUsuario> ObtenerUsuarios()
         {

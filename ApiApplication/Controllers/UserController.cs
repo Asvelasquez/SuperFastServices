@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using Utilitarios;
 using Logica;
+using Utilitarios.Entrada;
 
 namespace ApiApplication.Controllers
 {
@@ -21,7 +22,7 @@ namespace ApiApplication.Controllers
         //    return await new LUser().ObtenerUsuarioAsync();
         //}
         [HttpPost]
-        [Route("api/user/LG_Principal2")]
+        [Route("api/user/PostInsertarAcceso")]
         public void InsertarAcceso(UAcceso acceso){
             new LUser().InsertarAcceso(acceso);
         }
@@ -30,6 +31,12 @@ namespace ApiApplication.Controllers
         [Route("api/user/LG_Principal1")]
         public UUsuario LG_Principal1(UUsuario usuario1){
             return new LUser().LG_Principal1(usuario1);
+        }
+        [HttpPost]
+        [Route("api/user/LG_Principal2")]
+        public UUsuario LG_Principal2(LoginRequest usuario1)
+        {
+            return new LUser().LG_Principal2(usuario1);
         }
         [HttpPost]
         [Route("api/user/Llogin1")]

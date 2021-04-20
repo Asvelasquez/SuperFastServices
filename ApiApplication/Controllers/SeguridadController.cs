@@ -15,7 +15,7 @@ namespace Tokenizado.Controllers
     public class SeguridadController : ApiController
     {
         //public object TokenGenerator { get; private set; }
-
+       // [Route("api/user/PostInsertarAcceso")]
         [Route("login")]
         [HttpPost]
         public IHttpActionResult login(LoginRequest login)

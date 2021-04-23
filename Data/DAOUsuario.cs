@@ -5,7 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using Utilitarios;
-using Utilitarios.Entrada;
+
 
 /// <summary>
 /// Descripción breve de DAOUsuario
@@ -46,26 +46,31 @@ namespace Data
         //}
         // public ();
         //login
-        public UUsuario loginusuario(UUsuario usuario)
+        public async Task<UUsuario> loginusuario(UUsuario usuario)
         {
-            return new Mapeo().usuari.Where(x => x.Correo.ToUpper().Equals(usuario.Correo.ToUpper()) && x.Contrasenia.Equals(usuario.Contrasenia)).FirstOrDefault();
+            return await new Mapeo().usuari.Where(x => x.Correo.ToUpper().Equals(usuario.Correo.ToUpper()) && x.Contrasenia.Equals(usuario.Contrasenia)).FirstOrDefaultAsync();
         }
 
         //login request
-        public UUsuario loginusuario1(LoginRequest usuario)
+        public async Task<UUsuario> loginusuario1(LoginRequest user)
         {
            
             using (var db = new Mapeo())
             {
-             UUsuario user =   db.usuari.Where(x => x.Correo.ToUpper().Equals(usuario.Correo.ToUpper()) && x.Contrasenia.Equals(usuario.Contrasenia)).FirstOrDefault();
-                if (user != null)
+             UUsuario usuario = await  db.usuari.Where(x => x.Correo.ToUpper().Equals(user.Correo.ToUpper()) && x.Contrasenia.Equals(user.Contrasenia)).FirstOrDefaultAsync();
+                if (usuario != null)
                 {
-                    var propiedades = db.aplicacion.Where(x => x.Id == user.AplicacionId).FirstOrDefault();
-                    user.Expiracion = propiedades.Expiracion;
-                    user.Key = propiedades.Key;
-                    user.AplicacionId = user.AplicacionId;
+                    //var propiedades = db.aplicacion.Where(x => x.Id == user.AplicacionID).FirstOrDefault();
+                    //usuario.Expiracion = propiedades.Expiracion;
+                    //usuario.Key = propiedades.Key;
+                    //usuario.AplicacionId = user.AplicacionID;
+                    
+                    var propiedades = db.aplicacion.Where(x => x.Id == user.AplicacionID).FirstOrDefault();
+                    usuario.Expiracion = propiedades.Expiracion;
+                    usuario.Key = propiedades.Key;
+                    usuario.AplicacionId = user.AplicacionID;
                 }
-                return user;
+                return usuario;
             }
         }
         //metodo asincrono ejemplo obtener usuarios

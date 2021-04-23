@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+﻿using System.Web.Http;
 using Utilitarios;
 using Logica;
-using Utilitarios.Entrada;
+using System.Threading.Tasks;
 using Tokenizado.Seguridad;
 
 namespace Tokenizado.Controllers
@@ -18,7 +13,7 @@ namespace Tokenizado.Controllers
        // [Route("api/user/PostInsertarAcceso")]
         [Route("login")]
         [HttpPost]
-        public IHttpActionResult login(LoginRequest login)
+        public async Task<IHttpActionResult> loginAsync(LoginRequest login)
         {
             string mensaje;
             if (!ModelState.IsValid)
@@ -35,7 +30,7 @@ namespace Tokenizado.Controllers
                 }
                 return BadRequest(error);
             }
-            UUsuario user = new LUser().LG_Principal2(login);
+            UUsuario user =await new LUser().LG_Principal2(login);
             if (user == null)
                 return Unauthorized();
             else

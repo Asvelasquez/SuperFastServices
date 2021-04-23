@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Utilitarios;
 using Logica;
-using Utilitarios.Entrada;
+
 using Tokenizado.Seguridad;
 
 namespace Tokenizado.Controllers

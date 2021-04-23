@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace Utilitarios.Entrada
+namespace Utilitarios
 {
     public class LoginRequest
     {
@@ -13,6 +8,8 @@ namespace Utilitarios.Entrada
         public string Correo { get; set; }
         [Required(ErrorMessage = "Sin Password no hay posibilidades de ingresar.")]
         public string Contrasenia { get; set; }
+       [Required( ErrorMessage ="la aplicacion es requerida")]
+       public int AplicacionID { get; set; }
        
     }
 }

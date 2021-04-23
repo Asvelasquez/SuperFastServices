@@ -28,7 +28,7 @@ namespace Tokenizado.Seguridad
             ClaimsIdentity claimsIdentity = new ClaimsIdentity(new[] {
                 new Claim(ClaimTypes.Name, user.Correo),
                 new Claim(ClaimTypes.Role, user.Id_rol.ToString()),
-                new Claim(ClaimTypes.Gender, user.AplicacionId.ToString()),
+               
                 new Claim(ClaimTypes.Rsa,user.Contrasenia)
             });
 

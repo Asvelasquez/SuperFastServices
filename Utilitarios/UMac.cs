@@ -22,7 +22,7 @@ namespace Utilitarios
         private bool verdadero;
         private bool decision;
         private Nullable<DateTime> fecha_fin;
-       
+        private UProducto UmacUproducto;
 
         public UUsuario Usuario { get => usuario; set => usuario = value; }
       
@@ -37,5 +37,7 @@ namespace Utilitarios
         public bool Falso { get => falso; set => falso = value; }
         public bool Verdadero { get => verdadero; set => verdadero = value; }
         public bool Decision { get => decision; set => decision = value; }
+
+        public UProducto UmacUproducto1 { get => UmacUproducto; set => UmacUproducto = value; }
     }
 }

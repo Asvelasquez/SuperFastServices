@@ -6,6 +6,8 @@ using System.Net.Http;
 using System.Web.Http;
 using Utilitarios;
 using Logica;
+using Newtonsoft.Json.Linq;
+
 namespace ApiApplication.Controllers{
     [Route("api/[controller]")]
     public class AliadoController : ApiController{
@@ -19,12 +21,16 @@ namespace ApiApplication.Controllers{
         //
         [HttpPost]
         [Route("api/Aliado/PostLGV_Producto")]
-        public UMac LGV_Producto(UProducto producto1, string error, int idmostrar){
-            return new LAliado().LGV_Producto(producto1, error, idmostrar);
+        public UProducto LGV_Producto([FromBody] JObject Vs_entrada){
+            UProducto producto1 = new UProducto();           
+            producto1.Id = int.Parse(Vs_entrada["Id"].ToString());
+            String comandname = Vs_entrada["comandname"].ToString();
+            int idmostrar = producto1.Id;            
+            return new LAliado().LGV_Producto(producto1, comandname, idmostrar).UmacUproducto1;
         }//
         //
-        [HttpPost]
-        [Route("api/Aliado/PostLmostrar")]
+        [HttpGet]
+        [Route("api/Aliado/GetLmostrar")]
         public UProducto Lmostrar(int id3){
             return new LAliado().Lmostrar(id3); ;
         }
@@ -36,9 +42,13 @@ namespace ApiApplication.Controllers{
         }
         //
         [HttpPost]
-        [Route("api/Aliado/PostLBTN_GuardarCambios")]
-        public UMac LGV_Productosdesactivado(UProducto producto1, string error, int idmostrar){
-            return new LAliado().LGV_Productosdesactivado(producto1,error, idmostrar);
+        [Route("api/Aliado/PostLGV_Productosdesactivado")]
+        public UProducto LGV_Productosdesactivado([FromBody] JObject Vs_entrada){
+            UProducto producto1 = new UProducto();
+            producto1.Id = int.Parse(Vs_entrada["Id"].ToString());
+            String comandname = Vs_entrada["comandname"].ToString();
+            int idmostrar = producto1.Id;
+            return new LAliado().LGV_Productosdesactivado(producto1, comandname, idmostrar).UmacUproducto1;
         }
         //
     }

@@ -43,7 +43,7 @@ namespace ApiApplication.Controllers
             return new LComunicacion().MostrarProductoInicioActividad(busqueda);
         }
 
-      
+
 
 
 

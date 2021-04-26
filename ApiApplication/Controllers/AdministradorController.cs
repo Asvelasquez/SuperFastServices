@@ -6,7 +6,8 @@ using System.Net.Http;
 using System.Web.Http;
 using Utilitarios;
 using Logica;
-namespace ApiApplication.Controllers{
+namespace ApiApplication.Controllers
+{
     [Route("api/[controller]")]
     public class AdministradorController : ApiController {
       

@@ -60,7 +60,6 @@ public partial class View_administrador : System.Web.UI.Page{
         //else if (e.CommandName == "hojavida")
         //{
         //Response.Write("window.open(usuario2, '_newtab');");
-
         //}
         UUsuario usuario1 = new UUsuario();
         usuario1.Id = int.Parse(e.CommandArgument.ToString());

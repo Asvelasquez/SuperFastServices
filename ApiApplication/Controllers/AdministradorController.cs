@@ -8,8 +8,7 @@ using Utilitarios;
 using Logica;
 using Newtonsoft.Json.Linq;
 
-namespace ApiApplication.Controllers
-{
+namespace ApiApplication.Controllers{
     [Route("api/[controller]")]
     public class AdministradorController : ApiController {
       

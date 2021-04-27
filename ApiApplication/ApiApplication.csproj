@@ -219,8 +219,16 @@
     <Compile Include="Controllers\AliadoController.cs" />
     <Compile Include="Controllers\CarritoController.cs" />
     <Compile Include="Controllers\CerrarSessionController.cs" />
+    <Compile Include="Controllers\DomiciliarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ComunicacionController.cs" />
+    <Compile Include="Controllers\InicioController.cs" />
+    <Compile Include="Controllers\PedidosaliadoController.cs" />
+    <Compile Include="Controllers\PedidosClienteController.cs" />
+    <Compile Include="Controllers\PerfilController.cs" />
+    <Compile Include="Controllers\RecuperarContraseniaController.cs" />
+    <Compile Include="Controllers\RegistrarseController.cs" />
+    <Compile Include="Controllers\Registrar_DomiciliarioController.cs" />
     <Compile Include="Controllers\SeguridadController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />

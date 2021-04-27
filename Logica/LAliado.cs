@@ -27,17 +27,14 @@ namespace Logica{
              return  datos.Url="Aliado.aspx";    
 
         }//
-        public UMac LGV_Producto(UProducto producto1,string err,int idmostrar ) {
+        public UMac LGV_Producto(UProducto producto1,string comandname, int idmostrar ) {
             
-            DAOProductos us = new DAOProductos();
-            UProducto producto2 = new UProducto();
-            producto2.Id = producto1.Id;
-            if (err == "Editar"){
+            DAOProductos us = new DAOProductos();            
+            if (comandname == "Editar"){
               datos.Falso = false;
               datos.Verdadero = true;
-                Lmostrar(idmostrar);  
-            }
-            else if (err == "Desactivar"){
+            datos.UmacUproducto1=  Lmostrar(idmostrar);  
+            }else if (comandname == "Desactivar"){
                 us.Desactivarproducto(producto1);
             }
             return datos;
@@ -63,9 +60,8 @@ namespace Logica{
             if (err == "Editar"){
                 datos.Falso = false;
                 datos.Verdadero = true;
-                Lmostrar(idmostrar);             
-            }
-            else if (err == "Activar") {
+                datos.UmacUproducto1 = Lmostrar(idmostrar);             
+            }else if (err == "Activar") {
                 us.Activarproducto(producto2);             
             }
             return datos;

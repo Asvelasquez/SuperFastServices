@@ -52,7 +52,7 @@ namespace ApiApplication.Controllers
 
         [HttpPut]
         [Route("api/Carrito/Put/LBTN_comprar")]
-        public UMac LBTN_comprar([FromBody]JObject Vs_entrada)
+        public String LBTN_comprar([FromBody]JObject Vs_entrada)
         {
             int idusuario = int.Parse(Vs_entrada["idusuario"].ToString());
             UDetalle_pedido detapedido4 = new UDetalle_pedido();
@@ -63,7 +63,7 @@ namespace ApiApplication.Controllers
             pedido4.Id_pedido =int.Parse(Vs_entrada["Id_pedido"].ToString());
             pedido4.Estado_pedido = int.Parse(Vs_entrada["Estado_pedido"].ToString());
             pedido4.Valor_total = double.Parse(Vs_entrada["Valor_total"].ToString());             
-            return new LCarrito().LBTN_comprar(idusuario,detapedido4,pedido4);
+            return new LCarrito().LBTN_comprar(idusuario,detapedido4,pedido4).Url;
         }
 
     }

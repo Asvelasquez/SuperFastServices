@@ -23,7 +23,7 @@ namespace ApiApplication.Controllers{
             return new LAliado().LBTN_guardarproducto(producto2);   
         }
         /// <summary>
-        /// 
+        /// Editar o activar un producto
         /// </summary>
         /// <param name="Vs_entrada"></param>
         /// <returns></returns>
@@ -37,7 +37,7 @@ namespace ApiApplication.Controllers{
             return new LAliado().LGV_Producto(producto1, comandname, idmostrar).UmacUproducto1;
         }//
         /// <summary>
-        /// 
+        /// Muestra un producto
         /// </summary>
         /// <param name="id3"></param>
         /// <returns></returns>
@@ -47,13 +47,17 @@ namespace ApiApplication.Controllers{
             return new LAliado().Lmostrar(id3); ;
         }
         //
+        /// <summary>
+        /// Editar variables de un producto
+        /// </summary>
+        /// <param name="producto"></param>
         [HttpPost]
         [Route("api/Aliado/PostLBTN_GuardarCambios")]
-        public string LBTN_GuardarCambios(UProducto producto2){
-            return new LAliado().LBTN_GuardarCambios(producto2);
+        public string LBTN_GuardarCambios(UProducto producto){
+            return new LAliado().LBTN_GuardarCambios(producto);
         }
         /// <summary>
-        /// 
+        /// Permite activar un producto
         /// </summary>
         /// <param name="Vs_entrada"></param>
         /// <returns></returns>

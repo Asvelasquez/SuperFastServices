@@ -10,6 +10,7 @@ using Newtonsoft.Json.Linq;
 
 namespace ApiApplication.Controllers{
     [Route("api/[controller]")]
+   
     public class AdministradorController : ApiController {
       
 
@@ -28,8 +29,12 @@ namespace ApiApplication.Controllers{
             String comandname = Vs_entrada["comandname"].ToString();
             new Ladministrador().LGV_domiciliariiosaprobar(usuario3, Lcorreo, comandname);
         }
-        
+
         //
+        /// <summary>
+        /// permite aprobar la solicitud de registro de un aliado
+        /// </summary>
+        /// <param name="Vs_entrada"></param>
         [HttpPut]
         [Route("api/Administrador/putLGV_aliadoaprobar")]
         public void LGV_aliadoaprobar([FromBody] JObject Vs_entrada){
@@ -41,6 +46,10 @@ namespace ApiApplication.Controllers{
             new Ladministrador().LGV_aliadoaprobar(usuario3, Lcorreo, comandname);
         }
         //
+        /// <summary>
+        /// permite rechazar la solicitud de registro de un aliado
+        /// </summary>
+        /// <param name="Vs_entrada"></param>
         [HttpPut]
         [Route("api/user/PutLGV_aliadorechazado")]
         public void LGV_aliadorechazado([FromBody] JObject Vs_entrada){
@@ -52,6 +61,10 @@ namespace ApiApplication.Controllers{
             new Ladministrador().LGV_aliadorechazado(usuario3, Lcorreo, comandname);
         }
         //
+        /// <summary>
+        /// permite rechazar la solicitud de registro de un aliado
+        /// </summary>
+        /// <param name="Vs_entrada"></param>
         [HttpPut]
         [Route("api/user/PutLGV_domiciliariorechazado")]
         public void LGV_domiciliariorechazado([FromBody] JObject Vs_entrada){
@@ -63,6 +76,10 @@ namespace ApiApplication.Controllers{
             new Ladministrador().LGV_domiciliariorechazado(usuario3, Lcorreo, comandname);
         }
         //
+        /// <summary>
+        /// permite ver la lista de aliados aceptados
+        /// </summary>
+        /// <param name="Vs_entrada"></param>
         [HttpPut]
         [Route("api/user/PutLGV_solicitudaliadosaceptados")]
         public void LGV_solicitudaliadosaceptados([FromBody] JObject Vs_entrada){
@@ -74,6 +91,10 @@ namespace ApiApplication.Controllers{
             new Ladministrador().LGV_solicitudaliadosaceptados(usuario3, Lcorreo, comandname);
         }
         //
+        /// <summary>
+        /// permite ver la lista de domiciliarios aceptados
+        /// </summary>
+        /// <param name="Vs_entrada"></param>
         [HttpPut]
         [Route("api/user/PutLGV_domiciliariosaceptados")]
         public void LGV_domiciliariosaceptados([FromBody] JObject Vs_entrada){

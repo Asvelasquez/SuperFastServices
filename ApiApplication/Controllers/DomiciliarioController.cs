@@ -9,9 +9,16 @@ using Logica;
 using Newtonsoft.Json.Linq;
 namespace ApiApplication.Controllers
 {
+    /// <summary>
+    /// Servicios Domiciliario
+    /// </summary>
     [Route("api/[controller]")]
     public class DomiciliarioController : ApiController
     {
+        /// <summary>
+        /// Mostrar productos inicio por busqueda
+        /// </summary>
+        /// <param name="Vs_entrada"></param>
         [HttpPut]
         [Route("api/Domiciliario/PutDDL_Estado")]
         public void DDL_Estado([FromBody] JObject Vs_entrada)

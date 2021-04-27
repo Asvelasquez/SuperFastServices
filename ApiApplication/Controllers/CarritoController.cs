@@ -9,17 +9,28 @@ using Logica;
 using Newtonsoft.Json.Linq;
 
 namespace ApiApplication.Controllers
-{ 
+{
+    /// <summary>
+    /// Servicio del carrito
+    /// </summary>
+    /// <param name=""></param>
     [Route("api/[controller]")]
     public class CarritoController : ApiController
     {
+        /// <summary>
+        /// Carga la ventana de inicio
+        /// </summary>
+        /// <param name="usuario1"></param>
         [HttpGet]
         [Route("api/Carrito/GetLPage_Load")]
         public string LPage_Load(UUsuario usuario1)
         {
             return new LCarrito().LPage_Load(usuario1).Url;
         }
-    
+        /// <summary>
+        /// permite Cancelar un pedido
+        /// </summary>
+        /// <param name="Vs_entrada"></param>
         [HttpPut]
         [Route("api/Carrito/PutLGV_pedidocarrito")]
         public string LGV_pedidocarrito([FromBody]JObject Vs_entrada)
@@ -30,22 +41,31 @@ namespace ApiApplication.Controllers
             return new LCarrito().LGV_pedidocarrito(pedido2, comandname).Url;
         }
 
-  
-        
+
+        /// <summary>
+        /// permite ver el precio total del pedido
+        /// </summary>
+        /// <param name="idusuario"></param>
         [HttpGet]
         [Route("api/Carrito/GetLmostrarpreciototal20")]
         public string Lmostrarpreciototal20(int idusuario)
         {
           return  new LCarrito().Lmostrarpreciototal20(idusuario);
         }
-
+        /// <summary>
+        /// permite ver el precio total del domicilios
+        /// </summary>
+        /// <param name="idusuario"></param>
         [HttpGet]
         [Route("api/Carrito/GetLmostrarpreciodomicilio")]
         public string Lmostrarpreciodomicilio(int idusuario)
         {
             return new LCarrito().Lmostrarpreciodomicilio(idusuario);
         }
-
+        /// <summary>
+        /// permite comprar lo pedidos que estan en el carrito
+        /// </summary>
+        /// <param name="Vs_entrada"></param>
         [HttpPut]
         [Route("api/Carrito/Put/LBTN_comprar")]
         public String LBTN_comprar([FromBody]JObject Vs_entrada)

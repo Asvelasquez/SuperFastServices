@@ -487,6 +487,12 @@
             </summary>
             <param name="Vs_entrada"></param>
         </member>
+        <member name="M:ApiApplication.Controllers.AdministradorController.LGV_aliadoaprobar(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            permite aprobar la solicitud de registro de un aliado
+            </summary>
+            <param name="Vs_entrada"></param>
+        </member>
         <member name="M:ApiApplication.Controllers.AliadoController.LBTN_guardarproducto(Utilitarios.UProducto)">
             <summary>
             agregar un producto

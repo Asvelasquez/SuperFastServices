@@ -15,6 +15,10 @@ namespace Logica{
                 if (usuario1.Id_rol != 1){
                     datos1.Url = "AccesoDenegado.aspx";
                 }
+                else
+                {
+                    datos1.Url = "Carrito.aspx";
+                }
             }else{
                 datos1.Url = "AccesoDenegado.aspx";
             }
@@ -29,6 +33,10 @@ namespace Logica{
                 daopedido.Cancelarpedido(pedido2);
                 datos1.Url = "Carrito.aspx";
             }
+            else
+            {
+                datos1.Url = "El boton es diferente de cancelar";
+            }
             return datos1;
         }
         //
@@ -37,6 +45,7 @@ namespace Logica{
             List<UPedido> pedido3 = new List<UPedido>();
             //List<UDetalle_pedido> detallepedido3 = new List<UDetalle_pedido>();
             //int idusuario = ((UUsuario)Session["user"]).Id;
+           
             return pedido3 = dpedido.preciototal(idusuario);
             //double total = 0;
             //int idpedido8 = 0;
@@ -51,6 +60,34 @@ namespace Logica{
             //}
             //return total.ToString();
         }
+        //
+        public string  Lmostrarpreciototal20(int idusuario)
+        {
+            DAOPedido dpedido = new DAOPedido();
+            List<UPedido> pedido3 = new List<UPedido>();
+            List<UDetalle_pedido> detallepedido3 = new List<UDetalle_pedido>();
+            //int idusuario = ((UUsuario)Session["user"]).Id;
+
+            pedido3 = dpedido.preciototal(idusuario);
+            double total = 0;
+            int idpedido8 = 0;
+            foreach (var item in pedido3)
+            {
+                idpedido8 = item.Id_pedido;
+                detallepedido3 = dpedido.precioTotal2(idpedido8);
+                foreach (var item2 in detallepedido3)
+                {
+                    total += item2.V_total;
+                }
+            }
+            return total.ToString();
+        }
+
+
+
+
+
+
         //
         public string Lmostrarpreciototal(List<UPedido> pedido3){
             DAOPedido dpedido = new DAOPedido();
@@ -70,10 +107,20 @@ namespace Logica{
             return total.ToString();
         }
         //
-        public List<UPedido> Lmostrarpreciodomicilio(int idusuario){
+        public string Lmostrarpreciodomicilio(int idusuario){
             DAOPedido dpedido = new DAOPedido();
             List<UPedido> pedido3 = new List<UPedido>();
-            return pedido3 = dpedido.PedidosTotal(idusuario);
+            pedido3 = dpedido.PedidosTotal(idusuario);
+            int totalPedidos = 0, valorDomicilio = 3000;
+            double total = 0;
+            
+
+            foreach (var item in pedido3)
+            {
+                totalPedidos++;
+            }
+            total = totalPedidos * valorDomicilio;
+            return total.ToString();
         }
         //
         public UMac LBTN_comprar(int idusuario, UDetalle_pedido detapedido4, UPedido pedido4){

@@ -15,37 +15,33 @@ namespace ApiApplication.Controllers
     {
         [HttpGet]
         [Route("api/Carrito/GetLPage_Load")]
-        public UMac LPage_Load(UUsuario usuario1)
+        public string LPage_Load(UUsuario usuario1)
         {
-            return new LCarrito().LPage_Load(usuario1);
+            return new LCarrito().LPage_Load(usuario1).Url;
         }
     
-        [HttpPost]
-        [Route("api/Carrito/PostLGV_pedidocarrito")]
-        public UMac LGV_pedidocarrito(UPedido pedido2,String comandname){
-            return new LCarrito().LGV_pedidocarrito(pedido2, comandname);
+        [HttpPut]
+        [Route("api/Carrito/PutLGV_pedidocarrito")]
+        public string LGV_pedidocarrito([FromBody]JObject Vs_entrada)
+        {
+            UPedido pedido2 = new UPedido();
+            pedido2.Id_pedido = int.Parse(Vs_entrada["Id_pedido"].ToString());
+            String comandname = Vs_entrada["comandname"].ToString();
+            return new LCarrito().LGV_pedidocarrito(pedido2, comandname).Url;
         }
 
+  
+        
         [HttpGet]
-        [Route("api/Carrito/getLmostrarpreciototal1")]
-        public List<UPedido> Lmostrarpreciototal1(int idusuario)
+        [Route("api/Carrito/GetLmostrarpreciototal20")]
+        public string Lmostrarpreciototal20(int idusuario)
         {
-            //return new  pedido3 = dpedido.preciototal(idusuario);
-            return new LCarrito().Lmostrarpreciototal1(idusuario);
-        }
-
-
-        //revisar
-        [HttpPost]
-        [Route("api/Carrito/PostLmostrarpreciototal")]
-        public string Lmostrarpreciototal(List<UPedido> pedido3)
-        {
-          return  new LCarrito().Lmostrarpreciototal(pedido3);
+          return  new LCarrito().Lmostrarpreciototal20(idusuario);
         }
 
         [HttpGet]
         [Route("api/Carrito/GetLmostrarpreciodomicilio")]
-        public List<UPedido> Lmostrarpreciodomicilio(int idusuario)
+        public string Lmostrarpreciodomicilio(int idusuario)
         {
             return new LCarrito().Lmostrarpreciodomicilio(idusuario);
         }

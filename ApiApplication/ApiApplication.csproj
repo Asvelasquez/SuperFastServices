@@ -219,8 +219,11 @@
     <Compile Include="Controllers\AliadoController.cs" />
     <Compile Include="Controllers\CarritoController.cs" />
     <Compile Include="Controllers\CerrarSessionController.cs" />
+    <Compile Include="Controllers\GenerarTokenController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ComunicacionController.cs" />
+    <Compile Include="Controllers\LSeguridadController.cs" />
+    <Compile Include="Controllers\Registar_aliadoController.cs" />
     <Compile Include="Controllers\SeguridadController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />

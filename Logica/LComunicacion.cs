@@ -67,6 +67,7 @@ namespace Logica
         {
             return new DAOProductos().mostrarproducto(consulta);
         }
+
         public List<UProducto>MostrarProductoDesactivado(UUsuario consulta)
         {
             return new DAOProductos().mostrarproductodesactivado(consulta);
@@ -83,31 +84,38 @@ namespace Logica
         {
             return new DAOProductos().estado_Domicilios();
         }
+
        public List<UPedido> ObtenerPedidoDomiciliario()
         {
             return new DAOPedido().obtenerPedidoDomiciliario();
         }
+
         public List<UPedido> ObtenerMiPedidoDomiciliario(UUsuario usuario4)
         {
             return new DAOPedido().obtenermiPedidoDomiciliario(usuario4);
         }
+
         public List<UPedido> ObtenerMiPedidosEntregadosDomiciliario(UUsuario usuario4)
         {
             return new DAOPedido().obtenermiPedidosentregadosDomiciliario(usuario4);
         }
+
         //pedidos aliado
         public List<UEstado_pedido> EstadoPedidos()
         {
             return new DAOProductos().estado_Pedidos();
         }
+
         public List<UPedido> ObtenerEstadoPedido(UUsuario usuario2)
         {
             return new DAOPedido().obtenerEstadoPedido(usuario2);
         }
+
        public List<UPedido> ObtenerEstadoPedidoTerminado(UUsuario usuario3)
         {
             return new DAOPedido().obtenerEstadoPedidoterminado(usuario3);
         }
+
         //pedidos cliente
         public List<UPedido> ObtenerComprasUsuario(UUsuario usuariopedido)
         {

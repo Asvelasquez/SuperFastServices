@@ -42,11 +42,7 @@ public partial class View_GenerarToken : System.Web.UI.Page
         // }
 
         string TB_correo1 = TB_Correo.Text;
-        UToken token = new UToken();
-        token.Creado = DateTime.Now;
-        token.User_id = usuario.Id;
-        token.Vigencia = DateTime.Now.AddHours(1);
-        token.Tokeng = encriptar(JsonConvert.SerializeObject(token));
+        
         
        mensaje = lGenerarToken.LB_Recuperar(TB_correo1,token,usuario);
         LB_Mensaje.Text = mensaje;
@@ -95,20 +91,7 @@ public partial class View_GenerarToken : System.Web.UI.Page
     }
     //
 
-    private string encriptar(string input)
-    {
-        SHA256CryptoServiceProvider provider = new SHA256CryptoServiceProvider();
-
-        byte[] inputBytes = Encoding.UTF8.GetBytes(input);
-        byte[] hashedBytes = provider.ComputeHash(inputBytes);
-
-        StringBuilder output = new StringBuilder();
-
-        for (int i = 0; i < hashedBytes.Length; i++)
-            output.Append(hashedBytes[i].ToString("x2").ToLower());
-
-        return output.ToString();
-    }
+    
 
 
 }

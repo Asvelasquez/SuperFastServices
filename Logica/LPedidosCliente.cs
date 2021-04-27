@@ -26,18 +26,18 @@ namespace Logica{
             return datos;
         }
         //
-        public void LGV_pedidocarrito(string ecommand,string ecommandarg){
+        public void LGV_pedidocarrito(string comandname, string Id_pedido){
             DAOPedido daopedido = new DAOPedido();
             UPedido pedido2 = new UPedido();
-            pedido2.Id_pedido = int.Parse(ecommandarg);
-            if (ecommand == "Cancelar"){
+            pedido2.Id_pedido = int.Parse(Id_pedido);
+            if (comandname == "Cancelar"){
                 daopedido.Cancelarpedido(pedido2);
             }
         }
         //
-        public void LGV_pedidocarrito0(string ecommand,UPedido pedido4){
+        public void LGV_pedidocarrito0(string comandname, UPedido pedido4){
             DAOPedido daop = new DAOPedido();
-            if (ecommand == "Guardar"){
+            if (comandname == "Guardar"){
                 daop.guardarcomentariocliente(pedido4);
             }
         }

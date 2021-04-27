@@ -9,10 +9,9 @@ using Utilitarios;
 
 namespace Logica
 {
-    public class Lregistar_domiciliario
-    {
-        public void LBTND_registrar(string correo)
-        {
+    public class Lregistar_domiciliario{
+
+        public void LBTND_registrar(string correo){
             DAOUsuario dAOUsuario = new DAOUsuario();
             new DAOUsuario().getCorreoByregistrarse(correo);
         }
@@ -22,12 +21,6 @@ namespace Logica
             DAOUsuario dAOUsuario = new DAOUsuario();
             new DAOUsuario().insertUsuario(domiciliario);
         }
-        public UUsuario LBTND_registrar2(string correo)
-        {
-            
-            DAOUsuario dAOUsuario = new DAOUsuario();
-            return dAOUsuario.getCorreoByregistrarse(correo);
-            
-        }
+     
     }
 }

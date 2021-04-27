@@ -8,11 +8,11 @@ using Data;
 namespace Logica{
    public class LPerfil{
         UMac datos1 = new UMac();
-        public UUsuario mostrar(int id){
+        //
 
+        public UUsuario mostrar(int id){
          DAOUsuario us = new DAOUsuario();
-         UUsuario usuario1 = new UUsuario();
-           
+         UUsuario usuario1 = new UUsuario();           
          return usuario1 = us.mostrar(id);
          }
         //

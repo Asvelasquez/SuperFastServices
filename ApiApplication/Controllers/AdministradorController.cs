@@ -13,7 +13,10 @@ namespace ApiApplication.Controllers{
     public class AdministradorController : ApiController {
       
 
-
+        /// <summary>
+        /// permite aprobar la solicitud de registro de un domiciliario
+        /// </summary>
+        /// <param name="Vs_entrada"></param>
         [HttpPut]
         [Route("api/Administrador/PutLGV_domiciliariiosaprobar")]               
         public void LGV_domiciliariiosaprobar([FromBody] JObject Vs_entrada){

@@ -30,6 +30,7 @@ namespace Logica
 
 
         //}
+
         public List<UUsuario> ObtenerUsuarios()
         {
             return new DAOUsuario().ObtenerUsuarios();
@@ -86,6 +87,7 @@ namespace Logica
         //    }
         //    return redireccion1;
         //}
+
         public string Llogin1(UUsuario usuario9)
         {
             if (usuario9 == null)

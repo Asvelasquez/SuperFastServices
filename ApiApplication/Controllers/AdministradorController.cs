@@ -7,16 +7,15 @@ using System.Web.Http;
 using Utilitarios;
 using Logica;
 using Newtonsoft.Json.Linq;
+using System.Web.Http.Cors;
 
 namespace ApiApplication.Controllers{
     /// <summary>
     ///Este metodo nos permite acceder a los servicios del usuario administrador
     /// </summary> 
-    [Route("api/[controller]")]
-   
+    [EnableCors("*", "*", "*")]
+    [Route("api/[controller]")]   
     public class AdministradorController : ApiController {
-      
-
         /// <summary>
         /// permite aprobar la solicitud de registro de un domiciliario
         /// </summary>

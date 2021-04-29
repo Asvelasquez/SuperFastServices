@@ -7,13 +7,14 @@ using System.Web.Http;
 using Utilitarios;
 using Logica;
 using Newtonsoft.Json.Linq;
+using System.Web.Http.Cors;
 
 namespace ApiApplication.Controllers
 {
     /// <summary>
-    /// Servicio del carrito
+    /// Este metodo nos permite acceder a los servicios de Carrito
     /// </summary>
-    /// <param name=""></param>
+    [EnableCors("*", "*", "*")]
     [Route("api/[controller]")]
     public class CarritoController : ApiController
     {

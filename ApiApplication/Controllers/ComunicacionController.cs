@@ -6,11 +6,13 @@ using System.Net.Http;
 using System.Web.Http;
 using Utilitarios;
 using Logica;
+using System.Web.Http.Cors;
 
 namespace ApiApplication.Controllers{
     /// <summary>
-    /// Servicios de Lcomunicacion
+    /// Este metodo nos permite acceder a los servicios de Comunicacion
     /// </summary>
+    [EnableCors("*", "*", "*")]
     [Route("api/[controller]")]
     public class ComunicacionController : ApiController{
         /// <summary>

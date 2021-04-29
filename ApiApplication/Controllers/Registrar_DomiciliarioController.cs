@@ -6,10 +6,13 @@ using System.Net.Http;
 using System.Web.Http;
 using Utilitarios;
 using Logica;
+using System.Web.Http.Cors;
+
 namespace ApiApplication.Controllers{
     /// <summary>
     /// Este metodo Permite acceceder a los servicios de registrar un domiciliario
     /// </summary>
+    [EnableCors("*", "*", "*")]
     [Route("api/[controller]")]
     public class Registrar_DomiciliarioController : ApiController{
         /// <summary>

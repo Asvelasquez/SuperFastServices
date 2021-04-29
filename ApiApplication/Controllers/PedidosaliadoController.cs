@@ -7,11 +7,13 @@ using System.Web.Http;
 using Utilitarios;
 using Logica;
 using Newtonsoft.Json.Linq;
+using System.Web.Http.Cors;
 
 namespace ApiApplication.Controllers{
     /// <summary>
     /// Este metodo nos permite acceder a los servicios de Pedidos aliados
     /// </summary>
+    [EnableCors("*", "*", "*")]
     [Route("api/[controller]")]
     public class PedidosaliadoController : ApiController{
         /// <summary>

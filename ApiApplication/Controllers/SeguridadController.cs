@@ -4,8 +4,7 @@ using Logica;
 using System.Threading.Tasks;
 using Tokenizado.Seguridad;
 
-namespace Tokenizado.Controllers
-{
+namespace Tokenizado.Controllers{
     [RoutePrefix("api/admin")]
     public class SeguridadController : ApiController
     {

@@ -6,10 +6,13 @@ using System.Net.Http;
 using System.Web.Http;
 using Utilitarios;
 using Logica;
+using System.Web.Http.Cors;
+
 namespace ApiApplication.Controllers{
     /// <summary>
     /// Este metodo Permite a cualquier usuario cambiar su informacion privada
     /// </summary>
+    [EnableCors("*", "*", "*")]
     [Route("api/[controller]")]
     public class RegistrarseController : ApiController{
         /// <summary>

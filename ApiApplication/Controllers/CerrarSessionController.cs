@@ -6,12 +6,14 @@ using System.Net.Http;
 using System.Web.Http;
 using Utilitarios;
 using Logica;
+using System.Web.Http.Cors;
+
 namespace ApiApplication.Controllers
 {
     /// <summary>
-    /// Servicios de CerrarSesion
+    /// Este metodo nos permite acceder a los servicios de CerrarSession
     /// </summary>
-    /// <param name=""></param>
+    [EnableCors("*", "*", "*")]
     [Route("api/[controller]")]
     public class CerrarSessionController : ApiController
     {

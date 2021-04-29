@@ -8,10 +8,11 @@ using System.Web.Http;
 using Utilitarios;
 using Logica;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Http.Cors;
 
 namespace ApiApplication.Controllers
 {
-    
+    [EnableCors("*", "*", "*")]
     [Route("api/[controller]")]
     public class UserController : ApiController
     {

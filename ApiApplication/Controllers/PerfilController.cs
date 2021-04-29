@@ -6,10 +6,13 @@ using System.Net.Http;
 using System.Web.Http;
 using Utilitarios;
 using Logica;
+using System.Web.Http.Cors;
+
 namespace ApiApplication.Controllers{
     /// <summary>
     /// Este metodo nos permite acceceder a los servicios del perfil
     /// </summary>
+    [EnableCors("*", "*", "*")]
     [Route("api/[controller]")]
     public class PerfilController : ApiController{
         /// <summary>

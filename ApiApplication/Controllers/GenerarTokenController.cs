@@ -8,10 +8,13 @@ using Utilitarios;
 using Logica;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using System.Web.Http.Cors;
+
 namespace ApiApplication.Controllers{
     /// <summary>
     /// Este metodo nos permite acceder a los servicios de generar token
     /// </summary>
+    [EnableCors("*", "*", "*")]
     [Route("api/[controller]")]
     public class GenerarTokenController : ApiController{
 

@@ -9,7 +9,7 @@ using Logica;
 using Newtonsoft.Json.Linq;
 namespace ApiApplication.Controllers{
     /// <summary>
-    /// Servicios Domiciliario
+    /// Este metodo nos permite acceder a los servicios de Domiciliario
     /// </summary>
     [Route("api/[controller]")]
     public class DomiciliarioController : ApiController{

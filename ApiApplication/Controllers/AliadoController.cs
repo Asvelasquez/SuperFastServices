@@ -7,14 +7,15 @@ using System.Web.Http;
 using Utilitarios;
 using Logica;
 using Newtonsoft.Json.Linq;
+using System.Web.Http.Cors;
 
 namespace ApiApplication.Controllers{
+    /// <summary>
+    /// Este metodo nos permite acceder a los servicios de Aliado
+    /// </summary>
+    [EnableCors("*", "*", "*")]
     [Route("api/[controller]")]
-    public class AliadoController : ApiController{
-        
-        /// <summary>
-        /// agregar un producto
-        /// </summary>
+    public class AliadoController : ApiController{   
         /// <param name="producto2"></param>
         /// <returns></returns>
         [HttpPost]

@@ -8,11 +8,13 @@ using System.Web.Http;
 using Utilitarios;
 using Logica;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Http.Cors;
 
 namespace ApiApplication.Controllers{
     /// <summary>
     /// Este metodo Permite acceceder a los servicio del login
     /// </summary>
+    [EnableCors("*", "*", "*")]
     [Route("api/[controller]")]
     public class UserController : ApiController
     {

@@ -4,12 +4,14 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using Logica;
 using Utilitarios;
 namespace ApiApplication.Controllers{
     /// <summary>
     /// Este metodo Permite acceceder a los servicios de registrar un aliado
     /// </summary>
+    [EnableCors("*", "*", "*")]
     [Route("api/[controller]")]
     public class Registar_aliadoController : ApiController{
         /// <summary>

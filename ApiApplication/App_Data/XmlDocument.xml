@@ -493,6 +493,30 @@
             </summary>
             <param name="Vs_entrada"></param>
         </member>
+        <member name="M:ApiApplication.Controllers.AdministradorController.LGV_aliadorechazado(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            permite rechazar la solicitud de registro de un aliado
+            </summary>
+            <param name="Vs_entrada"></param>
+        </member>
+        <member name="M:ApiApplication.Controllers.AdministradorController.LGV_domiciliariorechazado(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            permite rechazar la solicitud de registro de un aliado
+            </summary>
+            <param name="Vs_entrada"></param>
+        </member>
+        <member name="M:ApiApplication.Controllers.AdministradorController.LGV_solicitudaliadosaceptados(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            permite ver la lista de aliados aceptados
+            </summary>
+            <param name="Vs_entrada"></param>
+        </member>
+        <member name="M:ApiApplication.Controllers.AdministradorController.LGV_domiciliariosaceptados(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            permite ver la lista de domiciliarios aceptados
+            </summary>
+            <param name="Vs_entrada"></param>
+        </member>
         <member name="M:ApiApplication.Controllers.AliadoController.LBTN_guardarproducto(Utilitarios.UProducto)">
             <summary>
             agregar un producto
@@ -502,24 +526,217 @@
         </member>
         <member name="M:ApiApplication.Controllers.AliadoController.LGV_Producto(Newtonsoft.Json.Linq.JObject)">
             <summary>
-            
+            Editar o activar un producto
             </summary>
             <param name="Vs_entrada"></param>
             <returns></returns>
         </member>
         <member name="M:ApiApplication.Controllers.AliadoController.Lmostrar(System.Int32)">
             <summary>
-            
+            Muestra un producto
             </summary>
             <param name="id3"></param>
             <returns></returns>
         </member>
+        <member name="M:ApiApplication.Controllers.AliadoController.LBTN_GuardarCambios(Utilitarios.UProducto)">
+            <summary>
+            Editar variables de un producto
+            </summary>
+            <param name="producto"></param>
+        </member>
         <member name="M:ApiApplication.Controllers.AliadoController.LGV_Productosdesactivado(Newtonsoft.Json.Linq.JObject)">
             <summary>
-            
+            Permite activar un producto
             </summary>
             <param name="Vs_entrada"></param>
             <returns></returns>
+        </member>
+        <member name="T:ApiApplication.Controllers.CarritoController">
+            <summary>
+            Servicio del carrito
+            </summary>
+            <param name=""></param>
+        </member>
+        <member name="M:ApiApplication.Controllers.CarritoController.LPage_Load(Utilitarios.UUsuario)">
+            <summary>
+            Carga la ventana de inicio
+            </summary>
+            <param name="usuario1"></param>
+        </member>
+        <member name="M:ApiApplication.Controllers.CarritoController.LGV_pedidocarrito(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            permite Cancelar un pedido
+            </summary>
+            <param name="Vs_entrada"></param>
+        </member>
+        <member name="M:ApiApplication.Controllers.CarritoController.Lmostrarpreciototal20(System.Int32)">
+            <summary>
+            permite ver el precio total del pedido
+            </summary>
+            <param name="idusuario"></param>
+        </member>
+        <member name="M:ApiApplication.Controllers.CarritoController.Lmostrarpreciodomicilio(System.Int32)">
+            <summary>
+            permite ver el precio total del domicilios
+            </summary>
+            <param name="idusuario"></param>
+        </member>
+        <member name="M:ApiApplication.Controllers.CarritoController.LBTN_comprar(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            permite comprar lo pedidos que estan en el carrito
+            </summary>
+            <param name="Vs_entrada"></param>
+        </member>
+        <member name="T:ApiApplication.Controllers.CerrarSessionController">
+            <summary>
+            Servicios de CerrarSesion
+            </summary>
+            <param name=""></param>
+        </member>
+        <member name="M:ApiApplication.Controllers.CerrarSessionController.Page_Load(Utilitarios.UUsuario)">
+            <summary>
+            Carga la ventana de inicio
+            </summary>
+            <param name="usuario1"></param>
+        </member>
+        <member name="T:ApiApplication.Controllers.DomiciliarioController">
+            <summary>
+            Servicios Domiciliario
+            </summary>
+        </member>
+        <member name="M:ApiApplication.Controllers.DomiciliarioController.DDL_Estado(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Mostrar productos inicio por busqueda
+            </summary>
+            <param name="Vs_entrada"></param>
+        </member>
+        <member name="T:ApiApplication.Controllers.ComunicacionController">
+            <summary>
+            Servicios de Lcomunicacion
+            </summary>
+        </member>
+        <member name="M:ApiApplication.Controllers.ComunicacionController.GetMostrarProductoInicio">
+            <summary>
+            Mostrar producto inicio
+            </summary>
+        </member>
+        <member name="M:ApiApplication.Controllers.ComunicacionController.GetProductoInicioBusqueda(System.String)">
+            <summary>
+            Mostrar productos inicio por busqueda
+            </summary>
+            <param name="busqueda"></param>
+        </member>
+        <member name="M:ApiApplication.Controllers.ComunicacionController.GetRangoPrecios(System.Double,System.Double)">
+            <summary>
+            Mostrar productos Inicio por rangos de precios
+            </summary>
+            <param name="ValorMinimo"></param>
+            <param name="ValorMaximo"></param>
+        </member>
+        <member name="M:ApiApplication.Controllers.ComunicacionController.GetMostrarProductoInicioActividad(System.String)">
+            <summary>
+            Mostrar productos Inicio por actividad comercial
+            </summary>
+            <param name="busqueda"></param>
+        </member>
+        <member name="M:ApiApplication.Controllers.ComunicacionController.GetMostrarSolicitudAliado">
+            <summary>
+            Mostrar Solicitud Aliado
+            </summary>
+        </member>
+        <member name="M:ApiApplication.Controllers.ComunicacionController.MostrarSolicitudDomiciliario">
+            <summary>
+            Mostrar Solicitud Domiciliario
+            </summary>
+        </member>
+        <member name="M:ApiApplication.Controllers.ComunicacionController.MostrarSolicitudAliadoRechazado">
+            <summary>
+            Mostrar Solicitud Aliado Rechazado
+            </summary>
+        </member>
+        <member name="M:ApiApplication.Controllers.ComunicacionController.MostrarSolicitudDomiciliarioRechazado">
+            <summary>
+            Mostrar Solicitud Domiciliario Rechazado
+            </summary>
+        </member>
+        <member name="M:ApiApplication.Controllers.ComunicacionController.MostrarSolicitudAliadoAceptado">
+            <summary>
+            Mostrar Solicitud Aliado Aceptado
+            </summary>
+        </member>
+        <member name="M:ApiApplication.Controllers.ComunicacionController.MostrarSolicitudDomiciliarioAceptado">
+            <summary>
+            Mostrar Solicitud Domiciliario Aceptado
+            </summary>
+        </member>
+        <member name="M:ApiApplication.Controllers.ComunicacionController.PostMostrarProducto(Utilitarios.UUsuario)">
+            <summary>
+            Mostrar productos aliados
+            </summary>
+            <param name="consulta"></param>
+        </member>
+        <member name="M:ApiApplication.Controllers.ComunicacionController.MostrarProductoDesactivado(Utilitarios.UUsuario)">
+            <summary>
+            Mostrar productos desactivado aliados
+            </summary>
+            <param name="consulta"></param>
+        </member>
+        <member name="M:ApiApplication.Controllers.ComunicacionController.ObtenerPedidoUsuario(Utilitarios.UUsuario)">
+            <summary>
+            Obtener Pedido Usuario
+            </summary>
+            <param name="usuariopedido"></param>
+        </member>
+        <member name="M:ApiApplication.Controllers.ComunicacionController.PostEstadoDomicilios">
+            <summary>
+            Estado domicilio
+            </summary>
+        </member>
+        <member name="M:ApiApplication.Controllers.ComunicacionController.PostObtenerPedidoDomiciliario">
+            <summary>
+            Obtener Pedido Domiciliario
+            </summary>
+        </member>
+        <member name="M:ApiApplication.Controllers.ComunicacionController.ObtenerMiPedidoDomiciliario(Utilitarios.UUsuario)">
+            <summary>
+             Obtener Mi Pedido Domiciliario
+            </summary>
+            <param name="usuario"></param>
+        </member>
+        <member name="M:ApiApplication.Controllers.ComunicacionController.ObtenerMiPedidosEntregadosDomiciliario(Utilitarios.UUsuario)">
+            <summary>
+             Obtener Mi Pedidos Entregados Domiciliario
+            </summary>
+            <param name="usuario"></param>
+        </member>
+        <member name="M:ApiApplication.Controllers.ComunicacionController.GetEstadoPedidos">
+            <summary>
+             Estado Pedido
+            </summary>
+        </member>
+        <member name="M:ApiApplication.Controllers.ComunicacionController.ObtenerEstadoPedido(Utilitarios.UUsuario)">
+            <summary>
+             Obtener Estado Pedido
+            </summary>
+            <param name="usuario"></param>
+        </member>
+        <member name="M:ApiApplication.Controllers.ComunicacionController.ObtenerEstadoPedidoTerminado(Utilitarios.UUsuario)">
+            <summary>
+            Obtener Estado Pedido Terminado
+            </summary>
+            <param name="usuario"></param>
+        </member>
+        <member name="M:ApiApplication.Controllers.ComunicacionController.ObtenerComprasUsuario(Utilitarios.UUsuario)">
+            <summary>
+            Obtener Compras Usuario
+            </summary>
+            <param name="usuariopedido"></param>
+        </member>
+        <member name="M:ApiApplication.Controllers.ComunicacionController.ObtenerComprasUsuarioEntregado(Utilitarios.UUsuario)">
+            <summary>
+            Obtener Compras Usuario Entregado
+            </summary>
+            <param name="usuariopedido"></param>
         </member>
         <member name="T:Tokenizado.Seguridad.TokenGenerator">
             <summary>

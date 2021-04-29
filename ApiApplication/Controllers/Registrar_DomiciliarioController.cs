@@ -7,14 +7,25 @@ using System.Web.Http;
 using Utilitarios;
 using Logica;
 namespace ApiApplication.Controllers{
+    /// <summary>
+    /// Este metodo Permite acceceder a los servicios de registrar un domiciliario
+    /// </summary>
     [Route("api/[controller]")]
     public class Registrar_DomiciliarioController : ApiController{
+        /// <summary>
+        /// Este metodo Permite comparar el correo de registro con lo de la base de datos
+        /// </summary>
+        /// <param name="correo"></param>
         [HttpGet]
         [Route("api/Registrar_Domiciliario/GetLBTND_registrar")]
         public void LBTND_registrar(string correo){
             new Lregistar_domiciliario().LBTND_registrar(correo);
         }
         //
+        /// <summary>
+        /// Este metodo Permite registrar un usuario tipo domiciliario
+        /// </summary>
+        /// <param name="usuario"></param>
         [HttpGet]
         [Route("api/Registrar_Domiciliario/GetRegitrar_domiciliario")]
         public void Regitrar_domiciliario(UUsuario usuario){

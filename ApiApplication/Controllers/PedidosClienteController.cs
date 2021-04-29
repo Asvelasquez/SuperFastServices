@@ -9,26 +9,14 @@ using Logica;
 using Newtonsoft.Json.Linq;
 
 namespace ApiApplication.Controllers{
-    /// <summary>
-    /// Este metodo nos permite Guerdar el comentario del aliado 
-    /// </summary>
     [Route("api/[controller]")]
     public class PedidosClienteController : ApiController {
-        /// <summary>
-        /// Este metodo nos permite carcelar el pedido
-        /// </summary>
-        /// <param name="comandname"></param>
-        /// /// <param name="Id_pedido"></param>
         [HttpGet]
         [Route("api/PedidosCliente/GetLGV_pedidocarrito")]
         public void LGV_pedidocarrito(string comandname, string Id_pedido){
             new LPedidosCliente().LGV_pedidocarrito(comandname, Id_pedido);
         }
         //
-        /// <summary>
-        /// Este metodo nos permite Al cliente hacer un comentario sobre el pedido
-        /// </summary>
-        /// <param name="Vs_entrada"></param>
         [HttpPut]
         [Route("api/PedidosCliente/PutLGV_pedidocarrito0")]
         public void LGV_pedidocarrito0([FromBody] JObject Vs_entrada){
@@ -39,9 +27,6 @@ namespace ApiApplication.Controllers{
             new LPedidosCliente().LGV_pedidocarrito0(comandname,pedido);
         }
         //
-        /// <summary>
-        /// Este metodo nos permite Al cliente Generar una factura
-        /// </summary>
         [HttpGet]
         [Route("api/PedidosCliente/GetLBTN_Generarfactura")]
         public string LBTN_Generarfactura(){

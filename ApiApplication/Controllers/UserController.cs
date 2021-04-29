@@ -8,11 +8,11 @@ using System.Web.Http;
 using Utilitarios;
 using Logica;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Http.Cors;
 
-namespace ApiApplication.Controllers{
-    /// <summary>
-    /// Este metodo Permite acceceder a los servicio del login
-    /// </summary>
+namespace ApiApplication.Controllers
+{
+    [EnableCors("*", "*", "*")]
     [Route("api/[controller]")]
     public class UserController : ApiController
     {
@@ -26,17 +26,14 @@ namespace ApiApplication.Controllers{
 
         //OK
         //se ingresa todo el objeto completo UAcceso y permite modificar cualquier valor
-        /// <summary>
-        /// Este metodo Permite a cualquier usuario cambiar su informacion privada
-        /// </summary>
-        /// <param name="acceso"></param>
+       
         [HttpPost]
         [Route("api/user/PostInsertarAcceso")]
         public void InsertarAcceso(UAcceso acceso){
             new LUser().InsertarAcceso(acceso);
         }
 
-
+       
 
         //[HttpGet]
         //[Route("api/user/PostLG_Principal1")]
@@ -46,40 +43,27 @@ namespace ApiApplication.Controllers{
         //}
 
         //OK
-        //se ingresa todo el objeto completo UAcceso y permite modificar cualquier valor
-        /// <summary>
-        /// Este metodo Permite a cualquier usuario cambiar su informacion privada
-        /// </summary>
-        /// <param name="usuario"></param>
         [HttpPost]
         [Route("api/user/PostLG_Principal2")]
-        public async Task<UUsuario> LG_Principal2(LoginRequest usuario)
+        public async Task<UUsuario> LG_Principal2(LoginRequest usuario1)
         {
-            return await new LUser().LG_Principal2(usuario);
+            return await new LUser().LG_Principal2(usuario1);
         }
-        /// <summary>
-        /// Este metodo Permite a cualquier usuario cambiar su informacion privada
-        /// </summary>
-        /// <param name="usuario"></param>
+        
         [HttpPost]
         [Route("api/user/PostLlogin1")]
-        public string Llogin1(UUsuario usuario)
+        public string Llogin1(UUsuario usuario9)
         {
-            return new LUser().Llogin1(usuario);
+            return new LUser().Llogin1(usuario9);
         }
-        /// <summary>
-        /// Este metodo Permite a cualquier usuario cambiar su informacion privada
-        /// </summary>
+
         [HttpGet]
         [Route("api/user/GetLLB_RecuperarContrasenia")]
         public string LLB_RecuperarContrasenia()
         {
             return new LUser().LLB_RecuperarContrasenia();
         }
-        /// <summary>
-        /// Este metodo Permite a cualquier usuario cambiar su informacion privada
-        /// </summary>
-        /// <param name="token_seguridad"></param>
+
         //revisar
         [HttpPost]
         [Route("api/user/PostguardarToken")]

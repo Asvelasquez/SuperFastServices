@@ -9,9 +9,6 @@ using Logica;
 using Newtonsoft.Json.Linq;
 
 namespace ApiApplication.Controllers{
-    /// <summary>
-    ///Este metodo nos permite acceder a los servicios del usuario administrador
-    /// </summary> 
     [Route("api/[controller]")]
    
     public class AdministradorController : ApiController {

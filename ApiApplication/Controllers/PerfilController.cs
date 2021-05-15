@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+﻿using System.Web.Http;
 using Utilitarios;
 using Logica;
 using System.Web.Http.Cors;
 
-namespace ApiApplication.Controllers{
+namespace ApiApplication.Controllers
+{
     /// <summary>
     /// Este metodo nos permite acceceder a los servicios del perfil
     /// </summary>

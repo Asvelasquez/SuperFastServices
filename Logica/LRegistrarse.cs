@@ -16,7 +16,11 @@ namespace Logica{
         //
         public void LBT_Registrar1(UUsuario cliente1)
         {
+            
+            
+            
             new DAOUsuario().insertUsuario(cliente1);
+
         }
 
     }

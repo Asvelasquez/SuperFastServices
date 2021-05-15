@@ -886,20 +886,14 @@
         </member>
         <member name="T:ApiApplication.Controllers.RegistrarseController">
             <summary>
-            Este metodo Permite a cualquier usuario cambiar su informacion privada
+            Este metodo Permite a cualquier usuario registrarse en la plataforma
             </summary>
         </member>
-        <member name="M:ApiApplication.Controllers.RegistrarseController.Validar_correo(System.String)">
-            <summary>
-            Este metodo Permite validar que el correo registrado no exista en la base de datos
-            </summary>
-            <param name="correo"></param>
-        </member>
-        <member name="M:ApiApplication.Controllers.RegistrarseController.Insertar_Usuario(Utilitarios.UUsuario)">
+        <member name="M:ApiApplication.Controllers.RegistrarseController.Insertar_Usuario(Newtonsoft.Json.Linq.JObject)">
             <summary>
             Este metodo Permite registrar un usuario normal
             </summary>
-            <param name="usuario"></param>
+            <param name="Vs_entrada"></param>
         </member>
         <member name="T:ApiApplication.Controllers.Registrar_DomiciliarioController">
             <summary>

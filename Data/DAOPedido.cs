@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using Utilitarios;
 
 /// <summary>
@@ -10,7 +8,8 @@ using Utilitarios;
 /// </summary>
 /// 
 
-namespace Data{
+namespace Data
+{
     public class DAOPedido{
 
         public UPedido insertPedido(UPedido pedido2) {

@@ -16,19 +16,21 @@ namespace Tokenizado.Seguridad
         public static string GenerateTokenJwt(UUsuario user)
         {
             //TODO: appsetting for Demo JWT - protect correctly this settings
-
+            var secretKey = ConfigurationManager.AppSettings["JWT_SECRET_KEY"];
             var audienceToken = ConfigurationManager.AppSettings["JWT_AUDIENCE_TOKEN"];
             var issuerToken = ConfigurationManager.AppSettings["JWT_ISSUER_TOKEN"];
+            var expireTime = ConfigurationManager.AppSettings["JWT_EXPIRE_MINUTES"];
+           
 
 
-            var securityKey = new SymmetricSecurityKey(System.Text.Encoding.Default.GetBytes(user.Key));
+            var securityKey = new SymmetricSecurityKey(System.Text.Encoding.Default.GetBytes(secretKey));
             var signingCredentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256Signature);
 
             // create a claimsIdentity 
             ClaimsIdentity claimsIdentity = new ClaimsIdentity(new[] {
                 new Claim(ClaimTypes.Name, user.Correo),
                 new Claim(ClaimTypes.Role, user.Id_rol.ToString()),
-               
+               new Claim(ClaimTypes.NameIdentifier,user.Id.ToString()),
                 new Claim(ClaimTypes.Rsa,user.Contrasenia)
             });
 

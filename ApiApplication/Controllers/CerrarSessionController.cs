@@ -23,8 +23,9 @@ namespace ApiApplication.Controllers
         /// <param name="usuario1"></param>
         [HttpPost]
         [Route("api/CerrarSession/PostPage_Load")]
-        public void Page_Load(UUsuario usuario1){
-            new LCerrarSession().Page_Load(usuario1);
+        public string Page_Load(int usuario1){
+           return new LCerrarSession().Page_Load(usuario1);
+
         }
     }
 }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using Utilitarios;
 
 /// <summary>
@@ -54,7 +53,26 @@ namespace Data
             }
        
         }
+        public void destruirToken(int userId)
+        {
+            using (var db = new Mapeo())
+            {
+                UToken_Seguridad tokenAcceso= db.token_seguridad.Where(X => X.UserId ==userId).First();
+                db.token_seguridad.Remove(tokenAcceso);
+                db.SaveChanges();
 
+            }
+        }
+        public List<UToken_Seguridad> recorrerTokenSeguridad()
+        {
+            using (var db = new Mapeo())
+            {
+
+                return new Mapeo().token_seguridad.OrderBy(X =>X.Id).ToList<UToken_Seguridad>();
+            }
+
+            
+        }
         public UToken getTokenByUser(int userId)
         {
             return new Mapeo().token.Where(x => x.User_id == userId && x.Vigencia > DateTime.Now).FirstOrDefault();

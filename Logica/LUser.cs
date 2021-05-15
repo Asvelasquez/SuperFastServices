@@ -46,6 +46,8 @@ namespace Logica
         //request
         public  async Task<UUsuario> LG_Principal2(LoginRequest usuario1)
         {
+            //MAC conexion = new MAC();
+            //UAcceso acceso = new UAcceso();    
             UUsuario usuario = new UUsuario();
             UMac mensaje = new UMac();
             return usuario =await new DAOUsuario().loginusuario1(usuario1);

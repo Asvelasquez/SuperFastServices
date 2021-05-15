@@ -28,8 +28,10 @@ namespace ApiApplication.Controllers{
         /// </summary>
         /// <param name="Vs_entrada"></param>
         /// <returns></returns>
+        /// 
+     
         [HttpPost]
-        [Route("api/Aliado/PostLGV_Producto")]
+        [Route("api/Aliado/PostLGV_Producto ")]
         public UProducto LGV_Producto([FromBody] JObject Vs_entrada){
             UProducto producto1 = new UProducto();           
             producto1.Id = int.Parse(Vs_entrada["Id"].ToString());

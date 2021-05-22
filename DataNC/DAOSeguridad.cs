@@ -13,9 +13,16 @@ namespace DataNC
 
     public class DAOSeguridad
     {
+        private readonly Mapeo _context;
+
+        public DAOSeguridad(Mapeo context)
+        {
+            _context = context;
+        }
+
         public void insertarToken(UToken token)
         {
-            using (var db = new Mapeo())
+            using (var db = _context)
             {
                 db.token.Add(token);
                 db.SaveChanges();
@@ -23,7 +30,7 @@ namespace DataNC
         }
         public void insertarToken_Seguridad(UToken_Seguridad tokenseguridad)
         {
-            using (var db = new Mapeo())
+            using (var db = _context)
             {
                 db.token_seguridad.Add(tokenseguridad);
                 db.SaveChanges();
@@ -31,7 +38,7 @@ namespace DataNC
         }
         public void insertarAcceso(UAcceso acceso)
         {
-            using (var db = new Mapeo())
+            using (var db = _context)
             {
                 db.acceso.Add(acceso);
                 db.SaveChanges();
@@ -40,7 +47,7 @@ namespace DataNC
 
         public void cerrarAcceso(int userId)
         {
-            using (var db = new Mapeo())
+            using (var db = _context)
             {
                 UAcceso acceso = db.acceso.Where(x => x.UserId == userId && x.FechaFin == null).FirstOrDefault();
                 acceso.FechaFin = DateTime.Now;
@@ -55,7 +62,7 @@ namespace DataNC
         }
         public void destruirToken(int userId)
         {
-            using (var db = new Mapeo())
+            using (var db = _context)
             {
                 UToken_Seguridad tokenAcceso= db.token_seguridad.Where(X => X.UserId ==userId).First();
                 db.token_seguridad.Remove(tokenAcceso);
@@ -65,27 +72,27 @@ namespace DataNC
         }
         public List<UToken_Seguridad> recorrerTokenSeguridad()
         {
-            using (var db = new Mapeo())
+            using (var db = _context)
             {
 
-                return new Mapeo().token_seguridad.OrderBy(X =>X.Id).ToList<UToken_Seguridad>();
+                return _context.token_seguridad.OrderBy(X =>X.Id).ToList<UToken_Seguridad>();
             }
 
             
         }
         public UToken getTokenByUser(int userId)
         {
-            return new Mapeo().token.Where(x => x.User_id == userId && x.Vigencia > DateTime.Now).FirstOrDefault();
+            return _context.token.Where(x => x.User_id == userId && x.Vigencia > DateTime.Now).FirstOrDefault();
         }
 
         public UToken getTokenByToken(string token)
         {
-            return new Mapeo().token.Where(x => x.Tokeng == token).FirstOrDefault();
+            return _context.token.Where(x => x.Tokeng == token).FirstOrDefault();
         }
 
         public void updateClave(UUsuario usuario)
         {
-            using (var db = new Mapeo())
+            using (var db = _context)
             {
                 UUsuario usuarioAnterior = db.usuari.Where(x => x.Id == usuario.Id).First();
                 usuarioAnterior.Contrasenia = usuario.Contrasenia;
@@ -100,7 +107,7 @@ namespace DataNC
 
         public UAplicacion getAplicaionesByToken(string token)
         {
-            using (var db = new Mapeo())
+            using (var db =_context)
             {
                 return (from t in db.token_seguridad
                         join a in db.aplicacion on t.AplicacionId equals a.Id

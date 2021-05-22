@@ -52,5 +52,15 @@ namespace LogicaNC
                 return total.ToString();
         }
         //
+        public void AgregarPedidoCarrito1(UPedido pedido)
+        {
+            DAOPedido daopedido = new DAOPedido();
+            daopedido.insertPedido(pedido);
+        }
+        public void AgregarPedidoCarrito2(UDetalle_pedido det_pedido)
+        {
+            DAODetalle_Pedido daodetpedido = new DAODetalle_Pedido();
+            daodetpedido.insertdetallePedido(det_pedido);
+        }
     }
 }

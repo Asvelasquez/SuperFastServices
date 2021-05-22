@@ -1,7 +1,7 @@
 ﻿using System;
 using Utilitarios;
 using Data;
-
+using System.IO;
 
 namespace Logica{
 
@@ -22,9 +22,31 @@ namespace Logica{
         }
         //
         //
-        public string LBTN_guardarproducto(UProducto producto2){
-            new DAOProductos().insertProducto(producto2);
-             return  datos.Url="Aliado.aspx";    
+        public string LBTN_guardarproducto(byte[] Foto_producto,UProducto producto,string extension, string direccion){
+            
+            if(Foto_producto!= null){
+                if (extension == ".jpg"|| extension == ".JPG"|| extension == ".jpeg"|| extension == ".JPEG"|| extension == ".png"|| extension == ".PNG"){
+                    try{
+                        FileStream fileStream = new FileStream(direccion, FileMode.Create, FileAccess.ReadWrite);
+                        fileStream.Write(Foto_producto, 0, Foto_producto.Length);
+                        fileStream.Close();
+
+                        new DAOProductos().insertProducto(producto);
+                        datos.Url = "Aliado.aspx";
+                    }
+                    catch{
+                        datos.Url = "No se pudo agregar producto";
+                    }
+
+                }else{
+                    datos.Url = "Extension no valida, intentelo de nuevo";
+                }
+
+            }else{
+                datos.Url = "Foto No valida, intentelo de nuevo";
+            }
+
+            return datos.Url;
 
         }//
         public UMac LGV_Producto(UProducto producto1,string comandname, int idmostrar ) {

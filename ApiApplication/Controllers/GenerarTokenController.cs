@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
-using Utilitarios;
+﻿using System.Web.Http;
 using Logica;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
 using System.Web.Http.Cors;
 
-namespace ApiApplication.Controllers{
+namespace ApiApplication.Controllers
+{
     /// <summary>
     /// Este metodo nos permite acceder a los servicios de generar token
     /// </summary>

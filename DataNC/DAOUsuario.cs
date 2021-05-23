@@ -17,9 +17,17 @@ namespace DataNC
     //[Table("usuario", Schema = "informacion")]
     public class DAOUsuario
     {
+        private readonly Mapeo _context;
+
+        public DAOUsuario(Mapeo context)
+        {
+            _context = context;
+        }
+
+
         public void insertUsuario(UUsuario usuario2)
         {
-            using (var db = new Mapeo())
+            using (var db = _context)
             {
                 db.usuari.Add(usuario2);
                 db.SaveChanges();
@@ -30,12 +38,12 @@ namespace DataNC
         public UUsuario getCorreoByregistrarse(string correo)
         {
 
-            return new Mapeo().usuari.Where(x => (x.Correo.Equals(correo))).FirstOrDefault();
+            return _context.usuari.Where(x => (x.Correo.Equals(correo))).FirstOrDefault();
         }
         //envio dinamico clase generarToken dinamico correo
         public UUsuario getCorreoByCorreos(string correo)
         {
-            return new Mapeo().usuari.Where(x => (x.Correo.Contains(correo))).FirstOrDefault();
+            return _context.usuari.Where(x => (x.Correo.Contains(correo))).FirstOrDefault();
         }
 
         //public Usuario getcerrarsession(string cerrar)
@@ -47,14 +55,14 @@ namespace DataNC
         //login
         public async Task<UUsuario> loginusuario(UUsuario usuario)
         {
-            return await new Mapeo().usuari.Where(x => x.Correo.ToUpper().Equals(usuario.Correo.ToUpper()) && x.Contrasenia.Equals(usuario.Contrasenia)).FirstOrDefaultAsync();
+            return await _context.usuari.Where(x => x.Correo.ToUpper().Equals(usuario.Correo.ToUpper()) && x.Contrasenia.Equals(usuario.Contrasenia)).FirstOrDefaultAsync();
         }
 
         //login request
         public async Task<UUsuario> loginusuario1(LoginRequest user)
         {
            
-            using (var db = new Mapeo())
+            using (var db = _context)
             {
              UUsuario usuario = await  db.usuari.Where(x => x.Correo.ToUpper().Equals(user.Correo.ToUpper()) && x.Contrasenia.Equals(user.Contrasenia)).FirstOrDefaultAsync();
                 if (usuario != null)
@@ -75,7 +83,7 @@ namespace DataNC
         //metodo asincrono ejemplo obtener usuarios
         public  List<UUsuario> ObtenerUsuarios()
         {
-            using (var db = new Mapeo())
+            using (var db =  _context)
             {
                 return  db.usuari.ToList();
             }
@@ -83,45 +91,45 @@ namespace DataNC
 
         public UUsuario nuevacontrasenia(UUsuario usuario)
         {
-            return new Mapeo().usuari.Where(x => x.Contrasenia.Equals(usuario.Contrasenia)).FirstOrDefault();
+            return _context.usuari.Where(x => x.Contrasenia.Equals(usuario.Contrasenia)).FirstOrDefault();
         }
 
         public UUsuario getUserByUserName(string correo)
         {
-            return new Mapeo().usuari.Where(x => x.Correo.ToUpper().Equals(correo.ToUpper())).FirstOrDefault();
+            return _context.usuari.Where(x => x.Correo.ToUpper().Equals(correo.ToUpper())).FirstOrDefault();
         }
 
         public List<UUsuario> mostrarsolicitudaliado()
         {
-            return new Mapeo().usuari.Where(x => x.Id_rol == 2 && x.Aprobacion == 0).ToList<UUsuario>();
+            return _context.usuari.Where(x => x.Id_rol == 2 && x.Aprobacion == 0).ToList<UUsuario>();
         }
 
         public List<UUsuario> mostrarsolicitudaliadorechazado()
         {
-            return new Mapeo().usuari.Where(x => x.Id_rol == 2 && x.Aprobacion == 2).ToList<UUsuario>();
+            return _context.usuari.Where(x => x.Id_rol == 2 && x.Aprobacion == 2).ToList<UUsuario>();
         }
         public List<UUsuario> mostrarsolicitudaliadoaceptado()
         {
-            return new Mapeo().usuari.Where(x => x.Id_rol == 2 && x.Aprobacion == 1).ToList<UUsuario>();
+            return _context.usuari.Where(x => x.Id_rol == 2 && x.Aprobacion == 1).ToList<UUsuario>();
         }
 
         public List<UUsuario> mostrarsolicituddomiciliario()
         {
-            return new Mapeo().usuari.Where(x => x.Id_rol == 3 && x.Aprobacion == 0).ToList<UUsuario>();
+            return _context.usuari.Where(x => x.Id_rol == 3 && x.Aprobacion == 0).ToList<UUsuario>();
         }
 
         public List<UUsuario> mostrarsolicituddomiciliariorechazado()
         {
-            return new Mapeo().usuari.Where(x => x.Id_rol == 3 && x.Aprobacion == 2).ToList<UUsuario>();
+            return _context.usuari.Where(x => x.Id_rol == 3 && x.Aprobacion == 2).ToList<UUsuario>();
         }
         public List<UUsuario> mostrarsolicituddomiciliarioaceptado()
         {
-            return new Mapeo().usuari.Where(x => x.Id_rol == 3 && x.Aprobacion == 1).ToList<UUsuario>();
+            return _context.usuari.Where(x => x.Id_rol == 3 && x.Aprobacion == 1).ToList<UUsuario>();
         }
 
         public void aceptarusuario(UUsuario usuario, String auditoria)
         {
-            using (var db = new Mapeo())
+            using (var db = _context)
             {
                 UUsuario aprobacionanterior = db.usuari.Where(x => x.Id == usuario.Id).First();
                 aprobacionanterior.Auditoria = auditoria;
@@ -148,7 +156,7 @@ namespace DataNC
         }
         public void rechazarusuario(UUsuario usuario, String auditoria)
         {
-            using (var db = new Mapeo())
+            using (var db = _context)
             {
                 UUsuario aprobacionanterior = db.usuari.Where(x => x.Id == usuario.Id).First();
                 aprobacionanterior.Auditoria = auditoria;
@@ -175,7 +183,7 @@ namespace DataNC
         }//
         public void revisionusuario(UUsuario usuario, String auditoria)
         {
-            using (var db = new Mapeo())
+            using (var db = _context)
             {
                 UUsuario aprobacionanterior = db.usuari.Where(x => x.Id == usuario.Id).First();
                 aprobacionanterior.Auditoria = auditoria;
@@ -202,7 +210,7 @@ namespace DataNC
 
         public void actualizarperfil(UUsuario usuario)
         {
-            using (var db = new Mapeo())
+            using (var db = _context)
             {
                 UUsuario usuarioanterior = db.usuari.Where(x => x.Id == usuario.Id).First();
                 usuarioanterior.Nombre = usuario.Nombre;
@@ -222,7 +230,7 @@ namespace DataNC
         }//
         public UUsuario mostrar(int userId)
         {
-            return new Mapeo().usuari.Where(x => x.Id == userId).First();
+            return _context.usuari.Where(x => x.Id == userId).First();
         }
 
 

@@ -9,6 +9,13 @@ namespace LogicaNC
 
     public class LUser
     {
+        private readonly Mapeo _context;
+
+        public LUser(Mapeo context)
+        {
+            _context = context;
+        }
+
         string redireccion1;
         //public void InsertarAcceso(UAcceso acceso)
         //{
@@ -18,7 +25,7 @@ namespace LogicaNC
 
         public void InsertarAcceso(UAcceso acceso)
         {
-            new DAOSeguridad().insertarAcceso(acceso);
+            new DAOSeguridad(_context).insertarAcceso(acceso);
         }
 
         //public UUsuario LG_Principal(UUsuario usuario1)
@@ -32,14 +39,14 @@ namespace LogicaNC
 
         public List<UUsuario> ObtenerUsuarios()
         {
-            return new DAOUsuario().ObtenerUsuarios();
+            return new DAOUsuario(_context).ObtenerUsuarios();
         }
         // login normal
         public async Task< UUsuario> LG_Principal1( UUsuario usuario1)
         {
             UUsuario usuario =   new UUsuario();
             UMac mensaje = new UMac();
-           return   usuario = await new  DAOUsuario().loginusuario(usuario1);
+           return   usuario = await new  DAOUsuario(_context).loginusuario(usuario1);
            
         }
         //request
@@ -49,7 +56,7 @@ namespace LogicaNC
             //UAcceso acceso = new UAcceso();    
             UUsuario usuario = new UUsuario();
             UMac mensaje = new UMac();
-            return usuario =await new DAOUsuario().loginusuario1(usuario1);
+            return usuario =await new DAOUsuario(_context).loginusuario1(usuario1);
 
         }
         //ejemplo obtener usuarios
@@ -130,7 +137,7 @@ namespace LogicaNC
 
         public void guardarToken(UToken_Seguridad token_seguridad)
         {
-            new DAOSeguridad().insertarToken_Seguridad(token_seguridad);
+            new DAOSeguridad(_context).insertarToken_Seguridad(token_seguridad);
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Configuration;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Tokenizado.Seguridad
+namespace ApiApplication.Seguridad
 {
     /// <summary>
     /// JWT Token generator class using "secret-key"

@@ -12,7 +12,7 @@ using Utilitarios;
 using Logica;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Tokenizado.Seguridad
+namespace ApiApplication.Seguridad
 {
     /// <summary>
     /// Token validator for Authorization Request using a DelegatingHandler
@@ -48,7 +48,7 @@ namespace Tokenizado.Seguridad
             {
                 UAplicacion configuracion = new LSeguridad().ObtenerConfiguracion(token);
 
-                var secretKey = configuracion.Key;
+                var secretKey = ConfigurationManager.AppSettings["JWT_SECRET_KEY"];
                 var audienceToken = ConfigurationManager.AppSettings["JWT_AUDIENCE_TOKEN"];
                 var issuerToken = ConfigurationManager.AppSettings["JWT_ISSUER_TOKEN"];
                 var securityKey = new SymmetricSecurityKey(System.Text.Encoding.Default.GetBytes(secretKey));

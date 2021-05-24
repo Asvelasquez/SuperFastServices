@@ -15,6 +15,8 @@ namespace ApiApplication.Controllers
         /// Este metodo permite a cualquier usuario ver su informacion personal
         /// </summary>
         /// <param name="id"></param>
+        /// 
+
         [HttpGet]
         [Route("api/Perfil/Getmostrarperfil")]
         public UUsuario mostrarperfil(int id){

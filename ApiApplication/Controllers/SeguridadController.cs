@@ -2,9 +2,9 @@
 using Utilitarios;
 using Logica;
 using System.Threading.Tasks;
-using Tokenizado.Seguridad;
+using ApiApplication.Seguridad;
 
-namespace Tokenizado.Controllers{
+namespace ApiApplication.Controllers{
     [RoutePrefix("api/admin")]
     public class SeguridadController : ApiController
     {

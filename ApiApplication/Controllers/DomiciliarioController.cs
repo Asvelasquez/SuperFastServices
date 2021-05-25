@@ -17,6 +17,8 @@ namespace ApiApplication.Controllers{
         /// Este metodo nos permite cambiar el estado de los domicilios pendientes de aprobar
         /// </summary>
         /// <param name="Vs_entrada"></param>
+        /// 
+        [Authorize]
         [HttpPut]
         [Route("api/Domiciliario/PutDDL_Estado")]
         public void DDL_Estado([FromBody] JObject Vs_entrada)
@@ -32,6 +34,9 @@ namespace ApiApplication.Controllers{
         /// Este metodo nos permite cambiar el estado de los domicilios tomados "Mis pedidos"
         /// </summary>
         /// <param name="Vs_entrada"></param>
+        /// 
+        
+        [Authorize]
         [HttpPut]
         [Route("api/Domiciliario/PutDDL_Estado0")]
         public void DDL_Estado0([FromBody] JObject Vs_entrada){

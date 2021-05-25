@@ -32,6 +32,8 @@ namespace ApiApplication.Controllers
         /// permite Cancelar un pedido
         /// </summary>
         /// <param name="Vs_entrada"></param>
+        /// 
+        [Authorize]
         [HttpPut]
         [Route("api/Carrito/PutLGV_pedidocarrito")]
         public string LGV_pedidocarrito([FromBody]JObject Vs_entrada)
@@ -47,6 +49,8 @@ namespace ApiApplication.Controllers
         /// permite ver el precio total del pedido
         /// </summary>
         /// <param name="idusuario"></param>
+        /// 
+        [Authorize]
         [HttpGet]
         [Route("api/Carrito/GetLmostrarpreciototal20")]
         public string Lmostrarpreciototal20(int idusuario)
@@ -57,6 +61,8 @@ namespace ApiApplication.Controllers
         /// permite ver el precio total del domicilios
         /// </summary>
         /// <param name="idusuario"></param>
+        /// 
+        [Authorize]
         [HttpGet]
         [Route("api/Carrito/GetLmostrarpreciodomicilio")]
         public string Lmostrarpreciodomicilio(int idusuario)
@@ -67,6 +73,8 @@ namespace ApiApplication.Controllers
         /// permite comprar lo pedidos que estan en el carrito
         /// </summary>
         /// <param name="Vs_entrada"></param>
+        /// 
+        [Authorize]
         [HttpPut]
         [Route("api/Carrito/Put/LBTN_comprar")]
         public String LBTN_comprar([FromBody]JObject Vs_entrada)

@@ -39,6 +39,8 @@ namespace ApiApplication.Controllers
         /// Este metodo nos permite saber cuantos pedidos tenemos en el carrito
         /// </summary>
         /// <param name="idusuario"></param>
+        /// 
+        [Authorize]
         [HttpGet]
         [Route("api/Inicio/Getmostrarcantidadtotal")]
         public string mostrarcantidadtotal(int idusuario){
@@ -52,6 +54,8 @@ namespace ApiApplication.Controllers
         /// Este servicio nos permite Agregar un pedido al carrito
         /// </summary>
         /// <param name="Vs_entrada"></param>
+        /// 
+        [Authorize]
         [HttpPost]
         [Route("api/Inicio/AgregarPedidoCarrito")]
         public string AgregarPedidoCarrito([FromBody] JObject Vs_entrada)

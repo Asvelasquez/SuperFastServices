@@ -8,6 +8,8 @@ namespace ApiApplication.Controllers
     /// <summary>
     /// Este metodo nos permite acceceder a los servicios del perfil
     /// </summary>
+    /// 
+
     [EnableCors("*", "*", "*")]
     [Route("api/[controller]")]
     public class PerfilController : ApiController{
@@ -16,7 +18,7 @@ namespace ApiApplication.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// 
-
+        [Authorize]
         [HttpGet]
         [Route("api/Perfil/Getmostrarperfil")]
         public UUsuario mostrarperfil(int id){
@@ -27,6 +29,8 @@ namespace ApiApplication.Controllers
         /// Este metodo Permite a cualquier usuario cambiar su informacion privada
         /// </summary>
         /// <param name="usuario"></param>
+        /// 
+        [Authorize]
         [HttpPost]
         [Route("api/Perfil/PostBTN_guardar")]
         public void BTN_guardar(UUsuario usuario){

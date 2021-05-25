@@ -63,6 +63,8 @@ namespace ApiApplication.Controllers{
         /// <summary>
         /// Mostrar Solicitud Aliado
         /// </summary>
+        /// 
+        [Authorize]
         [HttpGet]
         [Route("api/comunicacion/GetMostrarSolicitudAliado")]
         public List<UUsuario> GetMostrarSolicitudAliado()
@@ -72,6 +74,8 @@ namespace ApiApplication.Controllers{
         /// <summary>
         /// Mostrar Solicitud Domiciliario
         /// </summary>
+        /// 
+        [Authorize]
         [HttpGet]
         [Route("api/comununicacion/GetMostrarSolicitudDomiciliario")]
         public List<UUsuario> MostrarSolicitudDomiciliario()
@@ -81,6 +85,8 @@ namespace ApiApplication.Controllers{
         /// <summary>
         /// Mostrar Solicitud Aliado Rechazado
         /// </summary>
+        /// 
+        [Authorize]
         [HttpGet]
         [Route("api/comunicacion/GetMostrarSolicitudAliadoRechazado")]
         public List<UUsuario> MostrarSolicitudAliadoRechazado()
@@ -90,6 +96,8 @@ namespace ApiApplication.Controllers{
         /// <summary>
         /// Mostrar Solicitud Domiciliario Rechazado
         /// </summary>
+        /// 
+        [Authorize]
         [HttpGet]
         [Route("api/comunicacion/GetMostrarSolicitudDomiciliarioRechazado")]
         public List<UUsuario> MostrarSolicitudDomiciliarioRechazado()
@@ -99,6 +107,8 @@ namespace ApiApplication.Controllers{
         /// <summary>
         /// Mostrar Solicitud Aliado Aceptado
         /// </summary>
+        /// 
+        [Authorize]
         [HttpGet]
         [Route("api/comunicacion/GetMostrarSolicitudAliadoAceptado")]
         public List<UUsuario> MostrarSolicitudAliadoAceptado()
@@ -108,6 +118,8 @@ namespace ApiApplication.Controllers{
         /// <summary>
         /// Mostrar Solicitud Domiciliario Aceptado
         /// </summary>
+        /// 
+        [Authorize]
         [HttpGet]
         [Route("api/comunicacion/GetMostrarSolicitudDomiciliarioAceptado")]
         public List<UUsuario> MostrarSolicitudDomiciliarioAceptado()
@@ -121,6 +133,8 @@ namespace ApiApplication.Controllers{
         /// Mostrar productos aliados
         /// </summary>
         /// <param name="consulta"></param>
+        /// 
+
         [HttpPost]
         [Route("api/comunicacion/MostrarProducto")]
         public List<UProducto> PostMostrarProducto(UUsuario consulta)
@@ -131,6 +145,8 @@ namespace ApiApplication.Controllers{
         /// Mostrar productos desactivado aliados
         /// </summary>
         /// <param name="consulta"></param>
+        /// 
+        [Authorize]
         [HttpPost]
         [Route("api/comunicacion/PostMostrarProductoDesactivado")]
         public List<UProducto> MostrarProductoDesactivado(UUsuario consulta)
@@ -144,6 +160,8 @@ namespace ApiApplication.Controllers{
         /// Obtener Pedido Usuario
         /// </summary>
         /// <param name="usuariopedido"></param>
+        /// 
+        [Authorize]
         [HttpPost]
         [Route("api/comunicacion/PostObtenerPedidoUsuario")]
         public List<UPedido> ObtenerPedidoUsuario(UUsuario usuariopedido)
@@ -157,6 +175,7 @@ namespace ApiApplication.Controllers{
         /// <summary>
         /// Estado domicilio
         /// </summary>
+        /// 
         [HttpPost]
         [Route("api/comunicacion/EstadoDomicilios")]
         public List<Uestado_domicilio> PostEstadoDomicilios()
@@ -166,6 +185,8 @@ namespace ApiApplication.Controllers{
         /// <summary>
         /// Obtener Pedido Domiciliario
         /// </summary>
+        /// 
+        [Authorize]
         [HttpPost]
         [Route("api/comunicacion/ObtenerPedidoDomiciliario")]
         public List<UPedido> PostObtenerPedidoDomiciliario()
@@ -176,6 +197,8 @@ namespace ApiApplication.Controllers{
         ///  Obtener Mi Pedido Domiciliario
         /// </summary>
         /// <param name="usuario"></param>
+        /// 
+        [Authorize]
         [HttpPost]
         [Route("api/comunicacion/PostObtenerMiPedidoDomiciliario")]
         public List<UPedido> ObtenerMiPedidoDomiciliario(UUsuario usuario)
@@ -186,6 +209,8 @@ namespace ApiApplication.Controllers{
         ///  Obtener Mi Pedidos Entregados Domiciliario
         /// </summary>
         /// <param name="usuario"></param>
+        /// 
+        [Authorize]
         [HttpPost]
         [Route("api/comunicacion/PostObtenerMiPedidosEntregadosDomiciliario")]
         public List<UPedido> ObtenerMiPedidosEntregadosDomiciliario(UUsuario usuario)
@@ -231,6 +256,8 @@ namespace ApiApplication.Controllers{
         /// Obtener Compras Usuario
         /// </summary>
         /// <param name="usuariopedido"></param>
+        /// 
+        [Authorize]
         [HttpPost]
         [Route("api/comunicacion/PostObtenerComprasUsuario")]
         public List<UPedido> ObtenerComprasUsuario(UUsuario usuariopedido)
@@ -241,6 +268,8 @@ namespace ApiApplication.Controllers{
         /// Obtener Compras Usuario Entregado
         /// </summary>
         /// <param name="usuariopedido"></param>
+        /// 
+        [Authorize]
         [HttpPost]
         [Route("api/comunicacion/PostObtenerComprasUsuarioEntregado")]
         public List<UPedido> ObtenerComprasUsuarioEntregado(UUsuario usuariopedido)

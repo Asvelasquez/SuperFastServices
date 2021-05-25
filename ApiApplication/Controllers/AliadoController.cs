@@ -30,6 +30,7 @@ namespace ApiApplication.Controllers{
         /// <param name="Vs_entrada"></param>
         /// <returns></returns>
         /// 
+        [Authorize]
         [HttpPost]
         [Route("api/Aliado/PostLBTN_guardarproducto")]
         public string guardarproducto([FromBody] JObject Vs_entrada){
@@ -65,6 +66,7 @@ namespace ApiApplication.Controllers{
         /// 
 
         [HttpPost]
+        [Authorize]
         [Route("api/Aliado/PostLGV_Producto ")]
         public UProducto LGV_Producto([FromBody] JObject Vs_entrada){
             UProducto producto1 = new UProducto();           
@@ -73,11 +75,13 @@ namespace ApiApplication.Controllers{
             int idmostrar = producto1.Id;            
             return new LAliado().LGV_Producto(producto1, comandname, idmostrar).UmacUproducto1;
         }//
-        /// <summary>
-        /// Muestra un producto
-        /// </summary>
-        /// <param name="id3"></param>
-        /// <returns></returns>
+         /// <summary>
+         /// Muestra un producto
+         /// </summary>
+         /// <param name="id3"></param>
+         /// <returns></returns>
+         /// 
+        [Authorize]
         [HttpGet]
         [Route("api/Aliado/GetLmostrar")]
         public UProducto Lmostrar(int id3){
@@ -88,6 +92,8 @@ namespace ApiApplication.Controllers{
         /// Editar variables de un producto
         /// </summary>
         /// <param name="producto"></param>
+        /// 
+        [Authorize]
         [HttpPost]
         [Route("api/Aliado/PostLBTN_GuardarCambios")]
         public string LBTN_GuardarCambios(UProducto producto){
@@ -98,6 +104,8 @@ namespace ApiApplication.Controllers{
         /// </summary>
         /// <param name="Vs_entrada"></param>
         /// <returns></returns>
+        /// 
+        [Authorize]
         [HttpPost]
         [Route("api/Aliado/PostLGV_Productosdesactivado")]
         public UProducto LGV_Productosdesactivado([FromBody] JObject Vs_entrada){

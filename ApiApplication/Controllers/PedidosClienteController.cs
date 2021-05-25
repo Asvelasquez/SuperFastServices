@@ -21,6 +21,8 @@ namespace ApiApplication.Controllers{
         /// </summary>
         /// <param name="comandname"></param>
         /// /// <param name="Id_pedido"></param>
+        /// 
+        [Authorize]
         [HttpGet]
         [Route("api/PedidosCliente/GetLGV_pedidocarrito")]
         public void LGV_pedidocarrito(string comandname, string Id_pedido){
@@ -31,6 +33,8 @@ namespace ApiApplication.Controllers{
         /// Este metodo nos permite Al cliente hacer un comentario sobre el pedido
         /// </summary>
         /// <param name="Vs_entrada"></param>
+        /// 
+        [Authorize]
         [HttpPut]
         [Route("api/PedidosCliente/PutLGV_pedidocarrito0")]
         public void LGV_pedidocarrito0([FromBody] JObject Vs_entrada){
@@ -44,6 +48,8 @@ namespace ApiApplication.Controllers{
         /// <summary>
         /// Este metodo nos permite Al cliente Generar una factura
         /// </summary>
+        /// 
+        [Authorize]
         [HttpGet]
         [Route("api/PedidosCliente/GetLBTN_Generarfactura")]
         public string LBTN_Generarfactura(){

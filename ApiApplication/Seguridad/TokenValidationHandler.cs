@@ -87,7 +87,9 @@ namespace ApiApplication.Seguridad
         {
             if (expires != null)
             {
-                if (DateTime.Now < expires) return true;
+                DateTime expiresFecha = (DateTime)expires;
+                if (DateTime.Now < expiresFecha.AddHours(-5))
+                    return true;
             }
             return false;
         }

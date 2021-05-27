@@ -7,6 +7,7 @@ namespace LogicaNC
 
     public class LComunicacion
     {
+        private readonly Mapeo _context;
         //Inicio
         public List<UProducto> MostrarProductoInicio()
         {
@@ -30,32 +31,32 @@ namespace LogicaNC
         //administrador
         public List<UUsuario> MostrarSolicitudAliado()
         {
-            return new DAOUsuario().mostrarsolicitudaliado();
+            return new DAOUsuario(_context).mostrarsolicitudaliado();
         }
         
         public List<UUsuario> MostrarSolicitudDomiciliario()
         {
-            return new DAOUsuario().mostrarsolicituddomiciliario();
+            return new DAOUsuario(_context).mostrarsolicituddomiciliario();
         }
            
         public List<UUsuario> MostrarSolicitudAliadoRechazado()
         {
-            return new DAOUsuario().mostrarsolicitudaliadorechazado();
+            return new DAOUsuario(_context).mostrarsolicitudaliadorechazado();
         }
         
         public List<UUsuario> MostrarSolicitudDomiciliarioRechazado()
         {
-            return new DAOUsuario().mostrarsolicituddomiciliariorechazado();
+            return new DAOUsuario(_context).mostrarsolicituddomiciliariorechazado();
         }
         
         public List<UUsuario> MostrarSolicitudAliadoAceptado()
         {
-            return new DAOUsuario().mostrarsolicitudaliadoaceptado();
+            return new DAOUsuario(_context).mostrarsolicitudaliadoaceptado();
         }
         
         public List<UUsuario> MostrarSolicitudDomiciliarioAceptado()
         {
-            return new DAOUsuario().mostrarsolicituddomiciliarioaceptado();
+            return new DAOUsuario(_context).mostrarsolicituddomiciliarioaceptado();
         }
 
         //aliado 

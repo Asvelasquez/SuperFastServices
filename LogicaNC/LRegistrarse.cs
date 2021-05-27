@@ -3,10 +3,10 @@ using DataNC;
 namespace LogicaNC
 {
     public class LRegistrarse {
-
+        private readonly Mapeo _context;
         //
         public UUsuario LBT_Registrar(string correo){              
-                DAOUsuario dAOUsuario = new DAOUsuario();
+                DAOUsuario dAOUsuario = new DAOUsuario(_context);
             return dAOUsuario.getCorreoByregistrarse(correo); 
         }
         //
@@ -15,7 +15,7 @@ namespace LogicaNC
             
             
             
-            new DAOUsuario().insertUsuario(cliente1);
+            new DAOUsuario(_context).insertUsuario(cliente1);
 
         }
 

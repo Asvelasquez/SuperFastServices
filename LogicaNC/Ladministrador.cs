@@ -11,9 +11,10 @@ namespace LogicaNC
         //        {
         //            datos.Url = ("AccesoDenegado.aspx");
         //        }
-          
+
         //}
         //
+        private readonly Mapeo _context;
         public UMac LPage_Load(UUsuario usuario1){
             if (usuario1 != null){
                 if (usuario1.Id_rol != 4){
@@ -30,7 +31,7 @@ namespace LogicaNC
 
         public void LGV_domiciliariiosaprobar(UUsuario usuario3, string Lcorreo, string comandname){
              
-            DAOUsuario us = new DAOUsuario();
+            DAOUsuario us = new DAOUsuario(_context);
             UUsuario usuario1 = new UUsuario();
             UUsuario usuario2 = new UUsuario();
             usuario1.Id = usuario3.Id;
@@ -48,7 +49,7 @@ namespace LogicaNC
 
         public void LGV_aliadoaprobar(UUsuario usuario3, string Lcorreo, string comandname)
         {
-            DAOUsuario us = new DAOUsuario();
+            DAOUsuario us = new DAOUsuario(_context);
             UUsuario usuario1 = new UUsuario();
             usuario1.Id = usuario3.Id;
             if (comandname == "Aceptar") {
@@ -60,7 +61,7 @@ namespace LogicaNC
         //
         public void LGV_aliadorechazado(UUsuario usuario3, string Lcorreo, string comandname)
         {
-            DAOUsuario us = new DAOUsuario();
+            DAOUsuario us = new DAOUsuario(_context);
             UUsuario usuario1 = new UUsuario();
             usuario1.Id = usuario3.Id;
             if (comandname == "Aceptar"){
@@ -76,7 +77,7 @@ namespace LogicaNC
 
         public void LGV_domiciliariorechazado(UUsuario usuario3, string Lcorreo, string comandname)
         {
-            DAOUsuario us = new DAOUsuario();
+            DAOUsuario us = new DAOUsuario(_context);
             UUsuario usuario1 = new UUsuario();
             usuario1.Id = usuario3.Id;
             if (comandname == "Aceptar"){
@@ -88,7 +89,7 @@ namespace LogicaNC
         //
         public void LGV_solicitudaliadosaceptados(UUsuario usuario3, string Lcorreo, string comandname)
         {
-            DAOUsuario us = new DAOUsuario();
+            DAOUsuario us = new DAOUsuario(_context);
             UUsuario usuario1 = new UUsuario();
             usuario1.Id = usuario3.Id;
             if (comandname == "Rechazar"){
@@ -97,7 +98,7 @@ namespace LogicaNC
         }
         //
         public void LGV_domiciliariosaceptados(UUsuario usuario3, string Lcorreo, string comandname){
-            DAOUsuario us = new DAOUsuario();
+            DAOUsuario us = new DAOUsuario(_context);
             UUsuario usuario1 = new UUsuario();
             usuario1.Id = usuario3.Id;
             if (comandname == "Rechazar") { 

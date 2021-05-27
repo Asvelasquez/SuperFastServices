@@ -7,11 +7,13 @@ namespace LogicaNC
 {
     public class LCerrarSession
     {
+        private readonly Mapeo _context;
         public string Page_Load(int usuario1)
         {
+
             List<UToken_Seguridad> tokenSeguridadLista = new List<UToken_Seguridad>();
             UToken_Seguridad tokenSeguridad = new UToken_Seguridad();
-            DAOSeguridad daoSeguridad = new DAOSeguridad();
+            DAOSeguridad daoSeguridad = new DAOSeguridad(_context);
             tokenSeguridadLista = daoSeguridad.recorrerTokenSeguridad();
             string respuesta="";
             int count = 0;
@@ -27,7 +29,7 @@ namespace LogicaNC
                     if (item.UserId == usuario1)
                     {
                         count++;
-                        new DAOSeguridad().destruirToken(usuario1);
+                        new DAOSeguridad(_context).destruirToken(usuario1);
                         //  new DAOSeguridad().cerrarAcceso(usuario1);
                         respuesta = "session cerrada exitosamente";
                     }

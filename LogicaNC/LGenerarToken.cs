@@ -10,11 +10,12 @@ namespace LogicaNC
 {
     public class LGenerarToken{
         string respuesta;
+        private readonly Mapeo _context;
         public string LB_Recuperar(String TB_Correo){
-          UUsuario usuario = new DAOUsuario().getUserByUserName(TB_Correo);
+          UUsuario usuario = new DAOUsuario(_context).getUserByUserName(TB_Correo);
 
             if (usuario != null){
-                UToken validarToken = new DAOSeguridad().getTokenByUser(usuario.Id);
+                UToken validarToken = new DAOSeguridad(_context).getTokenByUser(usuario.Id);
                 //if (validarToken != null)
                 //{
                 //    L_Mensaje.Text = "Ya extsite un token, por favor verifique su correo.";
@@ -31,9 +32,9 @@ namespace LogicaNC
                 token.User_id = usuario.Id;
                 token.Vigencia = DateTime.Now.AddHours(1);
                 token.Tokeng = encriptar(JsonConvert.SerializeObject(token));
-                new DAOSeguridad().insertarToken(token);
+                new DAOSeguridad(_context).insertarToken(token);
                 Correo correo = new Correo();
-                new DAOUsuario().getCorreoByCorreos(usuario.Correo);
+                new DAOUsuario(_context).getCorreoByCorreos(usuario.Correo);
                 String mensaje = "su link de acceso es: " + "http://localhost:56248/View/RecuperarContrasenia.aspx?" + token.Tokeng;
                 correo.enviarCorreo(usuario.Correo, token.Tokeng, mensaje);
                 respuesta= "Su nueva contraseña ha sido enviada a su correo";
@@ -61,22 +62,22 @@ namespace LogicaNC
         //
         public UUsuario LB_Recuperar2(String TB_Correo)
         {
-            return  new DAOUsuario().getUserByUserName(TB_Correo);
+            return  new DAOUsuario(_context).getUserByUserName(TB_Correo);
 
 
         }
         //
         public UToken LB_Recuperar3(UUsuario usuario)
         {
-            return new DAOSeguridad().getTokenByUser(usuario.Id);
+            return new DAOSeguridad(_context).getTokenByUser(usuario.Id);
         }
         public  void  LB_Recuperar4(UToken token)
         {
-             new DAOSeguridad().insertarToken(token);
+             new DAOSeguridad(_context).insertarToken(token);
         }
         public void LB_Recuperar5(UUsuario usuario)
         {
-            new DAOUsuario().getCorreoByCorreos(usuario.Correo);
+            new DAOUsuario(_context).getCorreoByCorreos(usuario.Correo);
         }
     }
 }

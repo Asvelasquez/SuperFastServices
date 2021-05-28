@@ -53,7 +53,8 @@ namespace Data
                               Fecha = m.ped.Fecha,
                               Valor_total = m.ped.Valor_total,
                               Nombre_estado_domicilio = m.ed.Nombre,
-                              Nombre_aliado = m.aliado.Nombre
+                              Nombre_aliado = m.aliado.Nombre,
+                             
 
                           }).ToList();
             }
@@ -87,7 +88,8 @@ namespace Data
                             V_unitario = m.dp.V_unitario,
                             V_total = m.dp.V_total,
                             Nombreprodet = m.p.Nombre_producto,
-                            Especprodaliado = m.p.Descripcion_producto
+                            Especprodaliado = m.p.Descripcion_producto,
+                           Imagen_producto1 = m.p.Imagen_producto1
                         }).ToList();
             }
         }

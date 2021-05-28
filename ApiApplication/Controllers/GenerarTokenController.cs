@@ -19,7 +19,7 @@ namespace ApiApplication.Controllers
         [Route("api/GenerarToken/PostLB_Recuperar")]
         public string LB_Recuperar(string TB_Correo)
         {
-            return new LGenerarToken().LB_Recuperar(TB_Correo);
+            return new LGenerarToken().LB_Recuperar3(TB_Correo);
         }
 
 

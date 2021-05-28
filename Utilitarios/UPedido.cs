@@ -35,6 +35,7 @@ namespace Utilitarios
         private string direccion_cliente;
         private string telefono_cliente;
 
+
         [Key]
         [Column("id_pedido")]
         public int Id_pedido { get => id_pedido; set => id_pedido = value; }
@@ -83,5 +84,6 @@ namespace Utilitarios
         public string Direccion_cliente { get => direccion_cliente; set => direccion_cliente = value; }
         [NotMapped]
         public string Telefono_cliente { get => telefono_cliente; set => telefono_cliente = value; }
+
     }
 }

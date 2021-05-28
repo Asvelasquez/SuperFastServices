@@ -22,7 +22,6 @@ namespace ApiApplication.Controllers
         /// </summary>
         /// <param name="usuario1"></param>
         /// 
-        [Authorize]
         [HttpPost]
         [Route("api/CerrarSession/PostPage_Load")]
         public string Page_Load(int usuario1){

@@ -24,6 +24,8 @@ namespace Utilitarios
         private List<UPedido> compras1;
         private int idpedido;
         private string nombre_aliado;
+        private string Imagen_producto;
+
         [Key]
         [Column("id_dpedido")]
         public int Id_dpedido { get => id_dpedido; set => id_dpedido = value; }
@@ -56,5 +58,10 @@ namespace Utilitarios
         public int Idpedido { get => idpedido; set => idpedido = value; }
         [NotMapped]
         public string Nombre_aliado { get => nombre_aliado; set => nombre_aliado = value; }
+
+        [NotMapped]
+        public string Imagen_producto1 { get => Imagen_producto; set => Imagen_producto = value; }
+
+      
     }
 }

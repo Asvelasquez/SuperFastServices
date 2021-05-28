@@ -24,9 +24,42 @@ namespace ApiApplication.Controllers{
         /// 
         [Authorize]
         [HttpGet]
-        [Route("api/PedidosCliente/GetLGV_pedidocarrito")]
-        public void LGV_pedidocarrito(string comandname, string Id_pedido){
-            new LPedidosCliente().LGV_pedidocarrito(comandname, Id_pedido);
+        [Route("api/PedidosCliente/GetCancelarPedidoCliente")]
+        public IHttpActionResult CancelarPedidoCliente(string comandname, string Id_pedido){
+
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    string error = "Datos incorrectos.";
+                    foreach (var state in ModelState)
+                    {
+                        foreach (var item in state.Value.Errors)
+                        {
+                            error += $" {item.ErrorMessage}";
+                        }
+                    }
+                    return BadRequest(error);
+                }
+               
+             
+                if (String.IsNullOrEmpty(Id_pedido) || String.IsNullOrEmpty(comandname) )
+                {
+                    return BadRequest("Alguna de las variables requeridas viene vacia o null, intentelo de nuevo");
+                }
+                else
+                {
+                    new LPedidosCliente().LGV_pedidocarrito(comandname, Id_pedido);
+                    return Ok("pedido cancelado");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("hay un problema interno: " + ex.StackTrace);
+            }
+
+            
         }
         //
         /// <summary>

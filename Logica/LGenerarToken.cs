@@ -47,6 +47,32 @@ namespace Logica
             return respuesta;
         }
         //
+        public string LB_Recuperar3(String TB_Correo)
+        {
+            string mensaje;
+            UUsuario usuario = new DAOUsuario().getUserByUserName(TB_Correo);
+            
+            
+                UToken validarToken = new DAOSeguridad().getTokenByUser(usuario.Id);
+             
+                UToken token = new UToken();
+                token.Creado = DateTime.Now;
+                token.User_id = usuario.Id;
+                token.Vigencia = DateTime.Now.AddHours(1);
+                token.Tokeng = encriptar(JsonConvert.SerializeObject(token));
+                new DAOSeguridad().insertarToken(token);
+                Correo correo = new Correo();
+                new DAOUsuario().getCorreoByCorreos(usuario.Correo);
+                 mensaje = token.Tokeng;
+                correo.enviarCorreo(usuario.Correo, token.Tokeng, mensaje);
+                respuesta = "Su nueva contraseña ha sido enviada a su correo";
+                //}
+           
+            return mensaje;
+        }
+
+
+        //
         private string encriptar(string input)
         {
             SHA256CryptoServiceProvider provider = new SHA256CryptoServiceProvider();

@@ -69,9 +69,7 @@ namespace Data
             {
 
                 return new Mapeo().token_seguridad.OrderBy(X =>X.Id).ToList<UToken_Seguridad>();
-            }
-
-            
+            }  
         }
         public UToken getTokenByUser(int userId)
         {
@@ -117,5 +115,19 @@ namespace Data
                         }).FirstOrDefault();
             }
         }
+        //
+
+        public UToken BusquedaToken(string token)
+        {
+            using (var db = new Mapeo())
+            {
+
+                return new Mapeo().token.Where(X => X.Tokeng==token).FirstOrDefault();
+            }
+        }
+        //
+
+
+
     }
     }

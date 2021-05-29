@@ -25,7 +25,7 @@ namespace ApiApplication.Controllers{
         //}
 
         /// <summary>
-        /// Editar o activar un producto
+        /// Guardar un producto
         /// </summary>
         /// <param name="Vs_entrada"></param>
         /// <returns></returns>
@@ -35,45 +35,60 @@ namespace ApiApplication.Controllers{
         [Route("api/Aliado/PostLBTN_guardarproducto")]
         public string guardarproducto([FromBody] JObject Vs_entrada){
 
-            JToken imagen = Vs_entrada["Imagen_producto"].ToString();
-            List<byte> listadebytes = new List<byte>();
-            foreach (JToken bite in imagen){
-                listadebytes.Add(byte.Parse(bite.ToString()));
-            }
+            try{
+                if (!ModelState.IsValid){
+                    string error = "Datos incorrectos.";
+                    foreach (var state in ModelState){
+                        foreach (var item in state.Value.Errors){
+                            error += $" {item.ErrorMessage}";
+                        }
+                    }
+                    return error;
+                }
+
+                JToken imagen = Vs_entrada["Imagen_producto"].ToString();
+                List<byte> listadebytes = new List<byte>();
+                foreach (JToken bite in imagen)
+                {
+                    listadebytes.Add(byte.Parse(bite.ToString()));
+                }
                 byte[] Foto_producto = listadebytes.ToArray();
-            string Nombre_producto = Vs_entrada["Nombre_Producto"].ToString() + DateTime.Now;
-            string direccion = "~\\Aliado\\imagenesproducto" + "\\" + Nombre_producto;
-            string extension = Vs_entrada["extension"].ToString();
-            UProducto producto = new UProducto();
-            producto.Nombre_producto= Vs_entrada["Nombre_Producto"].ToString();
-            producto.Descripcion_producto = Vs_entrada["Descripcion_producto"].ToString();
-            producto.Imagen_producto1 = direccion;
-            producto.Precio_producto = double.Parse(Vs_entrada["Precio_producto"].ToString());
-            producto.Estado_producto = 1;
-            producto.Id_aliado= int.Parse(Vs_entrada["Id"].ToString());
+                string Nombre_producto = Vs_entrada["Nombre_Producto"].ToString() + DateTime.Now;
+                string direccion = "~\\Aliado\\imagenesproducto" + "\\" + Nombre_producto;
+                string extension = Vs_entrada["extension"].ToString();
+                UProducto producto = new UProducto();
+                producto.Nombre_producto = Vs_entrada["Nombre_Producto"].ToString();
+                producto.Descripcion_producto = Vs_entrada["Descripcion_producto"].ToString();
+                producto.Imagen_producto1 = direccion;
+                producto.Precio_producto = double.Parse(Vs_entrada["Precio_producto"].ToString());
+                producto.Estado_producto = 1;
+                producto.Id_aliado = int.Parse(Vs_entrada["Id"].ToString());
 
-           
-            return new LAliado().LBTN_guardarproducto(Foto_producto,producto, extension, direccion);
-        }
-
-
-
+                return new LAliado().LBTN_guardarproducto(Foto_producto, producto, extension, direccion);
+            }catch (Exception ex){
+                return "hay un problema interno: " + ex.StackTrace;
+            }
+        }               
         /// <summary>
         /// Editar o activar un producto
         /// </summary>
         /// <param name="Vs_entrada"></param>
         /// <returns></returns>
         /// 
-
         [HttpPost]
         [Authorize]
         [Route("api/Aliado/PostCambiarOEditarProductos")]
         public UProducto PostCambiarOEditarProductos([FromBody] JObject Vs_entrada){
-            UProducto producto1 = new UProducto();           
-            producto1.Id = int.Parse(Vs_entrada["Id"].ToString());
-            String comandname = Vs_entrada["comandname"].ToString();
-            int idmostrar = producto1.Id;            
-            return new LAliado().LGV_Producto(producto1, comandname, idmostrar).UmacUproducto1;
+            try
+            {
+                UProducto producto1 = new UProducto();
+                producto1.Id = int.Parse(Vs_entrada["Id"].ToString());
+                String comandname = Vs_entrada["comandname"].ToString();
+                int idmostrar = producto1.Id;
+                return new LAliado().LGV_Producto(producto1, comandname, idmostrar).UmacUproducto1;
+            }
+            catch (Exception ex){
+              return ; }
         }//
 
          /// <summary>

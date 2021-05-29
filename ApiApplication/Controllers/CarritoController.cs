@@ -76,7 +76,7 @@ namespace ApiApplication.Controllers
         /// 
         [Authorize]
         [HttpPut]
-        [Route("api/Carrito/Put/ComprarProductosCarrito")]
+        [Route("api/Carrito/ComprarProductosCarrito")]
         public IHttpActionResult ComprarProductosCarrito([FromBody]JObject Vs_entrada)
         {
             try

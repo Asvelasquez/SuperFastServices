@@ -63,9 +63,9 @@ namespace Logica
                 new DAOSeguridad().insertarToken(token);
                 Correo correo = new Correo();
                 new DAOUsuario().getCorreoByCorreos(usuario.Correo);
-                 mensaje = token.Tokeng;
+                 mensaje ="el token es "+ token.Tokeng;
                 correo.enviarCorreo(usuario.Correo, token.Tokeng, mensaje);
-                respuesta = "Su nueva contraseña ha sido enviada a su correo";
+                respuesta = "Su nueva contraseña ha sido enviada a su correo"+ token.Tokeng; ;
                 //}
            
             return mensaje;

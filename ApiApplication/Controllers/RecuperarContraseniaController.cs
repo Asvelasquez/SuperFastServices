@@ -16,26 +16,12 @@ namespace ApiApplication.Controllers{
     [EnableCors("*", "*", "*")]
     [Route("api/[controller]")]
     public class RecuperarContraseniaController : ApiController{
+      
         /// <summary>
-        /// Este metodo Permite comparar las contraseñas
+        /// 
         /// </summary>
-        /// <param name="usuario"></param>
-        [HttpPost]
-        [Route("api/RecuperarContrasenia/PostLB_Cambiar1")]
-        public UUsuario LB_Cambiar1(UUsuario usuario){
-            return new LRecuperarContrasenia().LB_Cambiar1(usuario);
-         }
-        //
-        /// <summary>
-        /// Este metodo Permite actualizar la contraseña
-        /// </summary>
-        /// <param name="usuario"></param>
-        [HttpPost]
-        [Route("api/RecuperarContrasenia/PostLB_Cambiar2")]
-        public void LB_Cambiar2(UUsuario usuario){
-            new LRecuperarContrasenia().LB_Cambiar2(usuario);
-        }
-        //
+        /// <param name="Vs_entrada"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("api/RecuperarContrasenia/RepContra")]
         public string RecuperarContrasenia([FromBody]JObject Vs_entrada)

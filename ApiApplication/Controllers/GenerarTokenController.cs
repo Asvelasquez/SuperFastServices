@@ -14,13 +14,15 @@ namespace ApiApplication.Controllers
         /// <summary>
         /// Este metodo nos permite Generar un token para recuperar la coontraseña
         /// </summary>
-        /// <param name="TB_Correo"></param>
+        /// <param name="correo"></param>
         [HttpGet]
-        [Route("api/GenerarToken/PostLB_Recuperar")]
-        public string LB_Recuperar(string TB_Correo)
+        [Route("api/GenerarToken/GetGenerarToken")]
+        public string GenerarToken(string correo)
         {
-            return new LGenerarToken().LB_Recuperar3(TB_Correo);
+            return new LGenerarToken().LB_Recuperar3(correo);
         }
+
+
 
 
 

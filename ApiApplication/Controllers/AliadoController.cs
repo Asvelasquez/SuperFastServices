@@ -67,14 +67,15 @@ namespace ApiApplication.Controllers{
 
         [HttpPost]
         [Authorize]
-        [Route("api/Aliado/PostLGV_Producto ")]
-        public UProducto LGV_Producto([FromBody] JObject Vs_entrada){
+        [Route("api/Aliado/PostCambiarOEditarProductos")]
+        public UProducto PostCambiarOEditarProductos([FromBody] JObject Vs_entrada){
             UProducto producto1 = new UProducto();           
             producto1.Id = int.Parse(Vs_entrada["Id"].ToString());
             String comandname = Vs_entrada["comandname"].ToString();
             int idmostrar = producto1.Id;            
             return new LAliado().LGV_Producto(producto1, comandname, idmostrar).UmacUproducto1;
         }//
+
          /// <summary>
          /// Muestra un producto
          /// </summary>

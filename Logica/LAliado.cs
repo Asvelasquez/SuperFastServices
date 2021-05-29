@@ -88,11 +88,5 @@ namespace Logica{
             }
             return datos;
         }
-        //
-        //public UMac PLoad()
-        //{
-
-        //    UMac datos = new UMac();
-        //    datos.Url = "hol";
     }
 }

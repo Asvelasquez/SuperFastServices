@@ -79,16 +79,17 @@ namespace ApiApplication.Controllers{
         [Authorize]
         [Route("api/Aliado/PostCambiarOEditarProductos")]
         public UProducto PostCambiarOEditarProductos([FromBody] JObject Vs_entrada){
-            try
-            {
-                UProducto producto1 = new UProducto();
-                producto1.Id = int.Parse(Vs_entrada["Id"].ToString());
-                String comandname = Vs_entrada["comandname"].ToString();
-                int idmostrar = producto1.Id;
-                return new LAliado().LGV_Producto(producto1, comandname, idmostrar).UmacUproducto1;
-            }
-            catch (Exception ex){
-              return ; }
+            //try
+            //{
+            UProducto producto1 = new UProducto();
+            producto1.Id = int.Parse(Vs_entrada["Id"].ToString());
+            String comandname = Vs_entrada["comandname"].ToString();
+            int idmostrar = producto1.Id;
+            return new LAliado().LGV_Producto(producto1, comandname, idmostrar).UmacUproducto1;
+            //}
+            //catch (Exception ex){
+            //    return;
+            //}
         }//
 
          /// <summary>

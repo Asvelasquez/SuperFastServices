@@ -161,7 +161,9 @@ namespace Data
                             V_unitario = m.dp.V_unitario,
                             V_total = m.dp.V_total,
                             Nombreprodet = m.p.Nombre_producto,
-                            Especprodaliado = m.p.Descripcion_producto
+                            Especprodaliado = m.p.Descripcion_producto,
+                            Imagen_producto1=m.p.Imagen_producto1
+                            
                         }).ToList();
             }
         }

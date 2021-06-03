@@ -34,8 +34,21 @@ namespace ApiApplication.Controllers{
         /// <param name="acceso"></param>
         [HttpPost]
         [Route("api/user/PostInsertarAcceso")]
-        public void InsertarAcceso(UAcceso acceso){
-            new LUser().InsertarAcceso(acceso);
+        public IHttpActionResult InsertarAcceso(UAcceso acceso){
+            try
+            {
+                if (acceso==null){
+                    return BadRequest("Alguna de las variables requeridas viene vacia o null, intentelo de nuevo");
+                }
+                else{
+                    new LUser().InsertarAcceso(acceso);
+                    return Ok();
+                }
+            }
+            catch (Exception ex){
+                return BadRequest("hay un problema interno: " + ex.StackTrace);
+            }
+            
         }
 
 
@@ -85,9 +98,18 @@ namespace ApiApplication.Controllers{
         //revisar
         [HttpPost]
         [Route("api/user/PostguardarToken")]
-        public void guardarToken(UToken_Seguridad token_seguridad)
-        {
-             new LUser().guardarToken(token_seguridad);
+        public IHttpActionResult guardarToken(UToken_Seguridad token_seguridad){
+            try{
+                if (token_seguridad == null){
+                    return BadRequest("Alguna de las variables requeridas viene vacia o null, intentelo de nuevo");
+                }else{
+                    new LUser().guardarToken(token_seguridad);
+                    return Ok();
+                }
+            }catch (Exception ex){
+                return BadRequest("hay un problema interno: " + ex.StackTrace);
+            }
+             
         }
 
         //[HttpPost]

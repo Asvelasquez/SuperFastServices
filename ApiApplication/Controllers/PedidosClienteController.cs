@@ -26,36 +26,23 @@ namespace ApiApplication.Controllers{
         [HttpGet]
         [Route("api/PedidosCliente/GetCancelarPedidoCliente")]
         public IHttpActionResult CancelarPedidoCliente(string comandname, string Id_pedido){
-
-            try
-            {
-                if (!ModelState.IsValid)
-                {
+            try {
+                if (!ModelState.IsValid){
                     string error = "Datos incorrectos.";
-                    foreach (var state in ModelState)
-                    {
-                        foreach (var item in state.Value.Errors)
-                        {
+                    foreach (var state in ModelState){
+                        foreach (var item in state.Value.Errors){
                             error += $" {item.ErrorMessage}";
                         }
                     }
                     return BadRequest(error);
-                }
-               
-             
-                if (String.IsNullOrEmpty(Id_pedido) || String.IsNullOrEmpty(comandname) )
-                {
+                }  
+                if (String.IsNullOrEmpty(Id_pedido) || String.IsNullOrEmpty(comandname) ){
                     return BadRequest("Alguna de las variables requeridas viene vacia o null, intentelo de nuevo");
-                }
-                else
-                {
+                }else{
                     new LPedidosCliente().LGV_pedidocarrito(comandname, Id_pedido);
                     return Ok("pedido cancelado");
                 }
-
-            }
-            catch (Exception ex)
-            {
+            }catch (Exception ex){
                 return BadRequest("hay un problema interno: " + ex.StackTrace);
             }
 
@@ -70,25 +57,34 @@ namespace ApiApplication.Controllers{
         [Authorize]
         [HttpPut]
         [Route("api/PedidosCliente/PutLGV_pedidocarrito0")]
-        public void LGV_pedidocarrito0([FromBody] JObject Vs_entrada){
-            UPedido pedido = new UPedido();
-            pedido.Id_pedido= int.Parse(Vs_entrada["Id_pedido"].ToString());
-            pedido.Comentario_cliente = Vs_entrada["Comentario_cliente"].ToString();
-            string comandname = Vs_entrada["comandname"].ToString();
-            new LPedidosCliente().LGV_pedidocarrito0(comandname,pedido);
-        }
-        //
-        /// <summary>
-        /// Este metodo nos permite Al cliente Generar una factura
-        /// </summary>
-        /// 
-        [Authorize]
-        [HttpGet]
-        [Route("api/PedidosCliente/GetLBTN_Generarfactura")]
-        public string LBTN_Generarfactura(){
+        public IHttpActionResult LGV_pedidocarrito0([FromBody] JObject Vs_entrada){
 
-            return "Reportes.aspx";
+            try {
+                if (!ModelState.IsValid){
+                    string error = "Datos incorrectos.";
+                    foreach (var state in ModelState){
+                        foreach (var item in state.Value.Errors){
+                            error += $" {item.ErrorMessage}";
+                        }
+                    }
+                    return BadRequest(error);
+                }
+                UPedido pedido = new UPedido();
+                pedido.Id_pedido = int.Parse(Vs_entrada["Id_pedido"].ToString());
+                pedido.Comentario_cliente = Vs_entrada["Comentario_cliente"].ToString();
+                string comandname = Vs_entrada["comandname"].ToString();
+                if (pedido==null || String.IsNullOrEmpty(comandname)){
+                    return BadRequest("Alguna de las variables requeridas viene vacia o null, intentelo de nuevo");
+                }else{
+                    new LPedidosCliente().LGV_pedidocarrito0(comandname, pedido);
+                    return Ok("Comentario guardado");
+                }                    
+            } catch (Exception ex){
+                return BadRequest("hay un problema interno: " + ex.StackTrace);
+            }
+
         }
+     
         //
     }
 }

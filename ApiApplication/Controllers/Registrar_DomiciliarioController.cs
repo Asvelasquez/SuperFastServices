@@ -7,6 +7,7 @@ using System.Web.Http;
 using Utilitarios;
 using Logica;
 using System.Web.Http.Cors;
+using Newtonsoft.Json.Linq;
 
 namespace ApiApplication.Controllers{
     /// <summary>
@@ -15,24 +16,40 @@ namespace ApiApplication.Controllers{
     [EnableCors("*", "*", "*")]
     [Route("api/[controller]")]
     public class Registrar_DomiciliarioController : ApiController{
-        /// <summary>
-        /// Este metodo Permite comparar el correo de registro con lo de la base de datos
-        /// </summary>
-        /// <param name="correo"></param>
-        [HttpGet]
-        [Route("api/Registrar_Domiciliario/GetLBTND_registrar")]
-        public void LBTND_registrar(string correo){
-            new Lregistar_domiciliario().LBTND_registrar(correo);
-        }
         //
         /// <summary>
         /// Este metodo Permite registrar un usuario tipo domiciliario
         /// </summary>
-        /// <param name="usuario"></param>
+        /// <param name="Vs_entrada"></param>
         [HttpGet]
         [Route("api/Registrar_Domiciliario/GetRegitrar_domiciliario")]
-        public void Regitrar_domiciliario(UUsuario usuario){
-           new Lregistar_domiciliario().LBTND_registrar1(usuario);
+        public string Regitrar_domiciliario([FromBody] JObject Vs_entrada){
+            string correo;
+            try{
+                correo = Vs_entrada["correo"].ToString();
+                UUsuario validarUsuario = new LRegistrarse().LBT_Registrar(correo);
+                if (validarUsuario != null){
+                    return "correo registrado,ingrese uno diferente";
+                }else{
+                    UUsuario usuario = new UUsuario();
+                    usuario.Nombre = Vs_entrada["nombre"].ToString();
+                    usuario.Apellido = Vs_entrada["apellido"].ToString();
+                    usuario.Correo = Vs_entrada["correo"].ToString();
+                    usuario.Contrasenia = Vs_entrada["contrasenia"].ToString();
+                    usuario.Documento = Vs_entrada["documento"].ToString();
+                    usuario.Telefono = Vs_entrada["telefono"].ToString();
+                    usuario.Hojavida = Vs_entrada["hojavida"].ToString();
+                    usuario.Tipovehiculo = Vs_entrada["tipovehiculo"].ToString();
+                    usuario.Id_rol = int.Parse(Vs_entrada["id_rol"].ToString());
+                    usuario.Aprobacion = int.Parse(Vs_entrada["aprobacion"].ToString());
+                    usuario.Auditoria = Vs_entrada["nombre"].ToString();
+                    new Lregistar_domiciliario().LBTND_registrar1(usuario);
+                    return "registro exitoso";
+                }
+            }catch (Exception ex){
+                return "hay un problema interno: " + ex.StackTrace;
+            }
+            
         }
         //
 

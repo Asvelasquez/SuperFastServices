@@ -2,6 +2,7 @@
 using Utilitarios;
 using Logica;
 using System.Web.Http.Cors;
+using System;
 
 namespace ApiApplication.Controllers
 {
@@ -22,7 +23,13 @@ namespace ApiApplication.Controllers
         [HttpGet]
         [Route("api/Perfil/Getmostrarperfil")]
         public UUsuario mostrarperfil(int id){
-            return new LPerfil().mostrar(id);
+            UUsuario usuario = new UUsuario();
+            try{
+                if (id!=0){
+                    usuario = new LPerfil().mostrar(id);
+                }                
+            }catch{}
+            return usuario;
         }
         //
         /// <summary>
@@ -33,8 +40,28 @@ namespace ApiApplication.Controllers
         [Authorize]
         [HttpPost]
         [Route("api/Perfil/PostBTN_guardar")]
-        public void BTN_guardar(UUsuario usuario){
-            new LPerfil().BTN_guardar(usuario);
+        public IHttpActionResult BTN_guardar(UUsuario usuario){
+            try {
+                if (!ModelState.IsValid){
+                    string error = "Datos incorrectos.";
+                    foreach (var state in ModelState){
+                        foreach (var item in state.Value.Errors){
+                            error += $" {item.ErrorMessage}";
+                        }
+                    }
+                    return BadRequest(error);
+                }
+
+                if (usuario == null){
+                    return BadRequest("Alguna de las variables requeridas viene vacia o null, intentelo de nuevo");
+                }else{
+                    new LPerfil().BTN_guardar(usuario);
+                    return Ok("Comentario guardado");
+                }
+            } catch (Exception ex) {
+                return BadRequest("hay un problema interno: " + ex.StackTrace);
+            }
+            
         }
         //
     }

@@ -20,9 +20,15 @@ namespace ApiApplication.Controllers{
         /// <param name="correo"></param>
         [HttpGet]
         [Route("api/Registrar_aliado/GetLBTN_registrar")]
-        public UUsuario LBTN_registrar(string correo)
-        {
-            return new LRegistrar_aliado().LBTN_registrar(correo);
+        public UUsuario LBTN_registrar(string correo){
+            UUsuario usuario = new UUsuario();
+            try{
+                if (correo!=null){
+                    usuario = new LRegistrar_aliado().LBTN_registrar(correo);
+                }
+            }
+            catch { }
+            return usuario;
         }
         /// <summary>
         /// Este metodo Permite Registrar a un usuario tipo aliado
@@ -30,10 +36,20 @@ namespace ApiApplication.Controllers{
         /// <param name="aliado1"></param>
         [HttpPost]
         [Route("api/Registrar_aliado/PostLBTN_registrar1")]
-        public void LBTN_registrar1(UUsuario aliado1)
-        {
-            new LRegistrar_aliado().LBTN_registrar1(aliado1);
+        public IHttpActionResult LBTN_registrar1(UUsuario aliado1){
+            try{                
+                if (aliado1 != null) {
+                    new LRegistrar_aliado().LBTN_registrar1(aliado1);
+                    return Ok("Registro exitoso");
+                }else{
+                    return BadRequest("hay un problema interno");
+                }               
+            }catch(Exception ex){
+                return BadRequest("hay un problema interno: " + ex.StackTrace);
+            }
+            
         }
+        //
 
     }
 }

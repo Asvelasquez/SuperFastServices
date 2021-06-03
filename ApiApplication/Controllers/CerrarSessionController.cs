@@ -24,8 +24,39 @@ namespace ApiApplication.Controllers
         /// 
         [HttpPost]
         [Route("api/CerrarSession/PostPage_Load")]
-        public string Page_Load(int usuario1){
-           return new LCerrarSession().Page_Load(usuario1);
+        public IHttpActionResult Page_Load(int usuario1){
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    string error = "Datos incorrectos.";
+                    foreach (var state in ModelState)
+                    {
+                        foreach (var item in state.Value.Errors)
+                        {
+                            error += $" {item.ErrorMessage}";
+                        }
+                    }
+                    return BadRequest(error);
+                }
+
+
+                if (usuario1 != 0)
+                {
+                    return BadRequest("Alguna de las variables requeridas viene vacia o null, intentelo de nuevo");
+                }
+                else
+                {
+
+                    return Ok(new LCerrarSession().Page_Load(usuario1));
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("hay un problema interno: " + ex.StackTrace);
+            }
+
 
         }
     }

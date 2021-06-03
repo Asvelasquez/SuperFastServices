@@ -24,9 +24,39 @@ namespace ApiApplication.Controllers
         /// <param name="usuario1"></param>
         [HttpGet]
         [Route("api/Carrito/GetLPage_Load")]
-        public string LPage_Load(UUsuario usuario1)
+        public IHttpActionResult LPage_Load(UUsuario usuario1)
         {
-            return new LCarrito().LPage_Load(usuario1).Url;
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    string error = "Datos incorrectos.";
+                    foreach (var state in ModelState)
+                    {
+                        foreach (var item in state.Value.Errors)
+                        {
+                            error += $" {item.ErrorMessage}";
+                        }
+                    }
+                    return BadRequest(error);
+                }
+             
+                if (usuario1==null)
+                {
+                    return BadRequest("Alguna de las variables requeridas viene vacia o null, intentelo de nuevo");
+                }
+                else
+                {
+                   
+                    return Ok(new LCarrito().LPage_Load(usuario1).Url);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("hay un problema interno: " + ex.StackTrace);
+            }
+            
         }
         /// <summary>
         /// permite Cancelar un pedido
@@ -36,12 +66,42 @@ namespace ApiApplication.Controllers
         [Authorize]
         [HttpPut]
         [Route("api/Carrito/PutLGV_pedidocarrito")]
-        public string LGV_pedidocarrito([FromBody]JObject Vs_entrada)
+        public IHttpActionResult LGV_pedidocarrito([FromBody]JObject Vs_entrada)
         {
-            UPedido pedido2 = new UPedido();
-            pedido2.Id_pedido = int.Parse(Vs_entrada["Id_pedido"].ToString());
-            String comandname = Vs_entrada["comandname"].ToString();
-            return new LCarrito().LGV_pedidocarrito(pedido2, comandname).Url;
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    string error = "Datos incorrectos.";
+                    foreach (var state in ModelState)
+                    {
+                        foreach (var item in state.Value.Errors)
+                        {
+                            error += $" {item.ErrorMessage}";
+                        }
+                    }
+                    return BadRequest(error);
+                }
+                UPedido pedido2 = new UPedido();
+                pedido2.Id_pedido = int.Parse(Vs_entrada["Id_pedido"].ToString());
+                String comandname = Vs_entrada["comandname"].ToString();
+                if (Vs_entrada == null)
+                {
+                    return BadRequest("Alguna de las variables requeridas viene vacia o null, intentelo de nuevo");
+                }
+                else
+                {
+
+                    return Ok(new LCarrito().LGV_pedidocarrito(pedido2, comandname).Url);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("hay un problema interno: " + ex.StackTrace);
+            }
+           
+         
         }
 
 
@@ -53,9 +113,41 @@ namespace ApiApplication.Controllers
         [Authorize]
         [HttpGet]
         [Route("api/Carrito/GetLmostrarpreciototal20")]
-        public string Lmostrarpreciototal20(int idusuario)
+        public IHttpActionResult Lmostrarpreciototal20(int idusuario)
         {
-          return  new LCarrito().Lmostrarpreciototal20(idusuario);
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    string error = "Datos incorrectos.";
+                    foreach (var state in ModelState)
+                    {
+                        foreach (var item in state.Value.Errors)
+                        {
+                            error += $" {item.ErrorMessage}";
+                        }
+                    }
+                    return BadRequest(error);
+                }
+              
+                if (idusuario !=0)
+                {
+                    return BadRequest("Alguna de las variables requeridas viene vacia o null, intentelo de nuevo");
+                }
+                else
+                {
+
+                    return Ok(new LCarrito().Lmostrarpreciototal20(idusuario));
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("hay un problema interno: " + ex.StackTrace);
+            }
+
+
+           
         }
         /// <summary>
         /// permite ver el precio total del domicilios
@@ -65,9 +157,39 @@ namespace ApiApplication.Controllers
         [Authorize]
         [HttpGet]
         [Route("api/Carrito/GetLmostrarpreciodomicilio")]
-        public string Lmostrarpreciodomicilio(int idusuario)
+        public IHttpActionResult Lmostrarpreciodomicilio(int idusuario)
         {
-            return new LCarrito().Lmostrarpreciodomicilio(idusuario);
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    string error = "Datos incorrectos.";
+                    foreach (var state in ModelState)
+                    {
+                        foreach (var item in state.Value.Errors)
+                        {
+                            error += $" {item.ErrorMessage}";
+                        }
+                    }
+                    return BadRequest(error);
+                }
+               
+                if (idusuario !=0 )
+                {
+                    return BadRequest("Alguna de las variables requeridas viene vacia o null, intentelo de nuevo");
+                }
+                else
+                {
+                  
+                    return Ok(new LCarrito().Lmostrarpreciodomicilio(idusuario));
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("hay un problema interno: " + ex.StackTrace);
+            }
+            
         }
         /// <summary>
         /// permite comprar lo pedidos que estan en el carrito

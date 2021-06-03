@@ -24,11 +24,43 @@ namespace ApiApplication.Controllers{
         [Authorize]
         [HttpPut]
         [Route("api/Pedidosaliado/PutLDDL_Categoria")]
-        public void LDDL_Categoria([FromBody] JObject Vs_entrada){
-            UPedido pedido = new UPedido();
-            pedido.Id_pedido= int.Parse(Vs_entrada["Id_pedido"].ToString());
-            string idseleccion= Vs_entrada["idseleccion"].ToString();
-            new LPedidosaliado().LDDL_Categoria(pedido,idseleccion);
+        public IHttpActionResult LDDL_Categoria([FromBody] JObject Vs_entrada){
+          
+          
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    string error = "Datos incorrectos.";
+                    foreach (var state in ModelState)
+                    {
+                        foreach (var item in state.Value.Errors)
+                        {
+                            error += $" {item.ErrorMessage}";
+                        }
+                    }
+                    return BadRequest(error);
+                }
+                UPedido pedido = new UPedido();
+                pedido.Id_pedido = int.Parse(Vs_entrada["Id_pedido"].ToString());
+                string idseleccion = Vs_entrada["idseleccion"].ToString();
+
+                if (Vs_entrada == null)
+                {
+                    return BadRequest("Alguna de las variables requeridas viene vacia o null, intentelo de nuevo");
+                }
+                else
+                {
+                    new LPedidosaliado().LDDL_Categoria(pedido, idseleccion);
+                    return Ok();
+                  
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("hay un problema interno: " + ex.StackTrace);
+            }
+
         }
         //
         /// <summary>
@@ -39,12 +71,43 @@ namespace ApiApplication.Controllers{
         [Authorize]
         [HttpPut]
         [Route("api/Pedidosaliado/PutLGV_pedidos")]
-        public void LGV_pedidos([FromBody] JObject Vs_entrada){
-            UPedido pedido = new UPedido();
-            pedido.Id_pedido= int.Parse(Vs_entrada["Id_pedido"].ToString());
-            pedido.Comentario_aliado = Vs_entrada["Comentario_aliado"].ToString();
-            string CommandName=Vs_entrada["CommandName"].ToString();
-            new LPedidosaliado().LGV_pedidos(pedido, CommandName);
+        public IHttpActionResult LGV_pedidos([FromBody] JObject Vs_entrada){
+          
+           
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    string error = "Datos incorrectos.";
+                    foreach (var state in ModelState)
+                    {
+                        foreach (var item in state.Value.Errors)
+                        {
+                            error += $" {item.ErrorMessage}";
+                        }
+                    }
+                    return BadRequest(error);
+                }
+
+                UPedido pedido = new UPedido();
+                pedido.Id_pedido = int.Parse(Vs_entrada["Id_pedido"].ToString());
+                pedido.Comentario_aliado = Vs_entrada["Comentario_aliado"].ToString();
+                string CommandName = Vs_entrada["CommandName"].ToString();
+                if (Vs_entrada == null)
+                {
+                    return BadRequest("Alguna de las variables requeridas viene vacia o null, intentelo de nuevo");
+                }
+                else
+                {
+                    new LPedidosaliado().LGV_pedidos(pedido, CommandName);
+                    return Ok();
+                   
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("hay un problema interno: " + ex.StackTrace);
+            }
         }
         //
     }

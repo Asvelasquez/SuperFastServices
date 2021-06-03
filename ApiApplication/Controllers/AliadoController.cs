@@ -113,8 +113,39 @@ namespace ApiApplication.Controllers{
         [Authorize]
         [HttpPost]
         [Route("api/Aliado/PostLBTN_GuardarCambios")]
-        public string LBTN_GuardarCambios(UProducto producto){
-            return new LAliado().LBTN_GuardarCambios(producto);
+        public IHttpActionResult LBTN_GuardarCambios(UProducto producto){
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    string error = "Datos incorrectos.";
+                    foreach (var state in ModelState)
+                    {
+                        foreach (var item in state.Value.Errors)
+                        {
+                            error += $" {item.ErrorMessage}";
+                        }
+                    }
+                    return BadRequest(error);
+                }
+               
+               
+                if (producto==null)
+                {
+                    return BadRequest("Alguna de las variables requeridas viene vacia o null, intentelo de nuevo");
+                }
+                else
+                {
+                    
+                    return Ok(new LAliado().LBTN_GuardarCambios(producto));
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("hay un problema interno: " + ex.StackTrace);
+            }
+          
         }
         /// <summary>
         /// Permite activar un producto

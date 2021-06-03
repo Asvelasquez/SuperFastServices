@@ -22,7 +22,14 @@ namespace ApiApplication.Controllers{
         [Route("api/comunicacion/GetMostrarProductoInicio")]
         public List<UProducto> GetMostrarProductoInicio()
         {
-            return new LComunicacion().MostrarProductoInicio();
+            List<UProducto> producto = new List<UProducto>();
+            try
+            {
+                producto = new LComunicacion().MostrarProductoInicio();
+            }
+            catch { }
+
+            return producto;
         }
         /// <summary>
         /// Mostrar productos inicio por busqueda

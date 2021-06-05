@@ -6,10 +6,14 @@ using ApiApplication.Seguridad;
 
 namespace ApiApplication.Controllers{
     [RoutePrefix("api/admin")]
+
+    
     public class SeguridadController : ApiController
     {
-        //public object TokenGenerator { get; private set; }
-       // [Route("api/user/PostInsertarAcceso")]
+        /// <summary>
+        /// permite loguearse
+        /// </summary>
+        /// <param name="login"></param>
         [Route("login")]
         [HttpPost]
         public async Task<IHttpActionResult> loginAsync(LoginRequest login)
@@ -39,7 +43,10 @@ namespace ApiApplication.Controllers{
             }
         }
 
-
+        /// <summary>
+        /// permite obtener usuarios
+        /// </summary>
+        /// <param></param>
         [Route("Get-Users")]
         [HttpGet]
         [AllowAnonymous]

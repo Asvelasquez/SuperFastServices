@@ -515,28 +515,37 @@
             permite ver la lista de aliados aceptados
             </summary>
             <param name="Vs_entrada"></param>
+            
         </member>
         <member name="M:ApiApplication.Controllers.AdministradorController.LGV_domiciliariosaceptados(Newtonsoft.Json.Linq.JObject)">
             <summary>
             permite ver la lista de domiciliarios aceptados
             </summary>
             <param name="Vs_entrada"></param>
+            
         </member>
         <member name="T:ApiApplication.Controllers.AliadoController">
             <summary>
             Este metodo nos permite acceder a los servicios de Aliado
             </summary>
         </member>
-        <member name="M:ApiApplication.Controllers.AliadoController.LBTN_guardarproducto(Utilitarios.UProducto)">
-            <param name="producto2"></param>
-            <returns></returns>
+        <member name="M:ApiApplication.Controllers.AliadoController.Base64ToImage(System.String)">
+            <summary>
+            Guardar un producto
+            </summary>
+            <param name="Vs_entrada"></param>
+            <returns>
+            Nombre producto
+            </returns>
+            
         </member>
-        <member name="M:ApiApplication.Controllers.AliadoController.LGV_Producto(Newtonsoft.Json.Linq.JObject)">
+        <member name="M:ApiApplication.Controllers.AliadoController.PostCambiarOEditarProductos(Newtonsoft.Json.Linq.JObject)">
             <summary>
             Editar o activar un producto
             </summary>
             <param name="Vs_entrada"></param>
             <returns></returns>
+            
         </member>
         <member name="M:ApiApplication.Controllers.AliadoController.Lmostrar(System.Int32)">
             <summary>
@@ -544,12 +553,14 @@
             </summary>
             <param name="id3"></param>
             <returns></returns>
+            
         </member>
         <member name="M:ApiApplication.Controllers.AliadoController.LBTN_GuardarCambios(Utilitarios.UProducto)">
             <summary>
             Editar variables de un producto
             </summary>
             <param name="producto"></param>
+            
         </member>
         <member name="M:ApiApplication.Controllers.AliadoController.LGV_Productosdesactivado(Newtonsoft.Json.Linq.JObject)">
             <summary>
@@ -557,6 +568,7 @@
             </summary>
             <param name="Vs_entrada"></param>
             <returns></returns>
+            
         </member>
         <member name="T:ApiApplication.Controllers.CarritoController">
             <summary>
@@ -574,35 +586,40 @@
             permite Cancelar un pedido
             </summary>
             <param name="Vs_entrada"></param>
+            
         </member>
         <member name="M:ApiApplication.Controllers.CarritoController.Lmostrarpreciototal20(System.Int32)">
             <summary>
             permite ver el precio total del pedido
             </summary>
             <param name="idusuario"></param>
+            
         </member>
         <member name="M:ApiApplication.Controllers.CarritoController.Lmostrarpreciodomicilio(System.Int32)">
             <summary>
             permite ver el precio total del domicilios
             </summary>
             <param name="idusuario"></param>
+            
         </member>
-        <member name="M:ApiApplication.Controllers.CarritoController.LBTN_comprar(Newtonsoft.Json.Linq.JObject)">
+        <member name="M:ApiApplication.Controllers.CarritoController.ComprarProductosCarrito(Newtonsoft.Json.Linq.JObject)">
             <summary>
             permite comprar lo pedidos que estan en el carrito
             </summary>
             <param name="Vs_entrada"></param>
+            
         </member>
         <member name="T:ApiApplication.Controllers.CerrarSessionController">
             <summary>
             Este metodo nos permite acceder a los servicios de CerrarSession
             </summary>
         </member>
-        <member name="M:ApiApplication.Controllers.CerrarSessionController.Page_Load(Utilitarios.UUsuario)">
+        <member name="M:ApiApplication.Controllers.CerrarSessionController.Page_Load(System.Int32)">
             <summary>
             Carga la ventana de inicio
             </summary>
             <param name="usuario1"></param>
+            
         </member>
         <member name="T:ApiApplication.Controllers.DomiciliarioController">
             <summary>
@@ -614,23 +631,25 @@
             Este metodo nos permite cambiar el estado de los domicilios pendientes de aprobar
             </summary>
             <param name="Vs_entrada"></param>
+            
         </member>
         <member name="M:ApiApplication.Controllers.DomiciliarioController.DDL_Estado0(Newtonsoft.Json.Linq.JObject)">
             <summary>
             Este metodo nos permite cambiar el estado de los domicilios tomados "Mis pedidos"
             </summary>
             <param name="Vs_entrada"></param>
+            
         </member>
         <member name="T:ApiApplication.Controllers.GenerarTokenController">
             <summary>
             Este metodo nos permite acceder a los servicios de generar token
             </summary>
         </member>
-        <member name="M:ApiApplication.Controllers.GenerarTokenController.LB_Recuperar(System.String)">
+        <member name="M:ApiApplication.Controllers.GenerarTokenController.GenerarToken(System.String)">
             <summary>
             Este metodo nos permite Generar un token para recuperar la coontraseña
             </summary>
-            <param name="TB_Correo"></param>
+            <param name="correo"></param>
         </member>
         <member name="T:ApiApplication.Controllers.HomeController">
             <summary>
@@ -675,71 +694,84 @@
             <summary>
             Mostrar Solicitud Aliado
             </summary>
+            
         </member>
         <member name="M:ApiApplication.Controllers.ComunicacionController.MostrarSolicitudDomiciliario">
             <summary>
             Mostrar Solicitud Domiciliario
             </summary>
+            
         </member>
         <member name="M:ApiApplication.Controllers.ComunicacionController.MostrarSolicitudAliadoRechazado">
             <summary>
             Mostrar Solicitud Aliado Rechazado
             </summary>
+            
         </member>
         <member name="M:ApiApplication.Controllers.ComunicacionController.MostrarSolicitudDomiciliarioRechazado">
             <summary>
             Mostrar Solicitud Domiciliario Rechazado
             </summary>
+            
         </member>
         <member name="M:ApiApplication.Controllers.ComunicacionController.MostrarSolicitudAliadoAceptado">
             <summary>
             Mostrar Solicitud Aliado Aceptado
             </summary>
+            
         </member>
         <member name="M:ApiApplication.Controllers.ComunicacionController.MostrarSolicitudDomiciliarioAceptado">
             <summary>
             Mostrar Solicitud Domiciliario Aceptado
             </summary>
+            
         </member>
         <member name="M:ApiApplication.Controllers.ComunicacionController.PostMostrarProducto(Utilitarios.UUsuario)">
             <summary>
             Mostrar productos aliados
             </summary>
             <param name="consulta"></param>
+            
         </member>
         <member name="M:ApiApplication.Controllers.ComunicacionController.MostrarProductoDesactivado(Utilitarios.UUsuario)">
             <summary>
             Mostrar productos desactivado aliados
             </summary>
             <param name="consulta"></param>
+            
         </member>
         <member name="M:ApiApplication.Controllers.ComunicacionController.ObtenerPedidoUsuario(Utilitarios.UUsuario)">
             <summary>
             Obtener Pedido Usuario
             </summary>
             <param name="usuariopedido"></param>
+            
         </member>
         <member name="M:ApiApplication.Controllers.ComunicacionController.PostEstadoDomicilios">
             <summary>
             Estado domicilio
             </summary>
+            
         </member>
         <member name="M:ApiApplication.Controllers.ComunicacionController.PostObtenerPedidoDomiciliario">
             <summary>
             Obtener Pedido Domiciliario
             </summary>
+            
         </member>
-        <member name="M:ApiApplication.Controllers.ComunicacionController.ObtenerMiPedidoDomiciliario(Utilitarios.UUsuario)">
+        <member name="M:ApiApplication.Controllers.ComunicacionController.PostObtenerMiPedidoDomiciliario(Utilitarios.UUsuario)">
             <summary>
              Obtener Mi Pedido Domiciliario
             </summary>
             <param name="usuario"></param>
+            
         </member>
-        <member name="M:ApiApplication.Controllers.ComunicacionController.ObtenerMiPedidosEntregadosDomiciliario(Utilitarios.UUsuario)">
+        <member name="M:ApiApplication.Controllers.ComunicacionController.PostObtenerMiPedidosEntregadosDomiciliario(Utilitarios.UUsuario)">
             <summary>
              Obtener Mi Pedidos Entregados Domiciliario
             </summary>
             <param name="usuario"></param>
+            
         </member>
         <member name="M:ApiApplication.Controllers.ComunicacionController.GetEstadoPedidos">
             <summary>
@@ -763,17 +795,26 @@
             Obtener Compras Usuario
             </summary>
             <param name="usuariopedido"></param>
+            
         </member>
         <member name="M:ApiApplication.Controllers.ComunicacionController.ObtenerComprasUsuarioEntregado(Utilitarios.UUsuario)">
             <summary>
             Obtener Compras Usuario Entregado
             </summary>
             <param name="usuariopedido"></param>
+            
         </member>
         <member name="T:ApiApplication.Controllers.InicioController">
             <summary>
             Este metodo nos permite acceder a los servicios de Inicio
             </summary>
+        </member>
+        <member name="M:ApiApplication.Controllers.InicioController.AgregarPedidosCarrito(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Este metodo nos permite ver la lista de los productos
+            </summary>
+            <param name="Vs_entrada"></param>
+            
         </member>
         <member name="M:ApiApplication.Controllers.InicioController.DL_Productos1(System.Int32)">
             <summary>
@@ -792,6 +833,14 @@
             Este metodo nos permite saber cuantos pedidos tenemos en el carrito
             </summary>
             <param name="idusuario"></param>
+            
+        </member>
+        <member name="M:ApiApplication.Controllers.InicioController.AgregarPedidoCarrito(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Este servicio nos permite Agregar un pedido al carrito
+            </summary>
+            <param name="Vs_entrada"></param>
+            
         </member>
         <member name="T:ApiApplication.Controllers.PedidosaliadoController">
             <summary>
@@ -803,69 +852,65 @@
             Este metodo nos permite cambiar el estado de los Pedidos
             </summary>
             <param name="Vs_entrada"></param>
+            
         </member>
         <member name="M:ApiApplication.Controllers.PedidosaliadoController.LGV_pedidos(Newtonsoft.Json.Linq.JObject)">
             <summary>
             Este metodo nos permite Guerdar el comentario del aliado 
             </summary>
             <param name="Vs_entrada"></param>
+            
         </member>
         <member name="T:ApiApplication.Controllers.PedidosClienteController">
             <summary>
             Este metodo nos permite Guerdar el comentario del aliado 
             </summary>
         </member>
-        <member name="M:ApiApplication.Controllers.PedidosClienteController.LGV_pedidocarrito(System.String,System.String)">
+        <member name="M:ApiApplication.Controllers.PedidosClienteController.CancelarPedidoCliente(System.String,System.String)">
             <summary>
             Este metodo nos permite carcelar el pedido
             </summary>
             <param name="comandname"></param>
             /// <param name="Id_pedido"></param>
+            
         </member>
         <member name="M:ApiApplication.Controllers.PedidosClienteController.LGV_pedidocarrito0(Newtonsoft.Json.Linq.JObject)">
             <summary>
             Este metodo nos permite Al cliente hacer un comentario sobre el pedido
             </summary>
             <param name="Vs_entrada"></param>
-        </member>
-        <member name="M:ApiApplication.Controllers.PedidosClienteController.LBTN_Generarfactura">
-            <summary>
-            Este metodo nos permite Al cliente Generar una factura
-            </summary>
+            
         </member>
         <member name="T:ApiApplication.Controllers.PerfilController">
             <summary>
             Este metodo nos permite acceceder a los servicios del perfil
             </summary>
+            
         </member>
         <member name="M:ApiApplication.Controllers.PerfilController.mostrarperfil(System.Int32)">
             <summary>
             Este metodo permite a cualquier usuario ver su informacion personal
             </summary>
             <param name="id"></param>
+            
         </member>
         <member name="M:ApiApplication.Controllers.PerfilController.BTN_guardar(Utilitarios.UUsuario)">
             <summary>
             Este metodo Permite a cualquier usuario cambiar su informacion privada
             </summary>
             <param name="usuario"></param>
+            
         </member>
         <member name="T:ApiApplication.Controllers.RecuperarContraseniaController">
             <summary>
             Este metodo Permite acceceder a los servicios de recuperar contraseña
             </summary>
         </member>
-        <member name="M:ApiApplication.Controllers.RecuperarContraseniaController.LB_Cambiar1(Utilitarios.UUsuario)">
+        <member name="M:ApiApplication.Controllers.RecuperarContraseniaController.RecuperarContrasenia(Newtonsoft.Json.Linq.JObject)">
             <summary>
-            Este metodo Permite comparar las contraseñas
+            permite recuperar la contraseña
             </summary>
-            <param name="usuario"></param>
-        </member>
-        <member name="M:ApiApplication.Controllers.RecuperarContraseniaController.LB_Cambiar2(Utilitarios.UUsuario)">
-            <summary>
-            Este metodo Permite actualizar la contraseña
-            </summary>
-            <param name="usuario"></param>
+            <param name="Vs_entrada"></param>
         </member>
         <member name="T:ApiApplication.Controllers.Registar_aliadoController">
             <summary>
@@ -900,17 +945,23 @@
             Este metodo Permite acceceder a los servicios de registrar un domiciliario
             </summary>
         </member>
-        <member name="M:ApiApplication.Controllers.Registrar_DomiciliarioController.LBTND_registrar(System.String)">
-            <summary>
-            Este metodo Permite comparar el correo de registro con lo de la base de datos
-            </summary>
-            <param name="correo"></param>
-        </member>
-        <member name="M:ApiApplication.Controllers.Registrar_DomiciliarioController.Regitrar_domiciliario(Utilitarios.UUsuario)">
+        <member name="M:ApiApplication.Controllers.Registrar_DomiciliarioController.Regitrar_domiciliario(Newtonsoft.Json.Linq.JObject)">
             <summary>
             Este metodo Permite registrar un usuario tipo domiciliario
             </summary>
-            <param name="usuario"></param>
+            <param name="Vs_entrada"></param>
+        </member>
+        <member name="M:ApiApplication.Controllers.SeguridadController.loginAsync(Utilitarios.LoginRequest)">
+            <summary>
+            permite loguearse
+            </summary>
+            <param name="login"></param>
+        </member>
+        <member name="M:ApiApplication.Controllers.SeguridadController.GetUsers">
+            <summary>
+            permite obtener usuarios
+            </summary>
+            <param></param>
         </member>
         <member name="T:ApiApplication.Controllers.UserController">
             <summary>
@@ -946,13 +997,13 @@
             </summary>
             <param name="token_seguridad"></param>
         </member>
-        <member name="T:Tokenizado.Seguridad.TokenGenerator">
+        <member name="T:ApiApplication.Seguridad.TokenGenerator">
             <summary>
             JWT Token generator class using "secret-key"
             more info: https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html
             </summary>
         </member>
-        <member name="T:Tokenizado.Seguridad.TokenValidationHandler">
+        <member name="T:ApiApplication.Seguridad.TokenValidationHandler">
             <summary>
             Token validator for Authorization Request using a DelegatingHandler
             </summary>

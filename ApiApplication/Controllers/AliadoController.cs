@@ -8,6 +8,9 @@ using Utilitarios;
 using Logica;
 using Newtonsoft.Json.Linq;
 using System.Web.Http.Cors;
+using System.Drawing;
+using System.IO;
+using System.Web;
 
 namespace ApiApplication.Controllers{
     /// <summary>
@@ -16,58 +19,85 @@ namespace ApiApplication.Controllers{
     [EnableCors("*", "*", "*")]
     [Route("api/[controller]")]
     public class AliadoController : ApiController{
-        ///// <param name="producto2"></param>
-        ///// <returns></returns>
-        //[HttpPost]
-        //[Route("api/Aliado/PostLBTN_guardarproducto")]      
-        //public string LBTN_guardarproducto(UProducto producto2){
-        //    return new LAliado().LBTN_guardarproducto(producto2);   
-        //}
 
         /// <summary>
         /// Guardar un producto
         /// </summary>
         /// <param name="Vs_entrada"></param>
-        /// <returns></returns>
+        /// <returns>
+        /// Nombre producto
+        /// </returns>
         /// 
+        public static Image Base64ToImage(string base64String)
+        {
+            // Convert base 64 string to byte[]
+            byte[] imageBytes = Convert.FromBase64String(base64String);
+            // Convert byte[] to Image
+            using (var ms = new MemoryStream(imageBytes, 0, imageBytes.Length))
+            {
+                Image image = Image.FromStream(ms, true);
+                return image;
+            }
+        }
+        public bool SaveImage(string ImgStr, string ImgName)
+        {
+            String path = HttpContext.Current.Server.MapPath("~/ImageStorage"); //Path
+
+            //Check if directory exist
+            if (!System.IO.Directory.Exists(path))
+            {
+                System.IO.Directory.CreateDirectory(path); //Create directory if it doesn't exist
+            }
+
+            string imageName = ImgName + ".jpg";
+
+            //set the image path
+            string imgPath = Path.Combine(path, imageName);
+
+            byte[] imageBytes = Convert.FromBase64String(ImgStr);
+
+            File.WriteAllBytes(imgPath, imageBytes);
+
+            return true;
+        }
         [Authorize]
         [HttpPost]
         [Route("api/Aliado/PostLBTN_guardarproducto")]
-        public string guardarproducto([FromBody] JObject Vs_entrada){
+        public void guardarproducto([FromBody] JObject Vs_entrada){
 
-            try{
-                if (!ModelState.IsValid){
-                    string error = "Datos incorrectos.";
-                    foreach (var state in ModelState){
-                        foreach (var item in state.Value.Errors){
-                            error += $" {item.ErrorMessage}";
-                        }
-                    }
-                    return error;
-                }
+            //try{
+            //    if (!ModelState.IsValid){
+            //        string error = "Datos incorrectos.";
+            //        foreach (var state in ModelState){
+            //            foreach (var item in state.Value.Errors){
+            //                error += $" {item.ErrorMessage}";
+            //            }
+            //        }
+            //        return error;
+            //    }
 
-                JToken imagen = Vs_entrada["Imagen_producto"].ToString();
-                List<byte> listadebytes = new List<byte>();
-                foreach (JToken bite in imagen)
-                {
-                    listadebytes.Add(byte.Parse(bite.ToString()));
-                }
-                byte[] Foto_producto = listadebytes.ToArray();
-                string Nombre_producto = Vs_entrada["Nombre_Producto"].ToString() + DateTime.Now;
-                string direccion = "~\\Aliado\\imagenesproducto" + "\\" + Nombre_producto;
-                string extension = Vs_entrada["extension"].ToString();
-                UProducto producto = new UProducto();
-                producto.Nombre_producto = Vs_entrada["Nombre_Producto"].ToString();
-                producto.Descripcion_producto = Vs_entrada["Descripcion_producto"].ToString();
-                producto.Imagen_producto1 = direccion;
-                producto.Precio_producto = double.Parse(Vs_entrada["Precio_producto"].ToString());
-                producto.Estado_producto = 1;
-                producto.Id_aliado = int.Parse(Vs_entrada["Id"].ToString());
+            //    //JToken imagen = Vs_entrada["Imagen_producto"].ToString();
+            //    //List<byte> listadebytes = new List<byte>();
+            //    //foreach (JToken bite in imagen)
+            //    //{
+            //    //    listadebytes.Add(byte.Parse(bite.ToString()));
+            //    //}
+            //    //byte[] Foto_producto = listadebytes.ToArray();
+            //    //string Nombre_producto = Vs_entrada["Nombre_Producto"].ToString() + DateTime.Now;
+            //    //string direccion = "~\\Aliado\\imagenesproducto" + "\\" + Nombre_producto;
+            //    //string extension = Vs_entrada["extension"].ToString();
+            //    UProducto producto = new UProducto();
+            //    producto.Nombre_producto = Vs_entrada["Nombre_Producto"].ToString();
+            //    producto.Descripcion_producto = Vs_entrada["Descripcion_producto"].ToString();
+            //    producto.Imagen_producto1 = direccion;
+            //    producto.Precio_producto = double.Parse(Vs_entrada["Precio_producto"].ToString());
+            //    producto.Estado_producto = 1;
+            //    producto.Id_aliado = int.Parse(Vs_entrada["Id"].ToString());
 
-                return new LAliado().LBTN_guardarproducto(Foto_producto, producto, extension, direccion);
-            }catch (Exception ex){
-                return "hay un problema interno: " + ex.StackTrace;
-            }
+            //    return new LAliado().LBTN_guardarproducto(Foto_producto, producto, extension, direccion);
+            //}catch (Exception ex){
+            //    return "hay un problema interno: " + ex.StackTrace;
+            //}
         }               
         /// <summary>
         /// Editar o activar un producto

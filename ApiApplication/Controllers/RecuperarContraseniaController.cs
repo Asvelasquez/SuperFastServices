@@ -16,12 +16,10 @@ namespace ApiApplication.Controllers{
     [EnableCors("*", "*", "*")]
     [Route("api/[controller]")]
     public class RecuperarContraseniaController : ApiController{
-      
         /// <summary>
-        /// 
+        /// permite recuperar la contraseña
         /// </summary>
         /// <param name="Vs_entrada"></param>
-        /// <returns></returns>
         [HttpPost]
         [Route("api/RecuperarContrasenia/RepContra")]
         public string RecuperarContrasenia([FromBody]JObject Vs_entrada)

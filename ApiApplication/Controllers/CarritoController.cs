@@ -113,41 +113,41 @@ namespace ApiApplication.Controllers
         [Authorize]
         [HttpGet]
         [Route("api/Carrito/GetLmostrarpreciototal20")]
-        public IHttpActionResult Lmostrarpreciototal20(int idusuario)
+        public string Lmostrarpreciototal20(int idusuario)
         {
-            try
-            {
-                if (!ModelState.IsValid)
-                {
-                    string error = "Datos incorrectos.";
-                    foreach (var state in ModelState)
-                    {
-                        foreach (var item in state.Value.Errors)
-                        {
-                            error += $" {item.ErrorMessage}";
-                        }
-                    }
-                    return BadRequest(error);
-                }
-              
-                if (idusuario !=0)
-                {
-                    return BadRequest("Alguna de las variables requeridas viene vacia o null, intentelo de nuevo");
-                }
-                else
-                {
+            //  try
+            //{
+            //    if (!ModelState.IsValid)
+            //    {
+            //        string error = "Datos incorrectos.";
+            //        foreach (var state in ModelState)
+            //        {
+            //            foreach (var item in state.Value.Errors)
+            //            {
+            //                error += $" {item.ErrorMessage}";
+            //            }
+            //        }
+            //        return BadRequest(error);
+            //    }
 
-                    return Ok(new LCarrito().Lmostrarpreciototal20(idusuario));
-                }
+            //    if (idusuario ==0)
+            //    {
+            //        return BadRequest("Alguna de las variables requeridas viene vacia o null, intentelo de nuevo");
+            //    }
+            //    else
+            //    {
 
-            }
-            catch (Exception ex)
-            {
-                return BadRequest("hay un problema interno: " + ex.StackTrace);
-            }
+            //return Ok();
+            //    }
+
+            //}
+            //catch (Exception ex)
+            //{
+            //  return BadRequest("hay un problema interno: " + ex.StackTrace);
+            //}
 
 
-           
+            return new LCarrito().Lmostrarpreciototal20(idusuario);
         }
         /// <summary>
         /// permite ver el precio total del domicilios

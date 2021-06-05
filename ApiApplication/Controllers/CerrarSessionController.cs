@@ -22,6 +22,7 @@ namespace ApiApplication.Controllers
         /// </summary>
         /// <param name="usuario1"></param>
         /// 
+        [Authorize]
         [HttpPost]
         [Route("api/CerrarSession/PostPage_Load")]
         public IHttpActionResult Page_Load(int usuario1){
@@ -41,7 +42,7 @@ namespace ApiApplication.Controllers
                 }
 
 
-                if (usuario1 != 0)
+                if (usuario1 ==0)
                 {
                     return BadRequest("Alguna de las variables requeridas viene vacia o null, intentelo de nuevo");
                 }

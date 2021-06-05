@@ -195,7 +195,7 @@ namespace ApiApplication.Controllers{
         /// 
         [Authorize]
         [HttpPost]
-        [Route("api/comunicacion/ObtenerPedidoDomiciliario")]
+        [Route("api/comunicacion/PostObtenerPedidoDomiciliario")]
         public List<UPedido> PostObtenerPedidoDomiciliario()
         {
             return new LComunicacion().ObtenerPedidoDomiciliario();
@@ -208,7 +208,7 @@ namespace ApiApplication.Controllers{
         [Authorize]
         [HttpPost]
         [Route("api/comunicacion/PostObtenerMiPedidoDomiciliario")]
-        public List<UPedido> ObtenerMiPedidoDomiciliario(UUsuario usuario)
+        public List<UPedido> PostObtenerMiPedidoDomiciliario(UUsuario usuario)
         {
             return new LComunicacion().ObtenerMiPedidoDomiciliario(usuario);
         }
@@ -220,7 +220,7 @@ namespace ApiApplication.Controllers{
         [Authorize]
         [HttpPost]
         [Route("api/comunicacion/PostObtenerMiPedidosEntregadosDomiciliario")]
-        public List<UPedido> ObtenerMiPedidosEntregadosDomiciliario(UUsuario usuario)
+        public List<UPedido> PostObtenerMiPedidosEntregadosDomiciliario(UUsuario usuario)
         {
             return new LComunicacion().ObtenerMiPedidosEntregadosDomiciliario(usuario);
         }

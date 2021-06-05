@@ -27,8 +27,11 @@ namespace ApiApplication.Controllers
         public string AgregarPedidosCarrito([FromBody] JObject Vs_entrada)
         {
             string respuesta;
+            double valorunitario, resultado;
+            int cantidad5;
             try
             {
+
                 if (!ModelState.IsValid) {
                     string error = "Datos incorrectos.";
                     foreach (var state in ModelState) {
@@ -61,13 +64,14 @@ namespace ApiApplication.Controllers
                                 det_pedido.Cantidad = int.Parse(Vs_entrada["cantidad"].ToString());
                                 det_pedido.Producto_id = int.Parse(Vs_entrada["productoid"].ToString());
                                 det_pedido.Direccion_cliente = Vs_entrada["direccioncliente"].ToString();
-                                det_pedido.Telefono_cliente = Vs_entrada["telefonocliente"].ToString();
-                                double valorunitario, resultado;
-                                int cantidad5;
+                                det_pedido.Telefono_cliente = Vs_entrada["telefonocliente"].ToString();                              
                                 valorunitario = double.Parse(Vs_entrada["valorunitario"].ToString());
                                 cantidad5 = int.Parse(Vs_entrada["cantidad"].ToString());
                                 resultado = valorunitario * cantidad5;
                                 det_pedido.V_total = resultado;
+                                pedido3.Id_pedido = item.Id_pedido;
+                                pedido3.Valor_total = item.Valor_total+resultado;
+                                new LInicio().actualizarPrecioPedido(pedido3);
                                 new LInicio().DL_Productos2(det_pedido);
                                 contador++;
 
@@ -88,8 +92,11 @@ namespace ApiApplication.Controllers
                             pedido3.Domiciliario_id = 1;
                             pedido3.Estado_pedido = 0;// 0) posible compra 1)comprado 2)cancelado
                             pedido3.Estado_domicilio_id = 1;
+                            valorunitario = double.Parse(Vs_entrada["valorunitario"].ToString());
+                            cantidad5 = int.Parse(Vs_entrada["cantidad"].ToString());
+                            resultado = valorunitario * cantidad5;
+                            pedido3.Valor_total = resultado;
                             new LInicio().DL_Productos3(pedido3);
-
                             det_pedido.Pedido_id = pedido3.Id_pedido;
                             det_pedido.Descripcion = Vs_entrada["descripcion"].ToString();
                             det_pedido.V_unitario = double.Parse(Vs_entrada["valorunitario"].ToString());
@@ -97,8 +104,7 @@ namespace ApiApplication.Controllers
                             det_pedido.Producto_id = int.Parse(Vs_entrada["productoid"].ToString());
                             det_pedido.Direccion_cliente = Vs_entrada["direccioncliente"].ToString();
                             det_pedido.Telefono_cliente = Vs_entrada["telefonocliente"].ToString();
-                            double valorunitario, resultado;
-                            int cantidad5;
+                            
                             valorunitario = double.Parse(Vs_entrada["valorunitario"].ToString());
                             cantidad5 = int.Parse(Vs_entrada["cantidad"].ToString());
                             resultado = valorunitario * cantidad5;

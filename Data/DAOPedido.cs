@@ -240,7 +240,19 @@ namespace Data
         }
         /////////////////////////////////// 
 
+        public void actualizarPrecioPedido(UPedido pedido2)
+        {
+            using (var db = new Mapeo())
+            {
+                UPedido pedidoanterior = db.pedido1.Where(x => x.Id_pedido == pedido2.Id_pedido).First();
+                pedidoanterior.Valor_total = pedido2.Valor_total;
 
+                db.pedido1.Attach(pedidoanterior);
+                var entry = db.Entry(pedidoanterior);
+                entry.State = EntityState.Modified;
+                db.SaveChanges();
+            }
+        }//
 
         public void actualizarPedido(UPedido pedido2, int estadopedido2)
         {

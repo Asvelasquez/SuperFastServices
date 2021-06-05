@@ -816,30 +816,11 @@
             <param name="Vs_entrada"></param>
             
         </member>
-        <member name="M:ApiApplication.Controllers.InicioController.DL_Productos1(System.Int32)">
-            <summary>
-            Este metodo nos permite ver la lista de los productos
-            </summary>
-            <param name="idsesion"></param>
-        </member>
-        <member name="M:ApiApplication.Controllers.InicioController.DL_Productos2(Utilitarios.UDetalle_pedido)">
-            <summary>
-            Este metodo nos permite ver los productos por filtros, por tipos de comida, por tipos de aliados
-            </summary>
-            <param name="det_pedido"></param>
-        </member>
         <member name="M:ApiApplication.Controllers.InicioController.mostrarcantidadtotal(System.Int32)">
             <summary>
             Este metodo nos permite saber cuantos pedidos tenemos en el carrito
             </summary>
             <param name="idusuario"></param>
-            
-        </member>
-        <member name="M:ApiApplication.Controllers.InicioController.AgregarPedidoCarrito(Newtonsoft.Json.Linq.JObject)">
-            <summary>
-            Este servicio nos permite Agregar un pedido al carrito
-            </summary>
-            <param name="Vs_entrada"></param>
             
         </member>
         <member name="T:ApiApplication.Controllers.PedidosaliadoController">

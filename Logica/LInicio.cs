@@ -23,6 +23,13 @@ namespace Logica
             return datos;
         }
         //
+        public void actualizarPrecioPedido(UPedido pedido)
+        {
+            DAOPedido daopedido = new DAOPedido();
+            daopedido.actualizarPrecioPedido(pedido);
+            
+        }
+        //
         public List<UPedido> DL_Productos1(int idsesion){
             DAOPedido daoped = new DAOPedido();
             List<UPedido> ped20 = new List<UPedido>();

@@ -904,11 +904,11 @@
             </summary>
             <param name="correo"></param>
         </member>
-        <member name="M:ApiApplication.Controllers.Registar_aliadoController.LBTN_registrar1(Utilitarios.UUsuario)">
+        <member name="M:ApiApplication.Controllers.Registar_aliadoController.LBTN_registrar1(Newtonsoft.Json.Linq.JObject)">
             <summary>
             Este metodo Permite Registrar a un usuario tipo aliado
             </summary>
-            <param name="aliado1"></param>
+            <param name="Vs_entrada"></param>
         </member>
         <member name="T:ApiApplication.Controllers.RegistrarseController">
             <summary>

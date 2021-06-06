@@ -926,7 +926,7 @@
             Este metodo Permite acceceder a los servicios de registrar un domiciliario
             </summary>
         </member>
-        <member name="M:ApiApplication.Controllers.Registrar_DomiciliarioController.Regitrar_domiciliario(Newtonsoft.Json.Linq.JObject)">
+        <member name="M:ApiApplication.Controllers.Registrar_DomiciliarioController.Registrar_domiciliario(Newtonsoft.Json.Linq.JObject)">
             <summary>
             Este metodo Permite registrar un usuario tipo domiciliario
             </summary>

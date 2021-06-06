@@ -106,14 +106,10 @@ namespace ApiApplication.Controllers{
                 }
                 UProducto producto = new UProducto();
                 String imagen = Vs_entrada["Imagen_producto"].ToString();
-
-                byte[] Foto_producto = Convert.FromBase64String(imagen);
-                producto.Imagen_producto1 = Vs_entrada["Imagen_producto"].ToString();
-               
+                byte[] Foto_producto = Convert.FromBase64String(imagen);                              
                 string Nombre_producto = Vs_entrada["Nombre_Producto"].ToString() ;                
                 string extension = Vs_entrada["extension"].ToString();
-                string direccion = "~\\AliadoAppi\\imagenesproducto\\" + Nombre_producto+extension;
-               
+                string direccion = "~\\AliadoAppi\\imagenesproducto\\" + Nombre_producto+extension;               
                 producto.Nombre_producto = Vs_entrada["Nombre_Producto"].ToString();
                 producto.Descripcion_producto = Vs_entrada["Descripcion_producto"].ToString();
                 producto.Imagen_producto1 = direccion;

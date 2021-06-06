@@ -243,6 +243,7 @@
     <Compile Include="Seguridad\TokenValidationHandler.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AliadoAppi\imagenesproducto\159158660_3642739095821335_4037608963508212568_n.jpg" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -334,7 +335,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="AliadoAppi\imagenesproducto\" />
+    <Folder Include="AliadoAppi\logo\" />
+    <Folder Include="AliadoAppi\rutaliado\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>

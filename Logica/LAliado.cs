@@ -2,6 +2,7 @@
 using Utilitarios;
 using Data;
 using System.IO;
+using System.Web;
 
 namespace Logica{
 
@@ -21,21 +22,80 @@ namespace Logica{
             return datos;
         }
         //
+
+       
+//    public UPerfil subirFoto(byte[] foto, URegistro session, string direccion, string ext, string imagenEliminar)
+//        {​​​
+//                UPerfil datos = new UPerfil();
+//            if (foto != null)
+//            {​​​
+//                ext = ext.ToLower();//Extension de la imagen y minusculas
+
+//                //int tam = foto.PostedFile.ContentLength;//obtiene tamano archivo
+//                //string fotoperfil;
+//                if ((ext == ".jpg" || ext == ".png" || ext == ".jpeg"))//menor a 1MB en bytes (tam < 1048576)
+//                {​​​
+//                try
+//                    {​​​
+////                        imagen
+//                        string direc = HttpContext.Current.Server.MapPath(direccion);
+//                        FileStream fileStream = new FileStream(direc, FileMode.Create, FileAccess.ReadWrite);
+//                        fileStream.Write(foto, 0, foto.Length);//mapea y guarda el archivo en la direccion
+//                        fileStream.Close();
+//                        datos.Mensaje = "*Imagen aceptada";
+//                        //actualiza foto de perfil
+//                        URegistro nuevodat = new URegistro();
+//                        nuevodat.Id = session.Id;
+//                        nuevodat.Fotoperfil = direccion;
+//                        new DAOLogin().actualizarfoto(nuevodat);
+
+//                        if (File.Exists(imagenEliminar))
+//                        {​​​
+//                            File.Delete(imagenEliminar);
+//                        }​​​
+//                            session.Fotoperfil = nuevodat.Fotoperfil;
+//                        datos.Fotoperfil = nuevodat.Fotoperfil;
+//                        datos.Mensaje = "*Imagen cargada con exito";
+//                    }​​​
+//                        catch (Exception ex)
+//                    {​​​
+//                        datos.Mensaje = "*Verifique la imagen y cargue nuevamente";
+//                    }​​​
+//                }​​​
+//                else
+//                    {​​​
+//                        datos.Mensaje = "*Imagen no esta en formato correcto o es muy pesada";
+//                }​​​
+//            }​​​
+//            else
+//                            {​​​
+//            datos.Mensaje = "*Selecciona una imagen";
+//                      }​​​
+//                return datos;
+//                        }​​​
+
+
         //
         public string LBTN_guardarproducto(byte[] Foto_producto,UProducto producto,string extension, string direccion){
             
             if(Foto_producto!= null){
-                if (extension == ".jpg"|| extension == ".JPG"|| extension == ".jpeg"|| extension == ".JPEG"|| extension == ".png"|| extension == ".PNG"){
+                if (extension == "jpg"|| extension == "JPG"|| extension == "jpeg"|| extension == "JPEG"|| extension == "png"|| extension == "PNG"){
                     try{
-                        FileStream fileStream = new FileStream(direccion, FileMode.Create, FileAccess.ReadWrite);
-                        fileStream.Write(Foto_producto, 0, Foto_producto.Length);
-                        fileStream.Close();
-
+                        //FileStream fileStream = new FileStream(direccion, FileMode.Create, FileAccess.ReadWrite);
+                        //fileStream.Write(Foto_producto, 0, Foto_producto.Length);
+                        //fileStream.Close();
+                        string direc = HttpContext.Current.Server.MapPath(direccion);
+                        FileStream fileStream = new FileStream(direc, FileMode.Create, FileAccess.ReadWrite);
+                        fileStream.Write(Foto_producto, 0, Foto_producto.Length);//mapea y guarda el archivo en la direccion
+                        fileStream.Close();                       
+                        
+                       
                         new DAOProductos().insertProducto(producto);
                         datos.Url = "Aliado.aspx";
                     }
-                    catch{
-                        datos.Url = "No se pudo agregar producto";
+                    catch (Exception ex)
+                    {
+                        datos.Url = "No se pudo agregar producto    "+ex;
                     }
 
                 }else{

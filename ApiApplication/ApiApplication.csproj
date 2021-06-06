@@ -334,6 +334,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="AliadoAppi\imagenesproducto\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>

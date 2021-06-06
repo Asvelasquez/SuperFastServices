@@ -79,7 +79,9 @@ namespace Logica{
         public string LBTN_guardarproducto(byte[] Foto_producto,UProducto producto,string extension, string direccion){
             
             if(Foto_producto!= null){
-                if (extension == "jpg"|| extension == "JPG"|| extension == "jpeg"|| extension == "JPEG"|| extension == "png"|| extension == "PNG"){
+                extension = extension.ToLower();//Extension de la imagen y minusculas
+
+                if (extension == ".jpg"||  extension == ".jpeg"|| extension == ".png"){
                     try{
                         //FileStream fileStream = new FileStream(direccion, FileMode.Create, FileAccess.ReadWrite);
                         //fileStream.Write(Foto_producto, 0, Foto_producto.Length);

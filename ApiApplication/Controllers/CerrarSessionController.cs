@@ -18,7 +18,9 @@ namespace ApiApplication.Controllers
     public class CerrarSessionController : ApiController
     {
         /// <summary>
-        /// Carga la ventana de inicio
+        /// Cierra la sesion
+        /// datos de ingreso:
+        /// usuario1
         /// </summary>
         /// <param name="usuario1"></param>
         /// 

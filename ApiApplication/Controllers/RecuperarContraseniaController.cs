@@ -18,6 +18,9 @@ namespace ApiApplication.Controllers{
     public class RecuperarContraseniaController : ApiController{
         /// <summary>
         /// permite recuperar la contraseña
+        /// datos de ingreso
+        /// Token
+        /// NuevaContrasenia
         /// </summary>
         /// <param name="Vs_entrada"></param>
         [HttpPost]

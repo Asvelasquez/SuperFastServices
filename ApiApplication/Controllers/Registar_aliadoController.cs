@@ -33,6 +33,20 @@ namespace ApiApplication.Controllers{
         }
         /// <summary>
         /// Este metodo Permite Registrar a un usuario tipo aliado
+        /// datos de ingreso
+        /// imagen_logo
+        /// nombre
+        /// extension_logo
+        /// rut
+        /// nombre
+        /// extension_rut
+        /// nombre
+        /// documento
+        /// correo
+        /// contrasenia
+        /// telefono
+        /// direccion
+        /// actividad_comercial
         /// </summary>
         /// <param name="Vs_entrada"></param>
         [HttpPost]
@@ -52,13 +66,13 @@ namespace ApiApplication.Controllers{
                 else{
                     String imagenlogo = Vs_entrada["imagen_logo"].ToString();
                     byte[] Foto_logo = Convert.FromBase64String(imagenlogo);
-                    string Nombre_Logo = Vs_entrada["nombre"].ToString();
+                    string Nombre_Logo = Vs_entrada["nombre1"].ToString();
                     string extension_logo = Vs_entrada["extension_logo"].ToString();
                     string direccion_logo = "~\\AliadoAppi\\logo\\" + Nombre_Logo +"."+extension_logo;
 
                     String rutpdf = Vs_entrada["rut"].ToString();
                     byte[] rut = Convert.FromBase64String(rutpdf);
-                    string Nombre_rut = Vs_entrada["nombre"].ToString();
+                    string Nombre_rut = Vs_entrada["nombre2"].ToString();
                     string extension_rut = Vs_entrada["extension_rut"].ToString();
                     string direccion_rut = "~\\AliadoAppi\\rutaliado\\" + Nombre_rut+"."+ extension_rut;
                     UUsuario usuario = new UUsuario();

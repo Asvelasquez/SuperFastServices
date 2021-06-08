@@ -14,6 +14,8 @@ namespace ApiApplication.Controllers
 
         /// <summary>
         /// Este metodo nos permite Generar un token para recuperar la coontraseña
+        /// datos de ingreso
+        /// correo
         /// </summary>
         /// <param name="correo"></param>
         [HttpGet]

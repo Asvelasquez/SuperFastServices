@@ -15,6 +15,10 @@ namespace ApiApplication.Controllers{
     public class DomiciliarioController : ApiController{
         /// <summary>
         /// Este metodo nos permite cambiar el estado de los domicilios pendientes de aprobar
+        /// datos de ingreso:
+        /// Id_pedido
+        /// Domiciliario_id
+        /// Estado_domicilio_id
         /// </summary>
         /// <param name="Vs_entrada"></param>
         /// 
@@ -62,10 +66,14 @@ namespace ApiApplication.Controllers{
         //
         /// <summary>
         /// Este metodo nos permite cambiar el estado de los domicilios tomados "Mis pedidos"
+        /// datos de ingreso
+        /// Id_pedido
+        /// Domiciliario_id
+        /// Estado_domicilio_id
         /// </summary>
         /// <param name="Vs_entrada"></param>
         /// 
-        
+
         [Authorize]
         [HttpPut]
         [Route("api/Domiciliario/PutDDL_Estado0")]

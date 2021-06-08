@@ -489,30 +489,50 @@
         <member name="M:ApiApplication.Controllers.AdministradorController.LGV_domiciliariiosaprobar(Newtonsoft.Json.Linq.JObject)">
             <summary>
             permite aprobar la solicitud de registro de un domiciliario
+            datos de ingreso:
+            Id
+            correo
+            comandname=Aceptar o Rechazar
             </summary>
             <param name="Vs_entrada"></param>
         </member>
         <member name="M:ApiApplication.Controllers.AdministradorController.LGV_aliadoaprobar(Newtonsoft.Json.Linq.JObject)">
             <summary>
             permite aprobar la solicitud de registro de un aliado
+            datos de ingreso:
+            Id
+            correo
+            comandname=Aceptar o Rechazar
             </summary>
             <param name="Vs_entrada"></param>
         </member>
         <member name="M:ApiApplication.Controllers.AdministradorController.LGV_aliadorechazado(Newtonsoft.Json.Linq.JObject)">
             <summary>
             permite rechazar la solicitud de registro de un aliado
+            datos de ingreso:
+            Id
+            correo
+            comandname=Aceptar o Revision
             </summary>
             <param name="Vs_entrada"></param>
         </member>
         <member name="M:ApiApplication.Controllers.AdministradorController.LGV_domiciliariorechazado(Newtonsoft.Json.Linq.JObject)">
             <summary>
             permite rechazar la solicitud de registro de un aliado
+            datos de ingreso:
+            Id
+            correo
+            comandname=Aceptar o Revision
             </summary>
             <param name="Vs_entrada"></param>
         </member>
         <member name="M:ApiApplication.Controllers.AdministradorController.LGV_solicitudaliadosaceptados(Newtonsoft.Json.Linq.JObject)">
             <summary>
             permite ver la lista de aliados aceptados
+            datos de ingreso:
+            Id
+            correo
+            comandname=Rechazar
             </summary>
             <param name="Vs_entrada"></param>
             
@@ -520,6 +540,10 @@
         <member name="M:ApiApplication.Controllers.AdministradorController.LGV_domiciliariosaceptados(Newtonsoft.Json.Linq.JObject)">
             <summary>
             permite ver la lista de domiciliarios aceptados
+            datos de ingreso:
+            Id
+            correo
+            comandname=Rechazar
             </summary>
             <param name="Vs_entrada"></param>
             
@@ -539,9 +563,26 @@
             </returns>
             
         </member>
+        <member name="M:ApiApplication.Controllers.AliadoController.guardarproducto(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            guardar un producto
+            datos de ingreso:
+            Imagen_producto 
+            Nombre_Producto
+            extension
+            Descripcion_producto
+            Precio_producto
+            id
+            </summary>
+            <param name="Vs_entrada"></param>
+            <returns></returns>
+        </member>
         <member name="M:ApiApplication.Controllers.AliadoController.PostCambiarOEditarProductos(Newtonsoft.Json.Linq.JObject)">
             <summary>
             Editar o activar un producto
+            datos de ingreso:
+            Id
+            comandname=Editar
             </summary>
             <param name="Vs_entrada"></param>
             <returns></returns>
@@ -550,6 +591,8 @@
         <member name="M:ApiApplication.Controllers.AliadoController.Lmostrar(System.Int32)">
             <summary>
             Muestra un producto
+            datos de ingreso:
+            id
             </summary>
             <param name="id3"></param>
             <returns></returns>
@@ -558,17 +601,20 @@
         <member name="M:ApiApplication.Controllers.AliadoController.LBTN_GuardarCambios(Utilitarios.UProducto)">
             <summary>
             Editar variables de un producto
+            
             </summary>
             <param name="producto"></param>
             
         </member>
         <member name="M:ApiApplication.Controllers.AliadoController.LGV_Productosdesactivado(Newtonsoft.Json.Linq.JObject)">
-            <summary>
-            Permite activar un producto
-            </summary>
-            <param name="Vs_entrada"></param>
-            <returns></returns>
-            
+             <summary>
+             Permite activar un producto
+            Id
+            comandname=Activar
+             </summary>
+             <param name="Vs_entrada"></param>
+             <returns></returns>
+             
         </member>
         <member name="T:ApiApplication.Controllers.CarritoController">
             <summary>
@@ -584,6 +630,9 @@
         <member name="M:ApiApplication.Controllers.CarritoController.LGV_pedidocarrito(Newtonsoft.Json.Linq.JObject)">
             <summary>
             permite Cancelar un pedido
+            datos de ingreso:
+            Id_pedido
+            comandname=Cancelar
             </summary>
             <param name="Vs_entrada"></param>
             
@@ -591,6 +640,8 @@
         <member name="M:ApiApplication.Controllers.CarritoController.Lmostrarpreciototal20(System.Int32)">
             <summary>
             permite ver el precio total del pedido
+            datos de ingreso
+            idusuario
             </summary>
             <param name="idusuario"></param>
             
@@ -598,6 +649,8 @@
         <member name="M:ApiApplication.Controllers.CarritoController.Lmostrarpreciodomicilio(System.Int32)">
             <summary>
             permite ver el precio total del domicilios
+            datos de ingreso
+            idusuario
             </summary>
             <param name="idusuario"></param>
             
@@ -605,6 +658,14 @@
         <member name="M:ApiApplication.Controllers.CarritoController.ComprarProductosCarrito(Newtonsoft.Json.Linq.JObject)">
             <summary>
             permite comprar lo pedidos que estan en el carrito
+            datos de ingreso
+            idusuario
+            Detpedido_id
+            Telefono_cliente
+            Direccion_cliente
+            Id_pedido
+            Estado_pedido
+            Valor_total
             </summary>
             <param name="Vs_entrada"></param>
             
@@ -616,7 +677,9 @@
         </member>
         <member name="M:ApiApplication.Controllers.CerrarSessionController.Page_Load(System.Int32)">
             <summary>
-            Carga la ventana de inicio
+            Cierra la sesion
+            datos de ingreso:
+            usuario1
             </summary>
             <param name="usuario1"></param>
             
@@ -629,6 +692,10 @@
         <member name="M:ApiApplication.Controllers.DomiciliarioController.DDL_Estado(Newtonsoft.Json.Linq.JObject)">
             <summary>
             Este metodo nos permite cambiar el estado de los domicilios pendientes de aprobar
+            datos de ingreso:
+            Id_pedido
+            Domiciliario_id
+            Estado_domicilio_id
             </summary>
             <param name="Vs_entrada"></param>
             
@@ -636,6 +703,10 @@
         <member name="M:ApiApplication.Controllers.DomiciliarioController.DDL_Estado0(Newtonsoft.Json.Linq.JObject)">
             <summary>
             Este metodo nos permite cambiar el estado de los domicilios tomados "Mis pedidos"
+            datos de ingreso
+            Id_pedido
+            Domiciliario_id
+            Estado_domicilio_id
             </summary>
             <param name="Vs_entrada"></param>
             
@@ -648,6 +719,8 @@
         <member name="M:ApiApplication.Controllers.GenerarTokenController.GenerarToken(System.String)">
             <summary>
             Este metodo nos permite Generar un token para recuperar la coontraseña
+            datos de ingreso
+            correo
             </summary>
             <param name="correo"></param>
         </member>
@@ -812,6 +885,15 @@
         <member name="M:ApiApplication.Controllers.InicioController.AgregarPedidosCarrito(Newtonsoft.Json.Linq.JObject)">
             <summary>
             Este metodo nos permite ver la lista de los productos
+            datos de ingreso
+            idcliente
+            idaliado
+            descripcion
+            valorunitario
+            cantidad
+            productoid
+            direccioncliente
+            telefonocliente
             </summary>
             <param name="Vs_entrada"></param>
             
@@ -819,6 +901,8 @@
         <member name="M:ApiApplication.Controllers.InicioController.mostrarcantidadtotal(System.Int32)">
             <summary>
             Este metodo nos permite saber cuantos pedidos tenemos en el carrito
+            parametros de ingreso:
+            idusuario
             </summary>
             <param name="idusuario"></param>
             
@@ -831,6 +915,9 @@
         <member name="M:ApiApplication.Controllers.PedidosaliadoController.LDDL_Categoria(Newtonsoft.Json.Linq.JObject)">
             <summary>
             Este metodo nos permite cambiar el estado de los Pedidos
+            datos de ingreso:
+            Id_pedido
+            idseleccion
             </summary>
             <param name="Vs_entrada"></param>
             
@@ -838,6 +925,10 @@
         <member name="M:ApiApplication.Controllers.PedidosaliadoController.LGV_pedidos(Newtonsoft.Json.Linq.JObject)">
             <summary>
             Este metodo nos permite Guerdar el comentario del aliado 
+            datos de ingreso:
+            Id_pedido
+            Comentario_aliado
+            CommandName=Guardar
             </summary>
             <param name="Vs_entrada"></param>
             
@@ -848,16 +939,23 @@
             </summary>
         </member>
         <member name="M:ApiApplication.Controllers.PedidosClienteController.CancelarPedidoCliente(System.String,System.String)">
-            <summary>
-            Este metodo nos permite carcelar el pedido
-            </summary>
-            <param name="comandname"></param>
-            /// <param name="Id_pedido"></param>
-            
+             <summary>
+             Este metodo nos permite carcelar el pedido
+             datos de ingreso:
+             Id_pedido
+            comandname= Cancelar
+             </summary>
+             <param name="comandname"></param>
+             /// <param name="Id_pedido"></param>
+             
         </member>
         <member name="M:ApiApplication.Controllers.PedidosClienteController.LGV_pedidocarrito0(Newtonsoft.Json.Linq.JObject)">
             <summary>
             Este metodo nos permite Al cliente hacer un comentario sobre el pedido
+            datos de ingreso:
+            Id_pedido
+            Comentario_cliente
+            comandname=Guardar
             </summary>
             <param name="Vs_entrada"></param>
             
@@ -871,6 +969,8 @@
         <member name="M:ApiApplication.Controllers.PerfilController.mostrarperfil(System.Int32)">
             <summary>
             Este metodo permite a cualquier usuario ver su informacion personal
+            datos de ingreso:
+            id
             </summary>
             <param name="id"></param>
             
@@ -878,6 +978,7 @@
         <member name="M:ApiApplication.Controllers.PerfilController.BTN_guardar(Utilitarios.UUsuario)">
             <summary>
             Este metodo Permite a cualquier usuario cambiar su informacion privada
+            
             </summary>
             <param name="usuario"></param>
             
@@ -890,6 +991,9 @@
         <member name="M:ApiApplication.Controllers.RecuperarContraseniaController.RecuperarContrasenia(Newtonsoft.Json.Linq.JObject)">
             <summary>
             permite recuperar la contraseña
+            datos de ingreso
+            Token
+            NuevaContrasenia
             </summary>
             <param name="Vs_entrada"></param>
         </member>
@@ -907,6 +1011,20 @@
         <member name="M:ApiApplication.Controllers.Registar_aliadoController.LBTN_registrar1(Newtonsoft.Json.Linq.JObject)">
             <summary>
             Este metodo Permite Registrar a un usuario tipo aliado
+            datos de ingreso
+            imagen_logo
+            nombre
+            extension_logo
+            rut
+            nombre
+            extension_rut
+            nombre
+            documento
+            correo
+            contrasenia
+            telefono
+            direccion
+            actividad_comercial
             </summary>
             <param name="Vs_entrada"></param>
         </member>
@@ -918,6 +1036,14 @@
         <member name="M:ApiApplication.Controllers.RegistrarseController.Insertar_Usuario(Newtonsoft.Json.Linq.JObject)">
             <summary>
             Este metodo Permite registrar un usuario normal
+            datos de ingreso
+            correo
+            nombre
+            apellido
+            contrasenia
+            telefono
+            direccion
+            
             </summary>
             <param name="Vs_entrada"></param>
         </member>
@@ -929,8 +1055,25 @@
         <member name="M:ApiApplication.Controllers.Registrar_DomiciliarioController.Registrar_domiciliario(Newtonsoft.Json.Linq.JObject)">
             <summary>
             Este metodo Permite registrar un usuario tipo domiciliario
+            datos de ingreso:
+            archivo
+            nombre
+            extension
+            nombre
+            apellido
+            correo
+            contrasenia
+            documento
+            telefono
+            tipovehiculo
+            
             </summary>
             <param name="Vs_entrada"></param>
+        </member>
+        <member name="T:ApiApplication.Controllers.SeguridadController">
+            <summary>
+            
+            </summary>
         </member>
         <member name="M:ApiApplication.Controllers.SeguridadController.loginAsync(Utilitarios.LoginRequest)">
             <summary>
@@ -951,7 +1094,7 @@
         </member>
         <member name="M:ApiApplication.Controllers.UserController.InsertarAcceso(Utilitarios.UAcceso)">
             <summary>
-            Este metodo Permite a cualquier usuario cambiar su informacion privada
+            se ingresa todo el objeto completo UAcceso y permite modificar cualquier valor
             </summary>
             <param name="acceso"></param>
         </member>
@@ -969,12 +1112,12 @@
         </member>
         <member name="M:ApiApplication.Controllers.UserController.LLB_RecuperarContrasenia">
             <summary>
-            Este metodo Permite a cualquier usuario cambiar su informacion privada
+            Este metodo Permite enviar el token
             </summary>
         </member>
         <member name="M:ApiApplication.Controllers.UserController.guardarToken(Utilitarios.UToken_Seguridad)">
             <summary>
-            Este metodo Permite a cualquier usuario cambiar su informacion privada
+            Este metodo Permite a guardar token
             </summary>
             <param name="token_seguridad"></param>
         </member>

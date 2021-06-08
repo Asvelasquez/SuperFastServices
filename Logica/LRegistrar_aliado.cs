@@ -44,7 +44,7 @@ namespace Logica
                             FileStream fileStreamrut = new FileStream(direcrut, FileMode.Create, FileAccess.ReadWrite);
                             fileStreamrut.Write(rut, 0, rut.Length);//mapea y guarda el archivo en la direccion
                             fileStreamrut.Close();
-                        //    new DAOUsuario().insertUsuario(usuario);
+                          new DAOUsuario().insertUsuario(usuario);
                             datos.Url = "Registro exitoso";
                         }catch (Exception ex){
                             datos.Url = "No se pudo agregar producto    " + ex;

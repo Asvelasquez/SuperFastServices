@@ -27,9 +27,9 @@ namespace ApiApplication.Controllers{
         //}
 
         //OK
-        //se ingresa todo el objeto completo UAcceso y permite modificar cualquier valor
+        //
         /// <summary>
-        /// Este metodo Permite a cualquier usuario cambiar su informacion privada
+        /// se ingresa todo el objeto completo UAcceso y permite modificar cualquier valor
         /// </summary>
         /// <param name="acceso"></param>
         [HttpPost]
@@ -83,7 +83,7 @@ namespace ApiApplication.Controllers{
             return new LUser().Llogin1(usuario);
         }
         /// <summary>
-        /// Este metodo Permite a cualquier usuario cambiar su informacion privada
+        /// Este metodo Permite enviar el token
         /// </summary>
         [HttpGet]
         [Route("api/user/GetLLB_RecuperarContrasenia")]
@@ -92,7 +92,7 @@ namespace ApiApplication.Controllers{
             return new LUser().LLB_RecuperarContrasenia();
         }
         /// <summary>
-        /// Este metodo Permite a cualquier usuario cambiar su informacion privada
+        /// Este metodo Permite a guardar token
         /// </summary>
         /// <param name="token_seguridad"></param>
         //revisar
@@ -112,11 +112,5 @@ namespace ApiApplication.Controllers{
              
         }
 
-        //[HttpPost]
-        //[Route("api/user/Llogin1")]
-        //public string LLB_RecuperarContrasenia()
-        //{
-        //    return "GenerarToken.aspx";
-        //}
     }
 }

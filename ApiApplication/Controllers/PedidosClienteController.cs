@@ -18,6 +18,9 @@ namespace ApiApplication.Controllers{
     public class PedidosClienteController : ApiController {
         /// <summary>
         /// Este metodo nos permite carcelar el pedido
+        /// datos de ingreso:
+        /// Id_pedido
+        ///comandname= Cancelar
         /// </summary>
         /// <param name="comandname"></param>
         /// /// <param name="Id_pedido"></param>
@@ -51,6 +54,10 @@ namespace ApiApplication.Controllers{
         //
         /// <summary>
         /// Este metodo nos permite Al cliente hacer un comentario sobre el pedido
+        /// datos de ingreso:
+        /// Id_pedido
+        /// Comentario_cliente
+        /// comandname=Guardar
         /// </summary>
         /// <param name="Vs_entrada"></param>
         /// 

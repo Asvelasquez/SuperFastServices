@@ -18,6 +18,15 @@ namespace ApiApplication.Controllers
 
         /// <summary>
         /// Este metodo nos permite ver la lista de los productos
+        /// datos de ingreso
+        /// idcliente
+        /// idaliado
+        /// descripcion
+        /// valorunitario
+        /// cantidad
+        /// productoid
+        /// direccioncliente
+        /// telefonocliente
         /// </summary>
         /// <param name="Vs_entrada"></param>
         /// 
@@ -130,6 +139,8 @@ namespace ApiApplication.Controllers
         //
         /// <summary>
         /// Este metodo nos permite saber cuantos pedidos tenemos en el carrito
+        /// parametros de ingreso:
+        /// idusuario
         /// </summary>
         /// <param name="idusuario"></param>
         /// 
@@ -153,7 +164,7 @@ namespace ApiApplication.Controllers
                 }
 
 
-                if (idusuario != 0)
+                if (idusuario == 0)
                 {
                     return BadRequest("Alguna de las variables requeridas viene vacia o null, intentelo de nuevo");
                 }

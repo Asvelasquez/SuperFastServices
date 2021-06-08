@@ -18,6 +18,9 @@ namespace ApiApplication.Controllers{
     public class PedidosaliadoController : ApiController{
         /// <summary>
         /// Este metodo nos permite cambiar el estado de los Pedidos
+        /// datos de ingreso:
+        /// Id_pedido
+        /// idseleccion
         /// </summary>
         /// <param name="Vs_entrada"></param>
         /// 
@@ -65,6 +68,10 @@ namespace ApiApplication.Controllers{
         //
         /// <summary>
         /// Este metodo nos permite Guerdar el comentario del aliado 
+        /// datos de ingreso:
+        /// Id_pedido
+        /// Comentario_aliado
+        /// CommandName=Guardar
         /// </summary>
         /// <param name="Vs_entrada"></param>
         /// 

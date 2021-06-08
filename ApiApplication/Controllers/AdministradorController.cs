@@ -20,6 +20,10 @@ namespace ApiApplication.Controllers
     {
         /// <summary>
         /// permite aprobar la solicitud de registro de un domiciliario
+        /// datos de ingreso:
+        /// Id
+        /// correo
+        /// comandname=Aceptar o Rechazar
         /// </summary>
         /// <param name="Vs_entrada"></param>
         [Authorize]
@@ -59,6 +63,10 @@ namespace ApiApplication.Controllers
         //
         /// <summary>
         /// permite aprobar la solicitud de registro de un aliado
+        /// datos de ingreso:
+        /// Id
+        /// correo
+        /// comandname=Aceptar o Rechazar
         /// </summary>
         /// <param name="Vs_entrada"></param>
         [Authorize]
@@ -95,6 +103,10 @@ namespace ApiApplication.Controllers
         //
         /// <summary>
         /// permite rechazar la solicitud de registro de un aliado
+        /// datos de ingreso:
+        /// Id
+        /// correo
+        /// comandname=Aceptar o Revision
         /// </summary>
         /// <param name="Vs_entrada"></param>
         [Authorize]
@@ -131,6 +143,10 @@ namespace ApiApplication.Controllers
         //
         /// <summary>
         /// permite rechazar la solicitud de registro de un aliado
+        /// datos de ingreso:
+        /// Id
+        /// correo
+        /// comandname=Aceptar o Revision
         /// </summary>
         /// <param name="Vs_entrada"></param>
         [Authorize]
@@ -167,6 +183,10 @@ namespace ApiApplication.Controllers
         //
         /// <summary>
         /// permite ver la lista de aliados aceptados
+        /// datos de ingreso:
+        /// Id
+        /// correo
+        /// comandname=Rechazar
         /// </summary>
         /// <param name="Vs_entrada"></param>
         /// 
@@ -202,6 +222,10 @@ namespace ApiApplication.Controllers
         //
         /// <summary>
         /// permite ver la lista de domiciliarios aceptados
+        /// datos de ingreso:
+        /// Id
+        /// correo
+        /// comandname=Rechazar
         /// </summary>
         /// <param name="Vs_entrada"></param>
         /// 

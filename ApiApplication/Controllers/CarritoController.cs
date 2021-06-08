@@ -60,6 +60,9 @@ namespace ApiApplication.Controllers
         }
         /// <summary>
         /// permite Cancelar un pedido
+        /// datos de ingreso:
+        /// Id_pedido
+        /// comandname=Cancelar
         /// </summary>
         /// <param name="Vs_entrada"></param>
         /// 
@@ -107,6 +110,8 @@ namespace ApiApplication.Controllers
 
         /// <summary>
         /// permite ver el precio total del pedido
+        /// datos de ingreso
+        /// idusuario
         /// </summary>
         /// <param name="idusuario"></param>
         /// 
@@ -151,6 +156,8 @@ namespace ApiApplication.Controllers
         }
         /// <summary>
         /// permite ver el precio total del domicilios
+        /// datos de ingreso
+        /// idusuario
         /// </summary>
         /// <param name="idusuario"></param>
         /// 
@@ -174,7 +181,7 @@ namespace ApiApplication.Controllers
                     return BadRequest(error);
                 }
                
-                if (idusuario !=0 )
+                if (idusuario !=0 )//REvosp
                 {
                     return BadRequest("Alguna de las variables requeridas viene vacia o null, intentelo de nuevo");
                 }
@@ -193,6 +200,14 @@ namespace ApiApplication.Controllers
         }
         /// <summary>
         /// permite comprar lo pedidos que estan en el carrito
+        /// datos de ingreso
+        /// idusuario
+        /// Detpedido_id
+        /// Telefono_cliente
+        /// Direccion_cliente
+        /// Id_pedido
+        /// Estado_pedido
+        /// Valor_total
         /// </summary>
         /// <param name="Vs_entrada"></param>
         /// 

@@ -16,6 +16,8 @@ namespace ApiApplication.Controllers
     public class PerfilController : ApiController{
         /// <summary>
         /// Este metodo permite a cualquier usuario ver su informacion personal
+        /// datos de ingreso:
+        /// id
         /// </summary>
         /// <param name="id"></param>
         /// 
@@ -34,6 +36,7 @@ namespace ApiApplication.Controllers
         //
         /// <summary>
         /// Este metodo Permite a cualquier usuario cambiar su informacion privada
+        /// 
         /// </summary>
         /// <param name="usuario"></param>
         /// 

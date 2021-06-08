@@ -19,6 +19,14 @@ namespace ApiApplication.Controllers{
         //
         /// <summary>
         /// Este metodo Permite registrar un usuario normal
+        /// datos de ingreso
+        /// correo
+        /// nombre
+        /// apellido
+        /// contrasenia
+        /// telefono
+        /// direccion
+        /// 
         /// </summary>
         /// <param name="Vs_entrada"></param>
         [HttpPost]

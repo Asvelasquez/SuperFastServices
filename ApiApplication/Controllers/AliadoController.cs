@@ -62,29 +62,18 @@ namespace ApiApplication.Controllers{
         }
 
 
-        //
-        //[HttpPost]
-        //[Route("api/perfil/postSubirFoto")]
-        //public UPerfil postSubirFoto([FromBody] JObject foto)
-        //{
-        //    UPerfil perfil = new UPerfil();
-        //    URegistro usuario = new URegistro();
-        //    String imagenPerfil = foto["imagen"].ToString();
-
-        //    byte[] fotoPerfil = Convert.FromBase64String(imagenPerfil);
-
-        //    usuario.Usuario = foto["usuario"].ToString();
-        //    perfil = new LPerfil().cargardatos(usuario);
-        //    usuario.Id = perfil.Datos.Id;
-        //    string nombreArchivo = usuario.Usuario + "Perfil2";
-        //    string ext = foto["extension"].ToString();
-        //    string direccion = "~\\Views\\imgusuarios\\" + nombreArchivo + ext;
-        //    string imagenEliminar = perfil.Datos.Fotoperfil;
-        //    imagenEliminar = HttpContext.Current.Server.MapPath(imagenEliminar);
-
-        //    return new LPerfil().subirFoto(fotoPerfil, usuario, direccion, ext, imagenEliminar);
-        //}
-        //
+        /// <summary>
+        /// guardar un producto
+        /// datos de ingreso:
+        /// Imagen_producto 
+        /// Nombre_Producto
+        /// extension
+        /// Descripcion_producto
+        /// Precio_producto
+        /// id
+        /// </summary>
+        /// <param name="Vs_entrada"></param>
+        /// <returns></returns>
         [Authorize]
         [HttpPost]
         [Route("api/Aliado/PostLBTN_guardarproducto")]
@@ -123,9 +112,12 @@ namespace ApiApplication.Controllers{
             {
                 return "hay un problema interno: " + ex.StackTrace;
             }
-        }               
+        }
         /// <summary>
         /// Editar o activar un producto
+        /// datos de ingreso:
+        /// Id
+        /// comandname=Editar
         /// </summary>
         /// <param name="Vs_entrada"></param>
         /// <returns></returns>
@@ -149,6 +141,8 @@ namespace ApiApplication.Controllers{
 
          /// <summary>
          /// Muestra un producto
+         /// datos de ingreso:
+         /// id
          /// </summary>
          /// <param name="id3"></param>
          /// <returns></returns>
@@ -162,6 +156,7 @@ namespace ApiApplication.Controllers{
         //
         /// <summary>
         /// Editar variables de un producto
+        /// 
         /// </summary>
         /// <param name="producto"></param>
         /// 
@@ -204,6 +199,8 @@ namespace ApiApplication.Controllers{
         }
         /// <summary>
         /// Permite activar un producto
+        ///Id
+        ///comandname=Activar
         /// </summary>
         /// <param name="Vs_entrada"></param>
         /// <returns></returns>

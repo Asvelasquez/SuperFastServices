@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 using ApiApplication.Seguridad;
 
 namespace ApiApplication.Controllers{
+     /// <summary>
+     /// 
+     /// </summary>
     [RoutePrefix("api/admin")]
-
-    
     public class SeguridadController : ApiController
     {
         /// <summary>

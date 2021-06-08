@@ -19,6 +19,18 @@ namespace ApiApplication.Controllers{
         //
         /// <summary>
         /// Este metodo Permite registrar un usuario tipo domiciliario
+        /// datos de ingreso:
+        /// archivo
+        /// nombre
+        /// extension
+        /// nombre
+        /// apellido
+        /// correo
+        /// contrasenia
+        /// documento
+        /// telefono
+        /// tipovehiculo
+        /// 
         /// </summary>
         /// <param name="Vs_entrada"></param>
         [HttpPost]

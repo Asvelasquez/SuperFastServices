@@ -59,5 +59,29 @@ namespace ApiApplication.Controllers{
             }
         }
         //
+        /// <summary>
+        /// Este metodo Permite Verificar si un correo existe
+        /// datos de ingreso
+        /// correo
+        /// 
+        /// </summary>
+        /// <param name="correo"></param>
+        [HttpGet]
+        [Route("api/Registrar/GetVerificar_correo")]
+        public string Verificar_correo(string correo){
+            
+            try{
+                
+                UUsuario validarUsuario = new LRegistrarse().LBT_Registrar(correo);
+                if (validarUsuario != null){
+                    return "correo registrado,ingrese uno diferente";
+                } else{
+                    return "correo NO registrado,ingrese uno diferente";
+                }
+            }catch (Exception ex){
+                return "hay un problema interno: " + ex.StackTrace;
+            }
+        }
+        //
     }
 }
